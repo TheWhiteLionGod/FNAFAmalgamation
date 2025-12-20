@@ -1,3 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
+[ext_resource type="PackedScene" uid="uid://c0a6lyhri7oit" path="res://animatronics/freddyfazbear.tscn" id="1_y1yyq"]
+
 [node name="Main" type="Node3D"]
+
+[node name="FreddyFazbear" parent="." instance=ExtResource("1_y1yyq")]
