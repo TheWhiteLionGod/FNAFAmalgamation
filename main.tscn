@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://cb722yk0jqg4e" path="res://animatronics/chica.tscn" id="1_3gkq2"]
+[ext_resource type="PackedScene" uid="uid://nlpmi0fu5gnu" path="res://animatronics/foxy.tscn" id="1_v7ql3"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Chica" parent="." instance=ExtResource("1_3gkq2")]
+[node name="Foxy" parent="." instance=ExtResource("1_v7ql3")]
