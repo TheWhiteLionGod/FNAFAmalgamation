@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fnaf mangle
+* source:	https://sketchfab.com/3d-models/fnaf-mangle-16da6bca2815407aa87b0f68c8cb0d7f
+* author:	Torment (https://sketchfab.com/brandonmartinleon)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fnaf mangle" (https://sketchfab.com/3d-models/fnaf-mangle-16da6bca2815407aa87b0f68c8cb0d7f) by Torment (https://sketchfab.com/brandonmartinleon) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
