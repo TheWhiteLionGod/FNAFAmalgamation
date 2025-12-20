@@ -1,0 +1,11 @@
+Model Information:
+* title:	Toy Chica Ar
+* source:	https://sketchfab.com/3d-models/toy-chica-ar-5d751299fefa4945b6efc287f9ff74d3
+* author:	Yellow bonnie spring (https://sketchfab.com/1937gjsh837)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Toy Chica Ar" (https://sketchfab.com/3d-models/toy-chica-ar-5d751299fefa4945b6efc287f9ff74d3) by Yellow bonnie spring (https://sketchfab.com/1937gjsh837) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
