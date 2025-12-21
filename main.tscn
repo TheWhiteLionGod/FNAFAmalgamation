@@ -1,7 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://b706oifsce75i" path="res://animatronics/models/balloonboy.tscn" id="1_slnhi"]
+[ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="1_hnk8f"]
 
 [node name="Main" type="Node3D"]
 
-[node name="BalloonBoy" parent="." instance=ExtResource("1_slnhi")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
+
+[node name="Puppet" parent="." instance=ExtResource("1_hnk8f")]
