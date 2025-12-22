@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://2420miak7fen" path="res://animatronics/models/nightmare_bonnie.tscn" id="1_0vhc6"]
+[ext_resource type="PackedScene" uid="uid://bnduh7t6lbfi3" path="res://animatronics/models/nightmare_chica.tscn" id="2_wsep4"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
 
-[node name="NightmareBonnie" parent="." instance=ExtResource("1_0vhc6")]
+[node name="NightmareChica" parent="." instance=ExtResource("2_wsep4")]

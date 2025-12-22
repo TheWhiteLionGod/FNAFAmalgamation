@@ -1,0 +1,11 @@
+Model Information:
+* title:	jack o chica
+* source:	https://sketchfab.com/3d-models/jack-o-chica-baddac87cb2b42c39dd24097172d86f2
+* author:	Common_otter86 (https://sketchfab.com/Common_otter86)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "jack o chica" (https://sketchfab.com/3d-models/jack-o-chica-baddac87cb2b42c39dd24097172d86f2) by Common_otter86 (https://sketchfab.com/Common_otter86) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
