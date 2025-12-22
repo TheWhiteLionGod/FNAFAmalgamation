@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://xfvy6df1la6d" path="res://animatronics/models/witheredchica.tscn" id="1_7glxd"]
+[ext_resource type="PackedScene" uid="uid://bqyy614rqd0wc" path="res://animatronics/models/witheredbonnie.tscn" id="1_x5tl7"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
 
-[node name="WitheredChica" parent="." instance=ExtResource("1_7glxd")]
+[node name="WitheredBonnie" parent="." instance=ExtResource("1_x5tl7")]

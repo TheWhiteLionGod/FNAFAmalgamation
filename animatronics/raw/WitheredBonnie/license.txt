@@ -1,0 +1,11 @@
+Model Information:
+* title:	Withered Bonnie (FNaF HW)
+* source:	https://sketchfab.com/3d-models/withered-bonnie-fnaf-hw-101bcce5c1124f42a3effdcefee9bfc9
+* author:	Captian Allen (https://sketchfab.com/Allen_Animations)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Withered Bonnie (FNaF HW)" (https://sketchfab.com/3d-models/withered-bonnie-fnaf-hw-101bcce5c1124f42a3effdcefee9bfc9) by Captian Allen (https://sketchfab.com/Allen_Animations) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
