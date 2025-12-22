@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://74pdqk7t8dg4" path="res://animatronics/models/circus_baby.tscn" id="1_kqjnr"]
+[ext_resource type="PackedScene" uid="uid://bjcwarqvdi5x6" path="res://animatronics/models/ballora.tscn" id="1_hq10i"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
 
-[node name="CircusBaby" parent="." instance=ExtResource("1_kqjnr")]
+[node name="Ballora" parent="." instance=ExtResource("1_hq10i")]
