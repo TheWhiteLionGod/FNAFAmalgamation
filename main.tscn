@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="1_hnk8f"]
+[ext_resource type="PackedScene" uid="uid://bw14o8d7ldbce" path="res://animatronics/models/witheredfreddy.tscn" id="1_bja72"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
 
-[node name="Puppet" parent="." instance=ExtResource("1_hnk8f")]
+[node name="WitheredFreddy" parent="." instance=ExtResource("1_bja72")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0, 0)
