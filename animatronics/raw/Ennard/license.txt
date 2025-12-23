@@ -1,0 +1,11 @@
+Model Information:
+* title:	FNAF Help Wanted | Ennard
+* source:	https://sketchfab.com/3d-models/fnaf-help-wanted-ennard-b5c62e6bbdc64f74aaf2ec442586979a
+* author:	Xoffly (https://sketchfab.com/Xoffly)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "FNAF Help Wanted | Ennard" (https://sketchfab.com/3d-models/fnaf-help-wanted-ennard-b5c62e6bbdc64f74aaf2ec442586979a) by Xoffly (https://sketchfab.com/Xoffly) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
