@@ -14,3 +14,19 @@ config/name="Fnaf Amalgamation"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[importer_defaults]
+
+3d_texture={
+"compress/mode": 0
+}
+texture={
+"detect_3d/compress_to": 0
+}
+2d_array_texture={
+"compress/mode": 0
+}
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=false
