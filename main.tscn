@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://dhllsw36i22sc" path="res://animatronics/models/scraptrap.tscn" id="1_5h0k6"]
+[ext_resource type="PackedScene" uid="uid://dsicxpda5sxrw" path="res://animatronics/models/molten_freddy.tscn" id="1_18vab"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
 
-[node name="Scraptrap" parent="." instance=ExtResource("1_5h0k6")]
+[node name="MoltenFreddy" parent="." instance=ExtResource("1_18vab")]
