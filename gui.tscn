@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://b0jleoc11s5o1"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -469.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Cams" type="VBoxContainer" parent="MarginContainer"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Cams"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Cams/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Cams/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Electrocute" type="VBoxContainer" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer/Electrocute"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Button8" type="Button" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer/Electrocute"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer/Electrocute"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "9"
+
+[node name="Show Stage" type="VBoxContainer" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Button6" type="Button" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer/Show Stage"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="MarginContainer/Cams/HBoxContainer/HBoxContainer/Show Stage"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "7"
+
+[node name="Parts And Service" type="HBoxContainer" parent="MarginContainer/Cams/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Cams" type="HBoxContainer" parent="MarginContainer/Cams/HBoxContainer/Parts And Service"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="AB" type="VBoxContainer" parent="MarginContainer/Cams/HBoxContainer/Parts And Service/Cams"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Button5A" type="Button" parent="MarginContainer/Cams/HBoxContainer/Parts And Service/Cams/AB"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "5A"
+
+[node name="Button5B" type="Button" parent="MarginContainer/Cams/HBoxContainer/Parts And Service/Cams/AB"]
+layout_mode = 2
+text = "5B"
+
+[node name="C" type="VBoxContainer" parent="MarginContainer/Cams/HBoxContainer/Parts And Service/Cams"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button5C" type="Button" parent="MarginContainer/Cams/HBoxContainer/Parts And Service/Cams/C"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "5C"
+
+[node name="Office Cams" type="VBoxContainer" parent="MarginContainer/Cams"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 25
+
+[node name="Vent Cams" type="HBoxContainer" parent="MarginContainer/Cams/Office Cams"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Button3" type="Button" parent="MarginContainer/Cams/Office Cams/Vent Cams"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="MarginContainer/Cams/Office Cams/Vent Cams"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "4"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Cams/Office Cams/Vent Cams"]
+layout_mode = 2
+theme_override_constants/margin_right = 25
+
+[node name="Door Cams" type="HBoxContainer" parent="MarginContainer/Cams/Office Cams"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Button" type="Button" parent="MarginContainer/Cams/Office Cams/Door Cams"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="MarginContainer/Cams/Office Cams/Door Cams"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+text = "2"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Cams"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
