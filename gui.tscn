@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0jleoc11s5o1"]
+[gd_scene load_steps=5 format=3 uid="uid://b0jleoc11s5o1"]
 
 [ext_resource type="Script" path="res://gui.gd" id="1_h60wv"]
 [ext_resource type="Script" path="res://timer.gd" id="2_1ksco"]
+[ext_resource type="Script" path="res://camera.gd" id="2_s6ac4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b4nho"]
 font_size = 25
@@ -24,6 +25,7 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 50
+script = ExtResource("2_s6ac4")
 
 [node name="Cams" type="VBoxContainer" parent="Cams"]
 layout_direction = 3
@@ -175,3 +177,15 @@ layout_mode = 2
 text = "0:00.0"
 label_settings = SubResource("LabelSettings_b4nho")
 horizontal_alignment = 2
+
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute/Button8" to="Cams" method="_on_button_8_pressed"]
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute/Button9" to="Cams" method="_on_button_9_pressed"]
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Show Stage/Button6" to="Cams" method="_on_button_6_pressed"]
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Show Stage/Button7" to="Cams" method="_on_button_7_pressed"]
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/Parts And Service/Cams/AB/Button5A" to="Cams" method="_on_button_5a_pressed"]
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/Parts And Service/Cams/AB/Button5B" to="Cams" method="_on_button_5b_pressed"]
+[connection signal="pressed" from="Cams/Cams/HBoxContainer/Parts And Service/Cams/C/Button5C" to="Cams" method="_on_button_5c_pressed"]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button3" to="Cams" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button4" to="Cams" method="_on_button_4_pressed"]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button" to="Cams" method="_on_button_pressed"]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button2" to="Cams" method="_on_button_2_pressed"]
