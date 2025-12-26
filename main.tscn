@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwvyvjs31mlfj"]
 
-[ext_resource type="PackedScene" uid="uid://c0x2a6e8g43ri" path="res://animatronics/models/lefty.tscn" id="1_fb4yk"]
+[ext_resource type="Script" path="res://events.gd" id="2_p2c7h"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://gui.tscn" id="2_ycwba"]
 
 [node name="Main" type="Node3D"]
 
-[node name="GUI" parent="." instance=ExtResource("2_ycwba")]
+[node name="GUI" parent="." node_paths=PackedStringArray("Events") instance=ExtResource("2_ycwba")]
+Events = NodePath("../Events")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177205, 1.18848, 3.9344)
 
-[node name="Lefty" parent="." instance=ExtResource("1_fb4yk")]
+[node name="Events" type="Node3D" parent="."]
+script = ExtResource("2_p2c7h")
