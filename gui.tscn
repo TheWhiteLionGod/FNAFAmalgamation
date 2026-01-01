@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0jleoc11s5o1"]
+[gd_scene load_steps=4 format=3 uid="uid://b0jleoc11s5o1"]
 
-[ext_resource type="Script" path="res://gui.gd" id="1_h60wv"]
 [ext_resource type="Script" path="res://timer.gd" id="2_1ksco"]
 [ext_resource type="Script" path="res://camera.gd" id="2_s6ac4"]
 
@@ -9,7 +8,6 @@ font_size = 25
 outline_color = Color(0, 0, 0, 1)
 
 [node name="GUI" type="CanvasLayer"]
-script = ExtResource("1_h60wv")
 
 [node name="Cams" type="MarginContainer" parent="."]
 anchors_preset = 3
@@ -32,84 +30,84 @@ layout_direction = 3
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Cams/Cams"]
+[node name="Top Cams" type="HBoxContainer" parent="Cams/Cams"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="Cams/Cams/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Cams/Cams/Top Cams"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Cams/Cams/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Cams/Cams/Top Cams"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Electrocute" type="VBoxContainer" parent="Cams/Cams/HBoxContainer/HBoxContainer"]
+[node name="Electrocute" type="VBoxContainer" parent="Cams/Cams/Top Cams/HBoxContainer"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute"]
+[node name="MarginContainer" type="MarginContainer" parent="Cams/Cams/Top Cams/HBoxContainer/Electrocute"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="Button8" type="Button" parent="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute"]
+[node name="Button8" type="Button" parent="Cams/Cams/Top Cams/HBoxContainer/Electrocute"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "8"
 
-[node name="Button9" type="Button" parent="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute"]
+[node name="Button9" type="Button" parent="Cams/Cams/Top Cams/HBoxContainer/Electrocute"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "9"
 
-[node name="Show Stage" type="VBoxContainer" parent="Cams/Cams/HBoxContainer/HBoxContainer"]
+[node name="Show Stage" type="VBoxContainer" parent="Cams/Cams/Top Cams/HBoxContainer"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 
-[node name="Button6" type="Button" parent="Cams/Cams/HBoxContainer/HBoxContainer/Show Stage"]
+[node name="Button6" type="Button" parent="Cams/Cams/Top Cams/HBoxContainer/Show Stage"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "6"
 
-[node name="Button7" type="Button" parent="Cams/Cams/HBoxContainer/HBoxContainer/Show Stage"]
+[node name="Button7" type="Button" parent="Cams/Cams/Top Cams/HBoxContainer/Show Stage"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "7"
 
-[node name="Parts And Service" type="HBoxContainer" parent="Cams/Cams/HBoxContainer"]
+[node name="Parts And Service" type="HBoxContainer" parent="Cams/Cams/Top Cams"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 50
 
-[node name="Cams" type="HBoxContainer" parent="Cams/Cams/HBoxContainer/Parts And Service"]
+[node name="Cams" type="HBoxContainer" parent="Cams/Cams/Top Cams/Parts And Service"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="AB" type="VBoxContainer" parent="Cams/Cams/HBoxContainer/Parts And Service/Cams"]
+[node name="AB" type="VBoxContainer" parent="Cams/Cams/Top Cams/Parts And Service/Cams"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Button5A" type="Button" parent="Cams/Cams/HBoxContainer/Parts And Service/Cams/AB"]
+[node name="Button5A" type="Button" parent="Cams/Cams/Top Cams/Parts And Service/Cams/AB"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "5A"
 
-[node name="Button5B" type="Button" parent="Cams/Cams/HBoxContainer/Parts And Service/Cams/AB"]
+[node name="Button5B" type="Button" parent="Cams/Cams/Top Cams/Parts And Service/Cams/AB"]
 layout_mode = 2
 text = "5B"
 
-[node name="C" type="VBoxContainer" parent="Cams/Cams/HBoxContainer/Parts And Service/Cams"]
+[node name="C" type="VBoxContainer" parent="Cams/Cams/Top Cams/Parts And Service/Cams"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Button5C" type="Button" parent="Cams/Cams/HBoxContainer/Parts And Service/Cams/C"]
+[node name="Button5C" type="Button" parent="Cams/Cams/Top Cams/Parts And Service/Cams/C"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "5C"
@@ -145,7 +143,7 @@ layout_direction = 2
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Button" type="Button" parent="Cams/Cams/Office Cams/Door Cams"]
+[node name="Button1" type="Button" parent="Cams/Cams/Office Cams/Door Cams"]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "1"
@@ -178,14 +176,14 @@ text = "0:00.0"
 label_settings = SubResource("LabelSettings_b4nho")
 horizontal_alignment = 2
 
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute/Button8" to="Cams" method="_on_button_8_pressed"]
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Electrocute/Button9" to="Cams" method="_on_button_9_pressed"]
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Show Stage/Button6" to="Cams" method="_on_button_6_pressed"]
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/HBoxContainer/Show Stage/Button7" to="Cams" method="_on_button_7_pressed"]
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/Parts And Service/Cams/AB/Button5A" to="Cams" method="_on_button_5a_pressed"]
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/Parts And Service/Cams/AB/Button5B" to="Cams" method="_on_button_5b_pressed"]
-[connection signal="pressed" from="Cams/Cams/HBoxContainer/Parts And Service/Cams/C/Button5C" to="Cams" method="_on_button_5c_pressed"]
-[connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button3" to="Cams" method="_on_button_3_pressed"]
-[connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button4" to="Cams" method="_on_button_4_pressed"]
-[connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button" to="Cams" method="_on_button_pressed"]
-[connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button2" to="Cams" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Electrocute/Button8" to="Cams" method="changeCamera" binds= ["CAM8"]]
+[connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Electrocute/Button9" to="Cams" method="changeCamera" binds= ["CAM9"]]
+[connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Show Stage/Button6" to="Cams" method="changeCamera" binds= ["CAM6"]]
+[connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Show Stage/Button7" to="Cams" method="changeCamera" binds= ["CAM7"]]
+[connection signal="pressed" from="Cams/Cams/Top Cams/Parts And Service/Cams/AB/Button5A" to="Cams" method="changeCamera" binds= ["CAM5A"]]
+[connection signal="pressed" from="Cams/Cams/Top Cams/Parts And Service/Cams/AB/Button5B" to="Cams" method="changeCamera" binds= ["CAM5B"]]
+[connection signal="pressed" from="Cams/Cams/Top Cams/Parts And Service/Cams/C/Button5C" to="Cams" method="changeCamera" binds= ["CAM5C"]]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button3" to="Cams" method="changeCamera" binds= ["CAM3"]]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button4" to="Cams" method="changeCamera" binds= ["CAM4"]]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button1" to="Cams" method="changeCamera" binds= ["CAM1"]]
+[connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button2" to="Cams" method="changeCamera" binds= ["CAM2"]]
