@@ -1,3 +1,6 @@
+"""
+This Script will Handle the Music Box Mechanic
+"""
 extends StaticBody3D
 
 @export var main: Node3D

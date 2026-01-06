@@ -1,5 +1,7 @@
+"""
+This Node will Handle the Puppet Animatronic
+"""
 extends Animatronic
-
 
 
 # Called when the node enters the scene tree for the first time.

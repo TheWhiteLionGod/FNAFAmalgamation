@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4lcdx02b451j"]
 
-[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_3p0dc"]
-[ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://gui.tscn" id="2_qcwyb"]
-[ext_resource type="Script" path="res://camera.gd" id="3_hneue"]
-[ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="4_0kpwx"]
+[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_i7sys"]
+[ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="2_g0ghx"]
+[ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,7 +19,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_ad4go"]
-script = ExtResource("4_0kpwx")
+script = ExtResource("2_g0ghx")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
 totalUnits = 2000
@@ -29,10 +29,8 @@ totalUnits = 2000
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8or6")
 
-[node name="GUI" parent="." instance=ExtResource("2_qcwyb")]
-
 [node name="Cameras" type="Node3D" parent="."]
-script = ExtResource("3_hneue")
+script = ExtResource("1_i7sys")
 
 [node name="CAM1" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
@@ -47,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 4.43496)
 [node name="CAM4" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 1.36608, 2.78452)
 
-[node name="MusicBox" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_3p0dc")]
+[node name="MusicBox" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_hemyu")]
 main = NodePath("..")
 config = SubResource("Resource_ad4go")
 
@@ -55,3 +53,5 @@ config = SubResource("Resource_ad4go")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
 spot_range = 2.97929
 spot_angle = 84.43
+
+[node name="GUI" parent="." instance=ExtResource("3_o5db8")]

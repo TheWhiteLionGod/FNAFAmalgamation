@@ -1,7 +1,10 @@
+"""
+Raycaster Class which will Handle Raycasts within the Game
+"""
 extends Node3D
 class_name Raycaster
 
-## Send Raycast from Current Camera to Mouse Position
+# Send Raycast from Current Camera to Mouse Position
 static func raycastToMousePos(main: Node3D) -> Dictionary:
 	var camera: Camera3D = main.get_node("Cameras").get_node(GameState.Camera.find_key(GameState.activeCamera))
 
