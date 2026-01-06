@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://t8to2to1er74"
-path="res://.godot/imported/Background.png-33750b08485ec307899ece0d18708e9a.ctex"
+path="res://.godot/imported/Background.png-29b73d32dbcd8148ce242507b285e214.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/MusicBox/Background.png"
-dest_files=["res://.godot/imported/Background.png-33750b08485ec307899ece0d18708e9a.ctex"]
+source_file="res://animatronics/raw/MusicBox/Textures/MusicBox/Background.png"
+dest_files=["res://.godot/imported/Background.png-29b73d32dbcd8148ce242507b285e214.ctex"]
 
 [params]
 

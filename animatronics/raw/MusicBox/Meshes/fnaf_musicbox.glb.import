@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cb0l2cylliiam"
-path="res://.godot/imported/fnaf_musicbox.glb-16e9ba488ecd09607c69bf7ad01b4c1f.scn"
+path="res://.godot/imported/fnaf_musicbox.glb-f9ed27b3d0ae90f8606813f2a95644d3.scn"
 
 [deps]
 
-source_file="res://Meshes/fnaf_musicbox.glb"
-dest_files=["res://.godot/imported/fnaf_musicbox.glb-16e9ba488ecd09607c69bf7ad01b4c1f.scn"]
+source_file="res://animatronics/raw/MusicBox/Meshes/fnaf_musicbox.glb"
+dest_files=["res://.godot/imported/fnaf_musicbox.glb-f9ed27b3d0ae90f8606813f2a95644d3.scn"]
 
 [params]
 

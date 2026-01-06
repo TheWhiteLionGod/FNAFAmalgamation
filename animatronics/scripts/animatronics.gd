@@ -12,7 +12,7 @@ var currentStage: Stage = Stage.ZERO
 
 # Making Animatronics Class Abstract
 func _init() -> void:
-	assert(get_script() != preload("res://animatronics.gd"), 
+	assert(get_script() != preload("res://animatronics/scripts/animatronics.gd"), 
 	"Animatronic Class is abstract and cannot be instantiated.")
 
 # Making handleStage Method Abstract
