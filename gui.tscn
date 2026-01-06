@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cov22b58xgy50"]
+[gd_scene load_steps=4 format=3 uid="uid://b0jleoc11s5o1"]
 
+[ext_resource type="Script" path="res://cam_btn.gd" id="1_n87ey"]
 [ext_resource type="Script" path="res://timer.gd" id="2_1ksco"]
-[ext_resource type="Script" path="res://camera.gd" id="2_s6ac4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b4nho"]
 font_size = 25
@@ -23,7 +23,7 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 50
-script = ExtResource("2_s6ac4")
+script = ExtResource("1_n87ey")
 
 [node name="Cams" type="VBoxContainer" parent="Cams"]
 layout_direction = 3

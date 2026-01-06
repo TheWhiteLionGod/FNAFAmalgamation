@@ -1,10 +1,14 @@
 """
-Modifies Active Camera in Game State When User Clicks Button
+This Node Will Handle and Change Cameras on Signal
 """
-extends MarginContainer
+extends Node3D
 
-func changeCamera(cameraName: String) -> void:
-	var newCamera: GameState.Camera = GameState.Camera[cameraName]
+@onready var cameras: Array[Node] = get_children()
 
-	GameState.activeCamera = newCamera
-	GameState.switchCamera.emit()
+func _ready() -> void:
+	GameState.switchCamera.connect(changeCamera)
+
+func changeCamera() -> void:
+	for cam in cameras:
+		if cam.name == GameState.Camera.keys()[GameState.activeCamera]:
+			cam.current = true

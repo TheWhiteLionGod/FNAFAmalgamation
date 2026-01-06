@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4lcdx02b451j"]
 
-[ext_resource type="PackedScene" path="res://animatronics/models/music_box.tscn" id="1_3p0dc"]
-[ext_resource type="Script" path="res://main.gd" id="1_a6wia"]
-[ext_resource type="PackedScene" uid="uid://cov22b58xgy50" path="res://gui.tscn" id="2_qcwyb"]
+[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_3p0dc"]
+[ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://gui.tscn" id="2_qcwyb"]
+[ext_resource type="Script" path="res://camera.gd" id="3_hneue"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="4_0kpwx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
@@ -25,17 +25,18 @@ windDownUnitsPerSecond = 80
 totalUnits = 2000
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_a6wia")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8or6")
 
 [node name="GUI" parent="." instance=ExtResource("2_qcwyb")]
 
-[node name="Cameras" type="Node" parent="."]
+[node name="Cameras" type="Node3D" parent="."]
+script = ExtResource("3_hneue")
 
 [node name="CAM1" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
+current = true
 
 [node name="CAM2" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8335, 0, 2.78452)
