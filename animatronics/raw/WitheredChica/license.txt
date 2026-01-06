@@ -1,0 +1,11 @@
+Model Information:
+* title:	Withered Chica FNaF VR HW
+* source:	https://sketchfab.com/3d-models/withered-chica-fnaf-vr-hw-604ca942f8aa4d439ed19aed1c3ae816
+* author:	Captain Allen (https://sketchfab.com/Allen_Animations)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Withered Chica FNaF VR HW" (https://sketchfab.com/3d-models/withered-chica-fnaf-vr-hw-604ca942f8aa4d439ed19aed1c3ae816) by Captain Allen (https://sketchfab.com/Allen_Animations) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

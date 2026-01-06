@@ -1,0 +1,11 @@
+Model Information:
+* title:	Nightmare Foxy
+* source:	https://sketchfab.com/3d-models/nightmare-foxy-237d44c7df0944db9f51e7fbd02d5819
+* author:	ArachnoBoy (https://sketchfab.com/vang807)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Nightmare Foxy" (https://sketchfab.com/3d-models/nightmare-foxy-237d44c7df0944db9f51e7fbd02d5819) by ArachnoBoy (https://sketchfab.com/vang807) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

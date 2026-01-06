@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chica | FNAF AR
+* source:	https://sketchfab.com/3d-models/chica-fnaf-ar-9851445e2fbc4571baaebe6e48f1dce3
+* author:	MrSpringMen (https://sketchfab.com/MrSpringMen)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chica | FNAF AR" (https://sketchfab.com/3d-models/chica-fnaf-ar-9851445e2fbc4571baaebe6e48f1dce3) by MrSpringMen (https://sketchfab.com/MrSpringMen) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
