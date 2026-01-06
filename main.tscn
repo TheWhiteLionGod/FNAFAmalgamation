@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=5 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_3p0dc"]
-[ext_resource type="PackedScene" path="res://properties.tscn" id="1_uwl6u"]
 [ext_resource type="PackedScene" path="res://raycaster.tscn" id="2_yp6sg"]
+[ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="4_0kpwx"]
+
+[sub_resource type="Resource" id="Resource_jic7x"]
+script = ExtResource("4_0kpwx")
+windUpUnitsPerSecond = 500
+windDownUnitsPerSecond = 80
+totalUnits = 2000
 
 [node name="Main" type="Node3D"]
 
@@ -10,10 +16,9 @@
 
 [node name="Raycaster" parent="Modules" instance=ExtResource("2_yp6sg")]
 
-[node name="Properties" parent="Modules" instance=ExtResource("1_uwl6u")]
-
 [node name="MusicBox" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_3p0dc")]
 main = NodePath("..")
+config = SubResource("Resource_jic7x")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
