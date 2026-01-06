@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsqx7y52wbn5o"]
+
+[ext_resource type="Script" path="res://properties.gd" id="1_443wl"]
+
+[node name="Properties" type="Node"]
+script = ExtResource("1_443wl")

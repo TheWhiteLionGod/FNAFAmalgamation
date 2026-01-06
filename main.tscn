@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4lcdx02b451j"]
+
+[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://music_box.tscn" id="1_3p0dc"]
+[ext_resource type="PackedScene" uid="uid://dsqx7y52wbn5o" path="res://properties.tscn" id="1_uwl6u"]
+[ext_resource type="PackedScene" uid="uid://urt7yae75x44" path="res://raycaster.tscn" id="2_yp6sg"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Modules" type="Node" parent="."]
+
+[node name="Raycaster" parent="Modules" instance=ExtResource("2_yp6sg")]
+
+[node name="Properties" parent="Modules" instance=ExtResource("1_uwl6u")]
+
+[node name="MusicBox" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_3p0dc")]
+main = NodePath("..")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
+spot_range = 2.97929
+spot_angle = 84.43
