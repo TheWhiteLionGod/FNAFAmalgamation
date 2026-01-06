@@ -10,7 +10,7 @@ enum Camera {
 var globalTimer: float = 0.0
 var activeCamera: Camera = Camera.CAM1
 
-signal switchCamera(newCamera: Camera)
+signal switchCamera()
 
 func _ready() -> void:
 	globalTimer = 0

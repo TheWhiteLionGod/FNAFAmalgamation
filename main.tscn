@@ -1,27 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=9 format=3 uid="uid://b4lcdx02b451j"]
 
-[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_3p0dc"]
-[ext_resource type="PackedScene" path="res://raycaster.tscn" id="2_yp6sg"]
+[ext_resource type="PackedScene" path="res://animatronics/models/music_box.tscn" id="1_3p0dc"]
+[ext_resource type="Script" path="res://main.gd" id="1_a6wia"]
+[ext_resource type="PackedScene" uid="uid://cov22b58xgy50" path="res://gui.tscn" id="2_qcwyb"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="4_0kpwx"]
 
-[sub_resource type="Resource" id="Resource_jic7x"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rl326"]
+sky_material = SubResource("ProceduralSkyMaterial_h4w2e")
+
+[sub_resource type="Environment" id="Environment_e8or6"]
+background_mode = 2
+sky = SubResource("Sky_rl326")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_ad4go"]
 script = ExtResource("4_0kpwx")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
 totalUnits = 2000
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_a6wia")
 
-[node name="Modules" type="Node" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e8or6")
 
-[node name="Raycaster" parent="Modules" instance=ExtResource("2_yp6sg")]
+[node name="GUI" parent="." instance=ExtResource("2_qcwyb")]
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="CAM1" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
+
+[node name="CAM2" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8335, 0, 2.78452)
+
+[node name="CAM3" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 4.43496)
+
+[node name="CAM4" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 1.36608, 2.78452)
 
 [node name="MusicBox" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_3p0dc")]
 main = NodePath("..")
-config = SubResource("Resource_jic7x")
-
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
+config = SubResource("Resource_ad4go")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
