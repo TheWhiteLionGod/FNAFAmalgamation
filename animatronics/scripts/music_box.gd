@@ -5,7 +5,6 @@ extends StaticBody3D
 @export var config: MusicBoxConfig
 
 @onready var camera: Camera3D = main.get_node("Camera")
-
 @onready var modules: Node = main.get_node("Modules")
 @onready var Raycaster: Node3D = modules.get_node("Raycaster")
 
@@ -13,43 +12,43 @@ extends StaticBody3D
 @onready var winder: Node3D = model.get_node("Winder")
 
 @onready var currentUnits: float = config.totalUnits
-var isWindingUp: bool = false
 
 func _ready() -> void:
+	currentUnits = config.totalUnits
+	
 	textureProgressBar.min_value = 0
 	textureProgressBar.max_value = config.totalUnits
+	
 	textureProgressBar.step = config.totalUnits / 10.0
 	textureProgressBar.value = currentUnits
 
 func _process(delta: float) -> void:
-	# Check if the left mouse button is pressed continuously
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		var result: Dictionary = Raycaster.raycastToMousePos(camera)
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		windDown(delta)
+		return
 
-		if result:
-			if result.collider.name == "MusicBox":
-				windUp()
-		else:
-			windDown()
-	else:
-		windDown()
+	var result: Dictionary = Raycaster.raycastToMousePos(camera)
+	if result == {} or result.collider != self:
+		windDown(delta)
+		return
+
+	# Winds only if left clicking on music box
+	windUp(delta)
 	
-	# Wind down
-	if not isWindingUp:
-		currentUnits -= config.windDownUnitsPerSecond * delta
-		currentUnits = clamp(currentUnits, 0, config.totalUnits)
-
-		winder.rotation_degrees.x -= 1
-	else:
-		currentUnits += config.windUpUnitsPerSecond * delta
-		currentUnits = clamp(currentUnits, 0, config.totalUnits)
-
-		winder.rotation_degrees.x += 1
+func windUp(delta: float) -> void:
+	# Updating Music Box Unit
+	currentUnits += config.windUpUnitsPerSecond * delta
+	currentUnits = clamp(currentUnits, 0, config.totalUnits)
 	
+	# Updating UI and Winder
+	winder.rotation_degrees.x += 1
 	textureProgressBar.value = currentUnits
 
-func windUp() -> void:
-	isWindingUp = true
-
-func windDown() -> void:
-	isWindingUp = false
+func windDown(delta: float) -> void:
+	# Updating Music Box Unit
+	currentUnits -= config.windDownUnitsPerSecond * delta
+	currentUnits = clamp(currentUnits, 0, config.totalUnits)
+	
+	# Updating UI and Winder
+	winder.rotation_degrees.x -= 1
+	textureProgressBar.value = currentUnits
