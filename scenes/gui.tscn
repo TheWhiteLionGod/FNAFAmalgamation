@@ -1,13 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0jleoc11s5o1"]
+[gd_scene load_steps=6 format=3 uid="uid://b0jleoc11s5o1"]
 
 [ext_resource type="Script" path="res://scripts/cam_btn.gd" id="1_jg77a"]
+[ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="2_0sul2"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="2_6miqm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swj0a"]
+shader = ExtResource("2_0sul2")
+shader_parameter/range = 0.05
+shader_parameter/offsetIntensity = 0.02
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.02
+shader_parameter/pulse_speed = 5.0
+shader_parameter/glitch_duration = 0.113
+shader_parameter/wave_count = 8.989
+shader_parameter/wave_amplitude = 0.006
+shader_parameter/wave_speed = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_b4nho"]
 font_size = 25
 outline_color = Color(0, 0, 0, 1)
 
 [node name="GUI" type="CanvasLayer"]
+
+[node name="CamStatic" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_swj0a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Cams" type="MarginContainer" parent="."]
 anchors_preset = 3

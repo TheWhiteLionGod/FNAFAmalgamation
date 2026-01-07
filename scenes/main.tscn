@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=9 format=3 uid="uid://b4lcdx02b451j"]
 
-[ext_resource type="PackedScene" uid="uid://c22q62qtof8qn" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
+[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_i7sys"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="2_g0ghx"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
-[ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="5_5a1yb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,18 +18,6 @@ sky = SubResource("Sky_rl326")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yd1l0"]
-shader = ExtResource("5_5a1yb")
-shader_parameter/range = 0.05
-shader_parameter/offsetIntensity = 0.02
-shader_parameter/noiseQuality = 250.0
-shader_parameter/noiseIntensity = 0.02
-shader_parameter/pulse_speed = 5.0
-shader_parameter/glitch_duration = 0.113
-shader_parameter/wave_count = 8.989
-shader_parameter/wave_amplitude = 0.006
-shader_parameter/wave_speed = 4.0
-
 [sub_resource type="Resource" id="Resource_ad4go"]
 script = ExtResource("2_g0ghx")
 windUpUnitsPerSecond = 500
@@ -42,16 +29,12 @@ totalUnits = 2000
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8or6")
 
-[node name="CameraStatic" type="CanvasLayer" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
+spot_range = 2.97929
+spot_angle = 84.43
 
-[node name="ColorRect" type="ColorRect" parent="CameraStatic"]
-material = SubResource("ShaderMaterial_yd1l0")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="GUI" parent="." instance=ExtResource("3_o5db8")]
 
 [node name="Cameras" type="Node3D" parent="."]
 script = ExtResource("1_i7sys")
@@ -72,10 +55,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 1.36608, 2.78452)
 [node name="MusicBox" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_hemyu")]
 main = NodePath("..")
 config = SubResource("Resource_ad4go")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
-spot_range = 2.97929
-spot_angle = 84.43
-
-[node name="GUI" parent="." instance=ExtResource("3_o5db8")]
