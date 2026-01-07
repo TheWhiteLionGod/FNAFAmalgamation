@@ -5,11 +5,9 @@ extends Node3D
 class_name Raycaster
 
 # Send Raycast from Current Camera to Mouse Position
-static func raycastToMousePos(main: Node3D) -> Dictionary:
-	var camera: Camera3D = main.get_node("Cameras").get_node(GameState.Camera.find_key(GameState.activeCamera))
-
-	var space_state = main.get_world_3d().direct_space_state
-	var mouse_pos = main.get_viewport().get_mouse_position()
+static func raycastToMousePos(camera: Camera3D) -> Dictionary:
+	var space_state = camera.get_world_3d().direct_space_state
+	var mouse_pos = camera.get_viewport().get_mouse_position()
 
 	# Cast a ray from the camera to the mouse position
 	var ray_start = camera.project_ray_origin(mouse_pos)

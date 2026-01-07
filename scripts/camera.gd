@@ -8,9 +8,10 @@ const CAMERA_MAX_ROTATION: float = 30 # In Degrees
 
 var rotateSign: int = 1
 
-@onready var curCam: Camera3D = get_node(enumToName(GameState.activeCamera))
 @onready var cameras: Array[Node] = get_children()
 @onready var camInitalRotation: Array[Vector3] = []
+
+@export var camerasNode: Node3D
 
 func _ready() -> void:
 	camInitalRotation.resize(get_child_count())
@@ -18,9 +19,10 @@ func _ready() -> void:
 		camInitalRotation[nameToEnum(cam.name)] = cam.rotation
 
 	GameState.switchCamera.connect(changeCamera)
+	changeCamera()
 
 func _process(delta: float) -> void:
-	var cameraRotationY: float = curCam.rotation_degrees.y # Current Camera Rotation (In Degrees)
+	var cameraRotationY: float = GameState.curCamNode.rotation_degrees.y # Current Camera Rotation (In Degrees)
 	
 	# Rotating Camera
 	if cameraRotationY > camInitalRotation[GameState.activeCamera].y + CAMERA_MAX_ROTATION:
@@ -28,14 +30,13 @@ func _process(delta: float) -> void:
 	elif cameraRotationY < camInitalRotation[GameState.activeCamera].y - CAMERA_MAX_ROTATION:
 		rotateSign = 1
 	
-	curCam.rotation_degrees.y += CAMERA_ROTATION_SPEED_PER_SECOND * delta * rotateSign
+	GameState.curCamNode.rotation_degrees.y += CAMERA_ROTATION_SPEED_PER_SECOND * delta * rotateSign
 
 func changeCamera() -> void:
-	var newCamera: Camera3D = get_node(enumToName(GameState.activeCamera))
-	newCamera.current = true
-	curCam = newCamera
+	GameState.curCamNode = get_node(enumToName(GameState.activeCamera))
+	GameState.curCamNode.current = true
 
-func enumToName(cam: int) -> String:
+func enumToName(cam: GameState.Camera) -> String:
 	return GameState.Camera.keys()[cam]
 
 func nameToEnum(cam: String) -> int:
