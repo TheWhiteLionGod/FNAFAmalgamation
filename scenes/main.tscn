@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=12 format=3 uid="uid://b4lcdx02b451j"]
 
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_2pgtk"]
 [ext_resource type="PackedScene" uid="uid://c22q62qtof8qn" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="1_i7sys"]
+[ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="2_g0ghx"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 [ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="5_5a1yb"]
@@ -27,7 +28,7 @@ shader_parameter/noiseQuality = 250.0
 shader_parameter/noiseIntensity = 0.02
 shader_parameter/pulse_speed = 5.0
 shader_parameter/glitch_duration = 0.113
-shader_parameter/wave_count = 8.989
+shader_parameter/wave_count = 9.0
 shader_parameter/wave_amplitude = 0.006
 shader_parameter/wave_speed = 4.0
 
@@ -42,6 +43,9 @@ totalUnits = 2000
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8or6")
 
+[node name="Player" type="Node" parent="."]
+script = ExtResource("1_2pgtk")
+
 [node name="CameraStatic" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CameraStatic"]
@@ -54,7 +58,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Cameras" type="Node3D" parent="."]
-script = ExtResource("1_i7sys")
+script = ExtResource("2_05f7s")
 
 [node name="CAM1" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 2.78452)
