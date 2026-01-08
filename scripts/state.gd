@@ -18,8 +18,10 @@ var playerActions: Dictionary = {
 
 var globalTimer: float = 0.0
 var activeCamera: Camera = Camera.CAM1
+var curCamNode: Camera3D
 
 signal switchCamera()
+signal musicBoxEmpty()
 
 func _ready() -> void:
 	globalTimer = 0

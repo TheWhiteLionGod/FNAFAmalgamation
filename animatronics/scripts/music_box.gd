@@ -3,7 +3,6 @@ This Script will Handle the Music Box Mechanic
 """
 extends StaticBody3D
 
-@export var main: Node3D
 @export var textureProgressBar: TextureProgressBar
 @export var config: MusicBoxConfig
 
@@ -22,11 +21,14 @@ func _ready() -> void:
 	textureProgressBar.value = currentUnits
 
 func _process(delta: float) -> void:
+	if currentUnits == 0:
+		GameState.musicBoxEmpty.emit()
+
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		windDown(delta)
 		return
-
-	var result: Dictionary = Raycaster.raycastToMousePos(main)
+	
+	var result: Dictionary = Raycaster.raycastToMousePos(GameState.curCamNode)
 	if result == {} or result.collider != self:
 		windDown(delta)
 		return
