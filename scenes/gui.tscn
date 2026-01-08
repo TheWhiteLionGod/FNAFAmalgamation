@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0jleoc11s5o1"]
+[gd_scene load_steps=13 format=3 uid="uid://b0jleoc11s5o1"]
 
 [ext_resource type="Script" path="res://scripts/player/cam_btn.gd" id="1_jg77a"]
 [ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="2_0sul2"]
 [ext_resource type="Script" path="res://scripts/player/timer.gd" id="2_6miqm"]
+[ext_resource type="Shader" path="res://shaders/camera_open.gdshader" id="2_qc5hu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eww4y"]
+bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_swj0a"]
 shader = ExtResource("2_0sul2")
@@ -16,14 +20,133 @@ shader_parameter/wave_count = 8.989
 shader_parameter/wave_amplitude = 0.006
 shader_parameter/wave_speed = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtdam"]
+resource_local_to_scene = true
+shader = ExtResource("2_qc5hu")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/glitch_amount = 0.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_b4nho"]
 font_size = 25
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_vysww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraShaders/CamOpen:material:shader_parameter/glitch_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraShaders/CamOpen:material:shader_parameter/vignette_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+
+[sub_resource type="Animation" id="Animation_y6781"]
+resource_name = "camera_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraShaders/CamOpen:material:shader_parameter/glitch_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.8, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraShaders/CamOpen:material:shader_parameter/vignette_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4, 0.1, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hnuid"]
+resource_name = "camera_open"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraShaders/CamOpen:material:shader_parameter/glitch_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraShaders/CamOpen:material:shader_parameter/vignette_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4, 0.2, 0.4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4y2lm"]
+_data = {
+"RESET": SubResource("Animation_vysww"),
+"camera_close": SubResource("Animation_y6781"),
+"camera_open": SubResource("Animation_hnuid")
+}
+
 [node name="GUI" type="CanvasLayer"]
 
-[node name="CamStatic" type="ColorRect" parent="."]
+[node name="CameraShaders" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eww4y")
+
+[node name="CamStatic" type="ColorRect" parent="CameraShaders"]
 material = SubResource("ShaderMaterial_swj0a")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CameraShaders"]
+scale = Vector2(1.566, 1.566)
+copy_mode = 2
+
+[node name="CamOpen" type="ColorRect" parent="CameraShaders"]
+material = SubResource("ShaderMaterial_wtdam")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,6 +155,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Cams" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -197,6 +321,11 @@ layout_mode = 2
 text = "0:00.0"
 label_settings = SubResource("LabelSettings_b4nho")
 horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4y2lm")
+}
 
 [connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Electrocute/Button8" to="Cams" method="changeCamera" binds= ["CAM8"]]
 [connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Electrocute/Button9" to="Cams" method="changeCamera" binds= ["CAM9"]]

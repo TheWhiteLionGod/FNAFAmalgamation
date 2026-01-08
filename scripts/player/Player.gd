@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("flashlight"):
@@ -40,4 +40,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(GameState.playerActions)
+	pass
+	# print(GameState.playerActions)

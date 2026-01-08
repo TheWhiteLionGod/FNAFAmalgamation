@@ -1,6 +1,7 @@
 """
 Raycaster Class which will Handle Raycasts within the Game
 """
+
 extends Node3D
 class_name Raycaster
 
