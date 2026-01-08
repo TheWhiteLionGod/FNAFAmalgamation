@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_i7sys"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="2_g0ghx"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
-[ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="5_0hvay"]
+[ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,8 +53,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 4.43496)
 [node name="CAM4" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 1.36608, 2.78452)
 
-[node name="MusicBox" parent="." node_paths=PackedStringArray("cameras") instance=ExtResource("1_hemyu")]
-cameras = NodePath("../Cameras")
+[node name="MusicBox" parent="." instance=ExtResource("1_hemyu")]
 config = SubResource("Resource_ad4go")
 
-[node name="Puppet" parent="." instance=ExtResource("5_0hvay")]
+[node name="ToyFreddy" parent="." instance=ExtResource("5_gbba8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9039, 0, 0)

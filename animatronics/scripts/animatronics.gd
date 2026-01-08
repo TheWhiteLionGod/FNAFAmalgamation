@@ -5,7 +5,7 @@ extends Skeleton3D
 class_name Animatronic
 
 enum Stage {
-	ZERO, ONE, TWO, KILL
+	ZERO, ONE, KILL
 }
 
 var currentStage: Stage = Stage.ZERO
