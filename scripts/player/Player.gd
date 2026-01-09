@@ -7,38 +7,21 @@ func _input(event: InputEvent) -> void:
 		GameState.playerActions["flashlight"] = false
 	
 	elif event.is_action_pressed("left_door"):
-		if not GameState.playerActions["left_door"]:
-			GameState.playerActions["left_door"] = true
-		else:
-			GameState.playerActions["left_door"] = false
+		GameState.playerActions["left_door"] = !GameState.playerActions["left_door"]
 	
 	elif event.is_action_pressed("right_door"):
-		if not GameState.playerActions["right_door"]:
-			GameState.playerActions["right_door"] = true
-		else:
-			GameState.playerActions["right_door"] = false
+		GameState.playerActions["right_door"] = !GameState.playerActions["right_door"]
 	
 	elif event.is_action_pressed("cameras"):
-		if not GameState.playerActions["cameras"]:
-			GameState.playerActions["cameras"] = true
+		GameState.playerActions["cameras"] = !GameState.playerActions["cameras"]
+		if GameState.playerActions["cameras"]:
+			GameState.openCamera.emit()
 		else:
-			GameState.playerActions["cameras"] = false
+			GameState.closeCamera.emit()
 	
 	elif event.is_action_pressed("mask"):
-		if not GameState.playerActions["mask"]:
-			GameState.playerActions["mask"] = true
-		else:
-			GameState.playerActions["mask"] = false
+		GameState.playerActions["mask"] = !GameState.playerActions["mask"]
 	
 	elif event.is_action_pressed("audio_lure"):
 		# TODO
 		pass
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	# print(GameState.playerActions)

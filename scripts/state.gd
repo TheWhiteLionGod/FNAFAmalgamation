@@ -21,6 +21,8 @@ var globalTimer: float = 0.0
 var activeCamera: Camera = Camera.CAM1
 var curCamNode: Camera3D
 
+signal openCamera()
+signal closeCamera()
 signal switchCamera()
 signal musicBoxEmpty()
 

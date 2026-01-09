@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_cc8ji"]
-[ext_resource type="PackedScene" uid="uid://c22q62qtof8qn" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
+[ext_resource type="PackedScene" uid="uid://csgi8f7x1qps6" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="2_g0ghx"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]

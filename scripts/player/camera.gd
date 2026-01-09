@@ -17,6 +17,8 @@ var rotateSign: int = 1
 
 @onready var gui: CanvasLayer = main.get_node("GUI")
 @onready var guiAnimationPlayer: AnimationPlayer = gui.get_node("AnimationPlayer")
+@onready var cameraOpenAnimation: Animation = guiAnimationPlayer.get_animation("camera_open")
+
 @onready var cameraGui: MarginContainer = gui.get_node("Cams")
 @onready var cameraShaders: Panel = gui.get_node("CameraShaders")
 
@@ -27,8 +29,9 @@ func _ready() -> void:
 
 	GameState.curCamNode = get_node(enumToName(GameState.activeCamera))
 	GameState.switchCamera.connect(changeCamera)
+	GameState.openCamera.connect(openCameras)
+	GameState.closeCamera.connect(closeCameras)
 
-var areCamerasOpen: bool = false
 func _process(delta: float) -> void:
 	var cameraRotationY: float = GameState.curCamNode.rotation_degrees.y # Current Camera Rotation (In Degrees)
 	
@@ -39,15 +42,6 @@ func _process(delta: float) -> void:
 		rotateSign = 1
 	
 	GameState.curCamNode.rotation_degrees.y += CAMERA_ROTATION_SPEED_PER_SECOND * delta * rotateSign
-	
-	if GameState.playerActions["cameras"] == true:
-		if areCamerasOpen == false:
-			openCameras()
-			areCamerasOpen = true
-	else:
-		if areCamerasOpen == true:
-			closeCameras()
-			areCamerasOpen = false
 
 func changeCamera() -> void:
 	GameState.curCamNode = get_node(enumToName(GameState.activeCamera))
@@ -62,9 +56,7 @@ func openCameras() -> void:
 
 	guiAnimationPlayer.play("camera_open")
 
-@onready var cameraOpenAnimation: Animation = guiAnimationPlayer.get_animation("camera_open")
 func closeCameras() -> void:
-	print("Closing Cameras")
 	guiAnimationPlayer.play("camera_close")
 	await get_tree().create_timer(cameraOpenAnimation.length).timeout
 

@@ -29,8 +29,6 @@ func handleStage() -> void:
 			@warning_ignore("int_as_enum_without_cast")
 			currentStage += 1
 
-			print(Stage.keys()[currentStage])
-
 		Stage.KILL:
 			# TODO: Write Blackout Code
 			pass
