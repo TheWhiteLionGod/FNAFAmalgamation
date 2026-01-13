@@ -61,6 +61,7 @@ func closeCameras() -> void:
 	await get_tree().create_timer(cameraOpenAnimation.length).timeout
 
 	player.get_node("Camera").current = true
+	
 	cameraGui.hide()
 	cameraShaders.hide()
 
