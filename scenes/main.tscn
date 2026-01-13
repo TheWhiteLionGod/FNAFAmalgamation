@@ -84,6 +84,34 @@ mesh = SubResource("PlaneMesh_gled1")
 transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 0, 1, 2.5)
 mesh = SubResource("PlaneMesh_gled1")
 
+[node name="CAM2" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.08165e-12, 2.08165e-12)
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM2"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2, 2.08165e-12)
+mesh = SubResource("QuadMesh_6arr6")
+skeleton = NodePath("../Floor")
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM2"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_6arr6")
+
+[node name="Wall1" type="MeshInstance3D" parent="Rooms/CAM2"]
+transform = Transform3D(2.25947e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.48787e-16, 4.37114e-08, 1, -4.37114e-08, -1, 1, 2.08165e-12)
+mesh = SubResource("QuadMesh_6arr6")
+
+[node name="Wall2" type="MeshInstance3D" parent="Rooms/CAM2"]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 1, 1, 2.08165e-12)
+mesh = SubResource("QuadMesh_6arr6")
+
+[node name="Wall3" type="MeshInstance3D" parent="Rooms/CAM2"]
+transform = Transform3D(2.25947e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.48787e-16, 4.37114e-08, 1, -4.37114e-08, 2.08165e-12, 1, -2.5)
+mesh = SubResource("PlaneMesh_gled1")
+
+[node name="Wall4" type="MeshInstance3D" parent="Rooms/CAM2"]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 0, 1, 2.5)
+mesh = SubResource("PlaneMesh_gled1")
+
 [node name="Cameras" type="Node3D" parent="." node_paths=PackedStringArray("main")]
 script = ExtResource("2_05f7s")
 main = NodePath("..")
@@ -96,7 +124,7 @@ transform = Transform3D(0.819152, -0.196175, 0.538986, 3.27752e-16, 0.939693, 0.
 >>>>>>> 55572f3 (Created Room for Cam 1)
 
 [node name="CAM2" type="Camera3D" parent="Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8335, 0, 2.78452)
+transform = Transform3D(0.819152, 0.196175, -0.538986, 3.27752e-16, 0.939693, 0.34202, 0.573576, -0.280166, 0.769751, 9.5, 1.5, 2)
 
 [node name="CAM3" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 7.1823)
