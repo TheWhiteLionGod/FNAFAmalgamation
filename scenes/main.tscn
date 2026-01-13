@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b4lcdx02b451j"]
 
-[ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
@@ -19,33 +19,32 @@ sky = SubResource("Sky_rl326")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_dl2he"]
+size = Vector2(20, 10)
+
 [sub_resource type="BoxMesh" id="BoxMesh_2khhk"]
-size = Vector3(6, 1, 0.25)
+size = Vector3(7, 1, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8vmtj"]
-size = Vector3(1, 1.5, 0.25)
+size = Vector3(0.5, 1.5, 0.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsaqx"]
 transparency = 1
 blend_mode = 1
 metallic = 1.0
-roughness = 0.0
-refraction_enabled = true
+refraction_scale = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_1eoh8"]
 material = SubResource("StandardMaterial3D_dsaqx")
-size = Vector3(4, 1.5, 0.125)
+size = Vector3(6, 1.5, 0.125)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cv5ao"]
+size = Vector3(20, 7.5, 2.08165e-12)
 
 [sub_resource type="QuadMesh" id="QuadMesh_6arr6"]
 size = Vector2(2, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gled1"]
-
-[sub_resource type="Resource" id="Resource_ad4go"]
-script = ExtResource("2_g0ghx")
-windUpUnitsPerSecond = 500
-windDownUnitsPerSecond = 80
-totalUnits = 2000
 
 [node name="Main" type="Node3D"]
 
@@ -57,16 +56,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
 spot_range = 2.97929
 spot_angle = 84.43
 
-[node name="Player" type="Node3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_8838x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 3)
-script = ExtResource("1_cc8ji")
-
-[node name="Camera" type="Camera3D" parent="Player"]
-current = true
 
 [node name="GUI" parent="." instance=ExtResource("3_o5db8")]
 
 [node name="Rooms" type="Node3D" parent="."]
+
+[node name="Office" type="Node3D" parent="Rooms"]
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/Office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2)
+mesh = SubResource("PlaneMesh_dl2he")
 
 [node name="Window" type="Node3D" parent="Rooms"]
 
@@ -78,19 +79,24 @@ mesh = SubResource("BoxMesh_2khhk")
 mesh = SubResource("BoxMesh_2khhk")
 
 [node name="Left" type="MeshInstance3D" parent="Rooms/Window"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.25, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 1.25, 2.08165e-12)
 mesh = SubResource("BoxMesh_8vmtj")
 
 [node name="Left2" type="MeshInstance3D" parent="Rooms/Window"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.25, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 1.25, 2.08165e-12)
 mesh = SubResource("BoxMesh_8vmtj")
 
 [node name="Window" type="MeshInstance3D" parent="Rooms/Window"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.25, 2.08165e-12)
 mesh = SubResource("BoxMesh_1eoh8")
 
+[node name="Backwall" type="MeshInstance3D" parent="Rooms/Window"]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 3.75, -3)
+mesh = SubResource("BoxMesh_cv5ao")
+skeleton = NodePath("")
+
 [node name="CAM1" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 2.08165e-12)
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM1"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2, 2.08165e-12)
@@ -118,7 +124,7 @@ transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-
 mesh = SubResource("PlaneMesh_gled1")
 
 [node name="CAM2" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.08165e-12, 2.08165e-12)
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM2"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2, 2.08165e-12)
@@ -150,81 +156,21 @@ script = ExtResource("2_05f7s")
 main = NodePath("..")
 
 [node name="CAM1" type="Camera3D" parent="Cameras"]
-<<<<<<< HEAD
-<<<<<<< HEAD
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72056, 0, 5.03293)
-=======
-transform = Transform3D(0.819152, -0.196175, 0.538986, 3.27752e-16, 0.939693, 0.34202, -0.573576, -0.280167, 0.769751, 5.5, 1.5, 2)
->>>>>>> 55572f3 (Created Room for Cam 1)
-=======
-transform = Transform3D(0.819152, -0.196175, 0.538986, 3.27752e-16, 0.939693, 0.34202, -0.573576, -0.280167, 0.769751, 10.5, 1.5, 2)
->>>>>>> 562add3 (Created Office Window)
+transform = Transform3D(0.819152, -0.196175, 0.538986, 3.27752e-16, 0.939693, 0.34202, -0.573576, -0.280167, 0.769751, 15.5, 1.5, 2)
 
 [node name="CAM2" type="Camera3D" parent="Cameras"]
-transform = Transform3D(0.819152, 0.196175, -0.538986, 3.27752e-16, 0.939693, 0.34202, 0.573576, -0.280166, 0.769751, 14.5, 1.5, 2)
+transform = Transform3D(0.819152, 0.196175, -0.538986, 3.27752e-16, 0.939693, 0.34202, 0.573576, -0.280166, 0.769751, 19.5, 1.5, 2)
 
 [node name="CAM3" type="Camera3D" parent="Cameras"]
-<<<<<<< HEAD
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 7.1823)
-=======
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85437, 0, 4.43496)
->>>>>>> 562add3 (Created Office Window)
 
 [node name="CAM4" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.156, 1.38111, -1.95043)
 
-<<<<<<< HEAD
-[node name="MusicBox" parent="." instance=ExtResource("1_hemyu")]
-=======
 [node name="Animatronics" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.08165e-12, 2.08165e-12)
 
 [node name="MusicBox" parent="Animatronics" instance=ExtResource("1_hemyu")]
-config = SubResource("Resource_ad4go")
->>>>>>> e06dc65 (Organized Main Scene)
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
-<<<<<<< HEAD
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9039, 0, 0)
-
-[node name="Node3D" type="Node3D" parent="."]
-visible = false
-
-[node name="Wall" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(5.91116, 0, 0, 0, 2.57463, 0, 0, 0, 0.266645, -2.15135, 0.61497, 8.21079)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
-
-[node name="Wall2" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(-0.134109, 0, 0.266577, 0, 2.57463, 0, -5.90964, 0, -0.00604949, 0.421969, 0.61497, 5.32698)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
-
-[node name="Wall3" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(-5.86753, 0, 0.0323342, 0, 2.57463, 0, -0.716805, 0, -0.264678, -1.80372, 0.61497, 3.12817)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
-
-[node name="Wall4" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(-0.583501, 0, -0.265343, 0, 2.57463, 0, 5.88229, 0, -0.0263211, -4.70775, 0.61497, 5.67865)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
-
-[node name="Wall5" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(0.0135534, 8.45705, 0.00387455, 0.559118, -0.210341, 0.155742, 5.64141, 0.000529021, -0.0154449, -2.4973, 1.40096, 5.67865)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
-
-[node name="Wall6" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(-0.0484465, 8.46874, -0.00682466, -0.384593, 0.381679, 0.150789, 11.4868, 0.0484969, 0.00501985, -2.4973, -0.846511, 5.67865)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
-=======
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.08165e-12, -1)
->>>>>>> 562add3 (Created Office Window)
