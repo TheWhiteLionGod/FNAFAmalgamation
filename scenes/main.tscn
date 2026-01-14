@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=24 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
+[ext_resource type="Texture2D" uid="uid://bbagu1j63814c" path="res://assets/vent.jpeg" id="3_exq5r"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 [ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="6_b4p5w"]
@@ -46,6 +47,24 @@ size = Vector3(20, 7.5, 2.08165e-12)
 size = Vector2(2, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gled1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rx5a"]
+albedo_texture = ExtResource("3_exq5r")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(1, 6, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cl3t4"]
+material = SubResource("StandardMaterial3D_5rx5a")
+size = Vector2(1, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ofou"]
+albedo_texture = ExtResource("3_exq5r")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(1, 2, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tvw4w"]
+material = SubResource("StandardMaterial3D_0ofou")
+size = Vector2(1, 1)
 
 [sub_resource type="Resource" id="Resource_vqoho"]
 script = ExtResource("6_b4p5w")
@@ -158,6 +177,60 @@ mesh = SubResource("PlaneMesh_gled1")
 transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 0, 1, 2.5)
 mesh = SubResource("PlaneMesh_gled1")
 
+[node name="CAM3" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 10)
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM3"]
+transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, -3.48787e-16, -1, 8.74228e-08, -1, 4.17016e-15, 4.37114e-08, 2.08165e-12, 1, 2.08165e-12)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Left" type="MeshInstance3D" parent="Rooms/CAM3"]
+transform = Transform3D(2.25947e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.48787e-16, 4.37114e-08, 1, -4.37114e-08, 2.08165e-12, 0.5, -0.5)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Right" type="MeshInstance3D" parent="Rooms/CAM3"]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 2.08165e-12, 0.5, 0.5)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Back" type="MeshInstance3D" parent="Rooms/CAM3"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.5, 0.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_tvw4w")
+
+[node name="Front" type="MeshInstance3D" parent="Rooms/CAM3"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, -1.5246e-23, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.5, 0.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_tvw4w")
+
+[node name="CAM4" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.08165e-12, 10)
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM4"]
+transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, -3.48787e-16, -1, 8.74228e-08, -1, 4.17016e-15, 4.37114e-08, 2.08165e-12, 1, 2.08165e-12)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Left" type="MeshInstance3D" parent="Rooms/CAM4"]
+transform = Transform3D(2.25947e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.48787e-16, 4.37114e-08, 1, -4.37114e-08, 2.08165e-12, 0.5, -0.5)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Right" type="MeshInstance3D" parent="Rooms/CAM4"]
+transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 2.08165e-12, 0.5, 0.5)
+mesh = SubResource("PlaneMesh_cl3t4")
+
+[node name="Back" type="MeshInstance3D" parent="Rooms/CAM4"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.5, 0.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_tvw4w")
+
+[node name="Front" type="MeshInstance3D" parent="Rooms/CAM4"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, -1.5246e-23, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.5, 0.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_tvw4w")
+
 [node name="Cameras" type="Node3D" parent="." node_paths=PackedStringArray("main")]
 script = ExtResource("2_05f7s")
 main = NodePath("..")
@@ -169,10 +242,10 @@ transform = Transform3D(0.819152, -0.196175, 0.538986, 3.27752e-16, 0.939693, 0.
 transform = Transform3D(0.819152, 0.196175, -0.538986, 3.27752e-16, 0.939693, 0.34202, 0.573576, -0.280166, 0.769751, 19.5, 1.5, 2)
 
 [node name="CAM3" type="Camera3D" parent="Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85437, 0, 4.43496)
+transform = Transform3D(-0.34202, -0.321394, 0.883022, 3.27752e-16, 0.939693, 0.34202, -0.939693, 0.116978, -0.321394, 16.25, 0.75, 9.75)
 
 [node name="CAM4" type="Camera3D" parent="Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.156, 1.38111, -1.95043)
+transform = Transform3D(-0.5, 0.296198, -0.813798, 3.27752e-16, 0.939693, 0.34202, 0.866025, 0.17101, -0.469846, 18.75, 0.75, 9.75)
 
 [node name="Animatronics" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.08165e-12, 2.08165e-12)
