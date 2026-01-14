@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=19 format=3 uid="uid://b4lcdx02b451j"]
 
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_8838x"]
+[ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
@@ -19,18 +19,6 @@ background_mode = 2
 sky = SubResource("Sky_rl326")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="Resource" id="Resource_vqoho"]
-script = ExtResource("6_b4p5w")
-windUpUnitsPerSecond = 500
-windDownUnitsPerSecond = 80
-totalUnits = 2000
-
-[sub_resource type="Resource" id="Resource_vqoho"]
-script = ExtResource("6_b4p5w")
-windUpUnitsPerSecond = 500
-windDownUnitsPerSecond = 80
-totalUnits = 2000
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dl2he"]
 size = Vector2(20, 10)
@@ -59,15 +47,16 @@ size = Vector2(2, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gled1"]
 
+[sub_resource type="Resource" id="Resource_vqoho"]
+script = ExtResource("6_b4p5w")
+windUpUnitsPerSecond = 500
+windDownUnitsPerSecond = 80
+totalUnits = 2000
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8or6")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213017, 1.55024)
-spot_range = 2.97929
-spot_angle = 84.43
 
 [node name="Player" parent="." instance=ExtResource("1_8838x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 3)
@@ -180,24 +169,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85437, 0, 4.43496)
 [node name="CAM4" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.156, 1.38111, -1.95043)
 
-[node name="MusicBox" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_hemyu")]
-config = SubResource("Resource_vqoho")
-player = NodePath("../Player")
-
-[node name="ToyFreddy" parent="." instance=ExtResource("5_gbba8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9039, 0, 0)
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="Wall" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(5.91116, 0, 0, 0, 2.57463, 0, 0, 0, 0.266645, -2.15135, 0.61497, 8.21079)
-mesh = SubResource("BoxMesh_jk24r")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_rs0fp")
 [node name="Animatronics" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.08165e-12, 2.08165e-12)
 
-[node name="MusicBox" parent="Animatronics" instance=ExtResource("1_hemyu")]
+[node name="MusicBox" parent="Animatronics" node_paths=PackedStringArray("player") instance=ExtResource("1_hemyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9885, -2.08165e-12, 1.24031)
+config = SubResource("Resource_vqoho")
+player = NodePath("../../Player")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.08165e-12, -1)
