@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=13 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 [ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
+[ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="6_b4p5w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,6 +19,12 @@ background_mode = 2
 sky = SubResource("Sky_rl326")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_vqoho"]
+script = ExtResource("6_b4p5w")
+windUpUnitsPerSecond = 500
+windDownUnitsPerSecond = 80
+totalUnits = 2000
 
 [sub_resource type="BoxMesh" id="BoxMesh_jk24r"]
 
@@ -55,13 +62,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 0, 7.1823)
 [node name="CAM4" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14631, 1.36608, 2.78452)
 
-[node name="MusicBox" parent="." instance=ExtResource("1_hemyu")]
+[node name="MusicBox" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_hemyu")]
+config = SubResource("Resource_vqoho")
+player = NodePath("../Player")
 
 [node name="ToyFreddy" parent="." instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9039, 0, 0)
 
 [node name="Node3D" type="Node3D" parent="."]
-visible = false
 
 [node name="Wall" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(5.91116, 0, 0, 0, 2.57463, 0, 0, 0, 0.266645, -2.15135, 0.61497, 8.21079)

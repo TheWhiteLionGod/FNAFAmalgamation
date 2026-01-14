@@ -5,6 +5,7 @@ extends StaticBody3D
 
 @export var textureProgressBar: TextureProgressBar
 @export var config: MusicBoxConfig
+@export var player: Node3D
 
 @onready var model: Node3D = get_node("Model")
 @onready var winder: Node3D = model.get_node("Winder")
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 		windDown(delta)
 		return
 	
-	var result: Dictionary = Raycaster.raycastToMousePos(GameState.curCamNode)
+	var result: Dictionary = Raycaster.raycastToMousePos(player.get_node("Camera"))
 	if result == {} or result.collider != self:
 		windDown(delta)
 		return
