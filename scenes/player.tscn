@@ -97,7 +97,7 @@ _data = {
 script = ExtResource("1_wmppe")
 
 [node name="Mask" parent="." instance=ExtResource("2_ywd37")]
-transform = Transform3D(-0.0999083, 0.00425951, -0.000409503, 0.00163844, 0.0469189, 0.0882945, 0.00395304, 0.088207, -0.0469457, 2.08165e-12, -0.5, 2.08165e-12)
+transform = Transform3D(-0.0999083, 0.00425951, -0.000409503, 0.00163844, 0.046919, 0.0882945, 0.00395304, 0.0882071, -0.0469457, 2.08165e-12, -0.5, 2.08165e-12)
 visible = false
 
 [node name="Camera" type="Camera3D" parent="."]
