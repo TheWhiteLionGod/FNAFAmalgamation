@@ -3,6 +3,8 @@ extends Node3D
 @export var main: Node3D
 
 @onready var rooms: Node3D = main.get_node("Rooms")
+@onready var office: Node3D = rooms.get_node("Office")
+@onready var officeAnimations: AnimationPlayer = office.get_node("OfficeAnimations")
 
 var adjustingLeftDoor: bool = false
 var adjustingRightDoor: bool = false
