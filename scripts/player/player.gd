@@ -4,7 +4,15 @@ extends Node3D
 
 @onready var rooms: Node3D = main.get_node("Rooms")
 
+var adjustingLeftDoor: bool = false
+var adjustingRightDoor: bool = false
 var adjustingMask: bool = false
+
+@onready var leftDoorCloseAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("close_left_door")
+@onready var leftDoorOpenAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("open_left_door")
+
+@onready var rightDoorCloseAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("close_right_door")
+@onready var rightDoorOpenAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("open_right_door")
 
 @onready var equipMaskAnimation: Animation = $"AnimationPlayer".get_animation("equip_mask")
 @onready var unequipMaskAnimation: Animation = $"AnimationPlayer".get_animation("unequip_mask")
@@ -18,20 +26,42 @@ func _input(event: InputEvent) -> void:
 		$"Flashlight".visible = false
 
 	elif event.is_action_pressed("left_door"):
+		if not adjustingLeftDoor:
+			adjustingLeftDoor = true
+		else:
+			return
+
 		GameState.playerActions["left_door"] = !GameState.playerActions["left_door"]
 
 		if GameState.playerActions["left_door"]:
 			rooms.get_node("AnimationPlayer").play("close_left_door")
+
+			await get_tree().create_timer(leftDoorCloseAnimation.length).timeout
+			adjustingLeftDoor = false
 		else:
 			rooms.get_node("AnimationPlayer").play("open_left_door")
+
+			await get_tree().create_timer(leftDoorOpenAnimation.length).timeout
+			adjustingLeftDoor = false
 	
 	elif event.is_action_pressed("right_door"):
+		if not adjustingRightDoor:
+			adjustingRightDoor = true
+		else:
+			return
+		
 		GameState.playerActions["right_door"] = !GameState.playerActions["right_door"]
 
 		if GameState.playerActions["right_door"]:
 			rooms.get_node("AnimationPlayer").play("close_right_door")
+
+			await get_tree().create_timer(rightDoorCloseAnimation.length).timeout
+			adjustingRightDoor = false
 		else:
 			rooms.get_node("AnimationPlayer").play("open_right_door")
+
+			await get_tree().create_timer(rightDoorOpenAnimation.length).timeout
+			adjustingRightDoor = false
 	
 	elif event.is_action_pressed("cameras"):
 		GameState.playerActions["cameras"] = !GameState.playerActions["cameras"]
