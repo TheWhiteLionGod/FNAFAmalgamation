@@ -25,7 +25,7 @@ var rotateSign: int = 1
 func _ready() -> void:
 	camInitalRotation.resize(get_child_count())
 	for cam in cameras:
-		camInitalRotation[nameToEnum(cam.name)] = cam.rotation
+		camInitalRotation[nameToEnum(cam.name)] = cam.rotation_degrees
 
 	GameState.curCamNode = get_node(enumToName(GameState.activeCamera))
 	GameState.switchCamera.connect(changeCamera)
