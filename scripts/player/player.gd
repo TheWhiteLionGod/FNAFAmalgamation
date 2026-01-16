@@ -2,17 +2,19 @@ extends Node3D
 
 @export var main: Node3D
 
-@onready var rooms: Node3D = main.get_node("Rooms")
+@onready var leftDoorAnimations: AnimationPlayer = main.get_node("Rooms").get_node("Office").get_node("LeftWall").get_node("LeftDoorAnimation")
+@onready var rightDoorAnimations: AnimationPlayer = main.get_node("Rooms").get_node("Office").get_node("RightWall").get_node("RightDoorAnimation")
+
+
+@onready var leftDoorCloseAnimation: Animation = leftDoorAnimations.get_animation("close_left_door")
+@onready var leftDoorOpenAnimation: Animation = leftDoorAnimations.get_animation("open_left_door")
+
+@onready var rightDoorCloseAnimation: Animation = rightDoorAnimations.get_animation("close_right_door")
+@onready var rightDoorOpenAnimation: Animation = rightDoorAnimations.get_animation("open_right_door")
 
 var adjustingLeftDoor: bool = false
 var adjustingRightDoor: bool = false
 var adjustingMask: bool = false
-
-@onready var leftDoorCloseAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("close_left_door")
-@onready var leftDoorOpenAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("open_left_door")
-
-@onready var rightDoorCloseAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("close_right_door")
-@onready var rightDoorOpenAnimation: Animation = rooms.get_node("AnimationPlayer").get_animation("open_right_door")
 
 var doorDebounceExtraOffset: float = 0.35
 
@@ -28,39 +30,37 @@ func _input(event: InputEvent) -> void:
 		$"Flashlight".visible = false
 
 	elif event.is_action_pressed("left_door"):
-		if not adjustingLeftDoor:
-			adjustingLeftDoor = true
-		else:
+		if adjustingLeftDoor:
 			return
+		adjustingLeftDoor = true
 
 		GameState.playerActions["left_door"] = !GameState.playerActions["left_door"]
 
 		if GameState.playerActions["left_door"]:
-			rooms.get_node("AnimationPlayer").play("close_left_door")
+			leftDoorAnimations.play("close_left_door")
 
 			await get_tree().create_timer(leftDoorCloseAnimation.length + doorDebounceExtraOffset).timeout
 			adjustingLeftDoor = false
 		else:
-			rooms.get_node("AnimationPlayer").play("open_left_door")
+			leftDoorAnimations.play("open_left_door")
 
 			await get_tree().create_timer(leftDoorOpenAnimation.length + doorDebounceExtraOffset).timeout
 			adjustingLeftDoor = false
 	
 	elif event.is_action_pressed("right_door"):
-		if not adjustingRightDoor:
-			adjustingRightDoor = true
-		else:
+		if adjustingRightDoor:
 			return
+		adjustingRightDoor = true
 		
 		GameState.playerActions["right_door"] = !GameState.playerActions["right_door"]
 
 		if GameState.playerActions["right_door"]:
-			rooms.get_node("AnimationPlayer").play("close_right_door")
+			rightDoorAnimations.play("close_right_door")
 
 			await get_tree().create_timer(rightDoorCloseAnimation.length + doorDebounceExtraOffset).timeout
 			adjustingRightDoor = false
 		else:
-			rooms.get_node("AnimationPlayer").play("open_right_door")
+			rightDoorAnimations.play("open_right_door")
 
 			await get_tree().create_timer(rightDoorOpenAnimation.length + doorDebounceExtraOffset).timeout
 			adjustingRightDoor = false
@@ -73,10 +73,9 @@ func _input(event: InputEvent) -> void:
 			GameState.closeCamera.emit()
 	
 	elif event.is_action_pressed("mask"):
-		if not adjustingMask:
-			adjustingMask = true
-		else:
+		if adjustingMask:
 			return
+		adjustingMask = true
 
 		GameState.playerActions["mask"] = !GameState.playerActions["mask"]
 
