@@ -26,6 +26,8 @@ signal closeCamera()
 signal switchCamera()
 signal musicBoxEmpty()
 
+signal shakeScreen(intensity: float, decay_rate)
+
 func _ready() -> void:
 	globalTimer = 0
 	activeCamera = Camera.CAM1

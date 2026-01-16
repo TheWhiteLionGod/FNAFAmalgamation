@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=35 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 [ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="6_b4p5w"]
+[ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="8_ld3j8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -179,7 +180,9 @@ size = Vector2(1, 1)
 script = ExtResource("6_b4p5w")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
-totalUnits = 2000
+totalUnits = 40
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_uo4lm"]
 
 [node name="Main" type="Node3D"]
 
@@ -406,3 +409,19 @@ player = NodePath("../../Player")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.08165e-12, -1)
+
+[node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 11.7576, -2.08165e-12, 2.2586)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 15, 2.08165e-12)
+
+[node name="Puppet" parent="." instance=ExtResource("8_ld3j8")]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 1.006)
+visible = false
+
+[node name="29193" type="MeshInstance3D" parent="Puppet"]
+visible = false
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_uo4lm")
+skeleton = NodePath("")

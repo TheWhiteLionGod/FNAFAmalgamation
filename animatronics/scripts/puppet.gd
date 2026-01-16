@@ -22,7 +22,11 @@ func handleStage() -> void:
 			# Will Try to Kill Every Frame
 			if randi_range(0, 20) > AI_LEVEL:
 				return; # Failed Movement
-			print("Puppet Killed Player")
+
+			jumpscare(get_tree().current_scene.get_node("Player"), 0, 0, Vector3(0.05, -1.55, -2.05))
+			playerKilled()
+			
+			# await get_tree().create_timer($"AnimationPlayer".get_animation("jumpscare").length).timeout
 
 		_:
 			print(
