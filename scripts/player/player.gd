@@ -22,7 +22,30 @@ var doorDebounceExtraOffset: float = 0.35
 @onready var unequipMaskAnimation: Animation = $"AnimationPlayer".get_animation("unequip_mask")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("flashlight"):
+	if event.is_action_pressed("mask"):
+		if adjustingMask:
+			return
+		adjustingMask = true
+
+		GameState.playerActions["mask"] = !GameState.playerActions["mask"]
+
+		if GameState.playerActions["mask"]:
+			$"Mask".visible = true
+			$"AnimationPlayer".play("equip_mask")
+
+			await get_tree().create_timer(equipMaskAnimation.length).timeout
+			adjustingMask = false
+		else:
+			$"AnimationPlayer".play("unequip_mask")
+
+			await get_tree().create_timer(unequipMaskAnimation.length).timeout
+			adjustingMask = false
+			$"Mask".visible = false
+
+	elif GameState.playerActions["mask"]:
+		return # Player can't do anything with mask on
+
+	elif event.is_action_pressed("flashlight"):
 		GameState.playerActions["flashlight"] = true
 		$"Flashlight".visible = true
 	elif event.is_action_released("flashlight"):
@@ -71,26 +94,6 @@ func _input(event: InputEvent) -> void:
 			GameState.openCamera.emit()
 		else:
 			GameState.closeCamera.emit()
-	
-	elif event.is_action_pressed("mask"):
-		if adjustingMask:
-			return
-		adjustingMask = true
-
-		GameState.playerActions["mask"] = !GameState.playerActions["mask"]
-
-		if GameState.playerActions["mask"]:
-			$"Mask".visible = true
-			$"AnimationPlayer".play("equip_mask")
-
-			await get_tree().create_timer(equipMaskAnimation.length).timeout
-			adjustingMask = false
-		else:
-			$"AnimationPlayer".play("unequip_mask")
-
-			await get_tree().create_timer(unequipMaskAnimation.length).timeout
-			adjustingMask = false
-			$"Mask".visible = false
 		
 	elif event.is_action_pressed("audio_lure"):
 		# TODO

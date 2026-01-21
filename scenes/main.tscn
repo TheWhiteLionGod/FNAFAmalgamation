@@ -1,11 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=41 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="Texture2D" uid="uid://bbagu1j63814c" path="res://assets/vent.jpeg" id="3_exq5r"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
-[ext_resource type="Texture2D" path="res://assets/floor.webp" id="4_singl"]
+[ext_resource type="Texture2D" uid="uid://cdne788v57nce" path="res://assets/floor.webp" id="4_singl"]
 [ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="6_b4p5w"]
 [ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="8_ld3j8"]
@@ -203,9 +203,7 @@ size = Vector2(7, 3)
 script = ExtResource("6_b4p5w")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
-totalUnits = 40
-
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_uo4lm"]
+totalUnits = 2000
 
 [node name="Main" type="Node3D"]
 
@@ -517,28 +515,16 @@ transform = Transform3D(-0.5, -0.365998, 0.784885, 3.16108e-16, 0.906308, 0.4226
 transform = Transform3D(-4.37114e-08, 0.422618, -0.906308, 3.16108e-16, 0.906308, 0.422618, 1, 1.84732e-08, -3.9616e-08, 27, 2.5, 20)
 
 [node name="Animatronics" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 1.006)
+visible = false
 
 [node name="MusicBox" parent="Animatronics" node_paths=PackedStringArray("player") instance=ExtResource("1_hemyu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9885, -2.08165e-12, 1.24031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 1)
 config = SubResource("Resource_vqoho")
 player = NodePath("../../Player")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.08165e-12, -1)
-
-[node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
-transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 11.7576, -2.08165e-12, 2.2586)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 15, 2.08165e-12)
-
-[node name="Puppet" parent="." instance=ExtResource("8_ld3j8")]
-transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 1.006)
-visible = false
-
-[node name="29193" type="MeshInstance3D" parent="Puppet"]
-visible = false
-cast_shadow = 0
-mesh = SubResource("ImmediateMesh_uo4lm")
-skeleton = NodePath("")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1)

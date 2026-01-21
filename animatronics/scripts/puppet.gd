@@ -16,9 +16,12 @@ func enterKillStage() -> void:
 func handleStage() -> void:
 	match currentStage:
 		Stage.ZERO:
+			visible = false
 			pass
 
 		Stage.KILL:
+			visible = true
+			
 			# Will Try to Kill Every Frame
 			if randi_range(0, 20) > AI_LEVEL:
 				return; # Failed Movement
