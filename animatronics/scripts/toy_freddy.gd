@@ -25,6 +25,9 @@ func handleStage() -> void:
 			if randi_range(0, 20) > AI_LEVEL:
 				return; # Failed Movement
 
+			# Move
+			print("move")
+
 			# Progressing Stage
 			@warning_ignore("int_as_enum_without_cast")
 			currentStage += 1
