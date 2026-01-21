@@ -34,6 +34,11 @@ func _process(delta: float) -> void:
 		windDown(delta)
 		return
 
+	# Winding down when mask is on
+	if GameState.playerActions["mask"]:
+		windDown(delta)
+		return
+
 	# Winds only if left clicking on music box
 	windUp(delta)
 	
