@@ -22,7 +22,7 @@ var doorDebounceExtraOffset: float = 0.35
 @onready var unequipMaskAnimation: Animation = $"AnimationPlayer".get_animation("unequip_mask")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("mask"):
+	if event.is_action_pressed("mask") and !GameState.playerActions["cameras"]:
 		if adjustingMask:
 			return
 		adjustingMask = true
