@@ -30,6 +30,7 @@ func handleStage() -> void:
 # 	main.add_child(clone)
 
 func playerKilled():
+	GameState.playerKilled.emit()
 	killed = true
 
 ## Jumpscare
@@ -44,6 +45,5 @@ func _ready() -> void:
 	currentStage = Stage.ZERO
 
 func _process(_delta: float) -> void:
-	if killed:
-		return
+	if killed: return
 	handleStage()

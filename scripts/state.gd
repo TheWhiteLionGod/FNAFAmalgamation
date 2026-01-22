@@ -25,7 +25,7 @@ signal openCamera()
 signal closeCamera()
 signal switchCamera()
 signal musicBoxEmpty()
-
+signal playerKilled()
 signal shakeScreen(intensity: float, decay_rate)
 
 func _ready() -> void:
