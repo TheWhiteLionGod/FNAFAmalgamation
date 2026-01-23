@@ -53,10 +53,14 @@ func moveToStageMarker():
 	global_transform = markers[currentStage].global_transform
 
 func playerKilled():
+	GameState.playerKilled.emit()
 	killed = true
 
 ## Jumpscare
 func jumpscare(player: Node3D, intensity: float = 1, decayRate: float = 0.8, jumpscarePosOffset: Vector3 = Vector3.ZERO):
+	if GameState.playerActions["cameras"]:
+		GameState.closeCamera.emit()
+	
 	# Shake Screen
 	GameState.shakeScreen.emit(intensity, decayRate)
 	
@@ -67,7 +71,5 @@ func _ready() -> void:
 	currentStage = Stage.ZERO
 
 func _process(_delta: float) -> void:
-	if killed:
-		return
-
+	if killed: return
 	handleStage()

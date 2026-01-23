@@ -15,6 +15,7 @@ extends Node3D
 var adjustingLeftDoor: bool = false
 var adjustingRightDoor: bool = false
 var adjustingMask: bool = false
+var playerKilled: bool = false
 
 var doorDebounceExtraOffset: float = 0.35
 
@@ -22,7 +23,9 @@ var doorDebounceExtraOffset: float = 0.35
 @onready var unequipMaskAnimation: Animation = $"AnimationPlayer".get_animation("unequip_mask")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("mask"):
+	if playerKilled: return
+
+	if event.is_action_pressed("mask") and !GameState.playerActions["cameras"]:
 		if adjustingMask:
 			return
 		adjustingMask = true
@@ -115,9 +118,13 @@ func _ready():
 	noise.seed = randi()
 	noise.frequency = 0.5
 
+	playerKilled = false
+	GameState.playerKilled.connect(endGame)
 	GameState.shakeScreen.connect(cameraShake)
 
 func _process(delta):
+	if playerKilled: return
+
 	if GameState.playerActions["cameras"]:
 		$"Flashlight".global_transform = GameState.curCamNode.global_transform
 	else:
@@ -147,3 +154,6 @@ func _process(delta):
 func cameraShake(intensity: float = 1, decay_rate: float = 0.8):
 	trauma = clamp(trauma + intensity, 0.0, 1.0)
 	trauma_decay = decay_rate
+
+func endGame():
+	playerKilled = true

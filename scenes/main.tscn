@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=45 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
@@ -197,6 +197,18 @@ size = Vector2(5, 3)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ocoks"]
 size = Vector2(7, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uq2h8"]
+size = Vector3(2.5, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k426w"]
+size = Vector3(1.5, 0.5, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vcosm"]
+size = Vector2(4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yhvp3"]
+size = Vector2(4, 5)
 
 [sub_resource type="Resource" id="Resource_vqoho"]
 script = ExtResource("6_b4p5w")
@@ -492,6 +504,126 @@ mesh = SubResource("PlaneMesh_ocoks")
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 1.5, -2.5)
 mesh = SubResource("PlaneMesh_ocoks")
 
+[node name="CAM6" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2.08165e-12, 2.08165e-12)
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM6"]
+mesh = SubResource("PlaneMesh_n4j47")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, 8.74228e-08, -3.48787e-16, -8.74228e-08, -1, 2.08165e-12, 3, 2.08165e-12)
+mesh = SubResource("PlaneMesh_tr6jw")
+
+[node name="Left" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(-4.37114e-08, 1, -1.5246e-23, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -3.5, 1.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_k1fjk")
+
+[node name="Right" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, -1.5246e-23, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 3.5, 1.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_k1fjk")
+
+[node name="Front" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, -1.5246e-23, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 2.08165e-12, 1.5, 2.5)
+mesh = SubResource("PlaneMesh_ocoks")
+
+[node name="Back" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 1.5, -2.5)
+mesh = SubResource("PlaneMesh_ocoks")
+
+[node name="Stage1" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(0.965926, -2.4663e-16, 0.258819, 3.48787e-16, 1, -3.48787e-16, -0.258819, 4.27175e-16, 0.965926, -2, 0.25, -1.5)
+mesh = SubResource("BoxMesh_uq2h8")
+
+[node name="Stage2" type="MeshInstance3D" parent="Rooms/CAM6"]
+transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48787e-16, 0.258819, 2.4663e-16, 0.965926, 2, 0.25, -1.5)
+mesh = SubResource("BoxMesh_uq2h8")
+
+[node name="CAM7" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2.08165e-12, 10)
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
+mesh = SubResource("PlaneMesh_n4j47")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, 8.74228e-08, -3.48787e-16, -8.74228e-08, -1, 2.08165e-12, 3, 2.08165e-12)
+mesh = SubResource("PlaneMesh_tr6jw")
+
+[node name="Left" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(-4.37114e-08, 1, -1.5246e-23, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -3.5, 1.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_k1fjk")
+
+[node name="Right" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, -1.5246e-23, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 3.5, 1.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_k1fjk")
+
+[node name="Front" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, -1.5246e-23, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 2.08165e-12, 1.5, 2.5)
+mesh = SubResource("PlaneMesh_ocoks")
+
+[node name="Back" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 1.5, -2.5)
+mesh = SubResource("PlaneMesh_ocoks")
+
+[node name="Stage1" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(0.965926, -2.4663e-16, 0.258819, 3.48787e-16, 1, -3.48787e-16, -0.258819, 4.27175e-16, 0.965926, -2, 0.25, -1.5)
+mesh = SubResource("BoxMesh_k426w")
+
+[node name="Stage2" type="MeshInstance3D" parent="Rooms/CAM7"]
+transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48787e-16, 0.258819, 2.4663e-16, 0.965926, 2, 0.25, -1.5)
+mesh = SubResource("BoxMesh_k426w")
+
+[node name="CAM8" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 2.08165e-12)
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM8"]
+mesh = SubResource("PlaneMesh_vcosm")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM8"]
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, 8.74228e-08, -3.48787e-16, -8.74228e-08, -1, 2.08165e-12, 5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_vcosm")
+
+[node name="Back" type="MeshInstance3D" parent="Rooms/CAM8"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2.5, -2)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="Front" type="MeshInstance3D" parent="Rooms/CAM8"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.5, 2)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="Right" type="MeshInstance3D" parent="Rooms/CAM8"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, -1.5246e-23, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2, 2.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="Left" type="MeshInstance3D" parent="Rooms/CAM8"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -2, 2.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="CAM9" type="Node3D" parent="Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 10)
+
+[node name="Floor" type="MeshInstance3D" parent="Rooms/CAM9"]
+mesh = SubResource("PlaneMesh_vcosm")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM9"]
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, 8.74228e-08, -3.48787e-16, -8.74228e-08, -1, 2.08165e-12, 5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_vcosm")
+
+[node name="Back" type="MeshInstance3D" parent="Rooms/CAM9"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2.5, -2)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="Front" type="MeshInstance3D" parent="Rooms/CAM9"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.5, 2)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="Right" type="MeshInstance3D" parent="Rooms/CAM9"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, -1.5246e-23, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2, 2.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_yhvp3")
+
+[node name="Left" type="MeshInstance3D" parent="Rooms/CAM9"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -2, 2.5, 2.08165e-12)
+mesh = SubResource("PlaneMesh_yhvp3")
+
 [node name="Cameras" type="Node3D" parent="." node_paths=PackedStringArray("main")]
 script = ExtResource("2_05f7s")
 main = NodePath("..")
@@ -516,6 +648,18 @@ transform = Transform3D(-0.5, -0.365998, 0.784885, 3.16108e-16, 0.906308, 0.4226
 
 [node name="CAM5C" type="Camera3D" parent="Cameras"]
 transform = Transform3D(-4.37114e-08, 0.422618, -0.906308, 3.16108e-16, 0.906308, 0.422618, 1, 1.84732e-08, -3.9616e-08, 27, 2.5, 20)
+
+[node name="CAM6" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, -4.3906e-16, 3.36902e-16, 3.36902e-16, 0.965926, 0.258819, -4.3906e-16, -0.258819, 0.965926, 40, 1.75, 2.5)
+
+[node name="CAM7" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, -4.3906e-16, 3.36902e-16, 3.36902e-16, 0.965926, 0.258819, -4.3906e-16, -0.258819, 0.965926, 40, 1.75, 12.5)
+
+[node name="CAM8" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.965926, 0.0669873, -0.25, 3.36902e-16, 0.965926, 0.258819, 0.258819, -0.25, 0.933013, 48.5, 3, 2)
+
+[node name="CAM9" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.965926, -0.0669873, 0.25, 3.36902e-16, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 51.5, 3, 12)
 
 [node name="Animatronics" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
