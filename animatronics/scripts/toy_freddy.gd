@@ -4,16 +4,16 @@ This Script Will Control Toy Freddy Behavior
 extends Animatronic
 
 @export_range(0, 20) var AI_LEVEL: int = 20
-var hasMoved: bool = true
+var hasMoved: bool = false
 
 func handleStage() -> void:
 	match currentStage:
 		Stage.ZERO, Stage.ONE:
 			var curTime = GameState.globalTimer
 			curTime = round(curTime * 10) / 10
-
+			
 			# NOT Movement Opportunity (10.0, 20.0, 30.0, etc)
-			if int(curTime) % 10 != 0 || curTime - int(curTime) != 0:
+			if int(curTime) % 1 != 0 || curTime - int(curTime) != 0:
 				hasMoved = false # Resetting Boolean
 				return
 
@@ -27,6 +27,7 @@ func handleStage() -> void:
 
 			# Move
 			print("move")
+			moveToStageMarker()
 
 			# Progressing Stage
 			@warning_ignore("int_as_enum_without_cast")

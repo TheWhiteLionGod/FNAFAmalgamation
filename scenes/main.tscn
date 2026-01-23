@@ -19,7 +19,6 @@ sky_material = SubResource("ProceduralSkyMaterial_h4w2e")
 
 [sub_resource type="Environment" id="Environment_e8or6"]
 background_mode = 2
-background_energy_multiplier = 0.5
 sky = SubResource("Sky_rl326")
 tonemap_mode = 2
 glow_enabled = true
@@ -292,6 +291,10 @@ mesh = SubResource("BoxMesh_8vmtj")
 transform = Transform3D(0.819624, 0, 0, 0, 1, 0, 0, 0, 1, 1.70617e-12, 1.25, 2.08165e-12)
 mesh = SubResource("BoxMesh_1eoh8")
 
+[node name="ToyFreddy1" type="Marker3D" parent="Rooms/Office/Window" groups=["toy_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1)
+metadata/anim = ""
+
 [node name="Backwall" type="MeshInstance3D" parent="Rooms/Office"]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 3.75, -3)
 mesh = SubResource("BoxMesh_cv5ao")
@@ -527,4 +530,5 @@ config = SubResource("Resource_vqoho")
 player = NodePath("../../Player")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 363.135, -1)
+AI_LEVEL = null
