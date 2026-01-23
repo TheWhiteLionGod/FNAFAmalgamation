@@ -49,7 +49,7 @@ func moveToStageMarker():
 	if currentStage > len(markers) - 1:
 		return
 
-	visible = true
+	visible = true	
 	global_transform = markers[currentStage].global_transform
 
 func playerKilled():
