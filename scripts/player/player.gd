@@ -123,12 +123,11 @@ func _ready():
 	GameState.shakeScreen.connect(cameraShake)
 
 func _process(delta):
-	if playerKilled: return
-
-	if GameState.playerActions["cameras"]:
-		$"Flashlight".global_transform = GameState.curCamNode.global_transform
-	else:
-		$"Flashlight".global_transform = global_transform
+	if not playerKilled:
+		if GameState.playerActions["cameras"]:
+			$"Flashlight".global_transform = GameState.curCamNode.global_transform
+		else:
+			$"Flashlight".global_transform = global_transform
 	
 	# Shake Screen
 	if trauma > 0:
