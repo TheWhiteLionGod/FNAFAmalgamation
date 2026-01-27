@@ -4,16 +4,21 @@ Abstract Class to Handle Animatronic Behavior
 extends Skeleton3D
 class_name Animatronic
 
-enum Stage {
-	ZERO, ONE, KILL
-}
+@onready var player: Node3D = get_tree().current_scene.get_node("Player")
 
-var currentStage: Stage = Stage.ZERO
+# Instance Variables
+var stages: int # Including Kill Stage
+
+var currentStage: int = 0
 var killed: bool = false
 
 # Making Animatronics Class Abstract
-func _init() -> void:
+@warning_ignore("SHADOWED_VARIABLE")
+func _init(stages: int = 3) -> void:
+	self.stages = stages
+	print(self.stages)
 	visible = false
+
 	assert(get_script() != preload("res://animatronics/scripts/animatronics.gd"), 
 	"Animatronic Class is abstract and cannot be instantiated.")
 
@@ -30,9 +35,12 @@ func handleStage() -> void:
 
 # 	main.add_child(clone)
 
+## Kill Stage
+func kill() -> int:
+	return stages - 1
+
 ## Get all markers that are representing the move coordinates in an ordered array
 func getMarkers() -> Array[Node]:
-	print(get_script().get_path().get_file().replace(".gd", ""))
 	var animatronicID: String = get_script().get_path().get_file().replace(".gd", "")
 
 	var markers: Array = get_tree().get_nodes_in_group(animatronicID)
@@ -49,15 +57,20 @@ func moveToStageMarker():
 	if currentStage > len(markers) - 1:
 		return
 
+	var marker: Marker3D = markers[currentStage]
+
 	visible = true	
-	global_transform = markers[currentStage].global_transform
+	global_transform = marker.global_transform
+
+	if !marker.get_meta("anim").is_empty():
+		$"AnimationPlayer".play(marker.get_meta("anim"))
 
 func playerKilled():
 	GameState.playerKilled.emit()
 	killed = true
 
 ## Jumpscare
-func jumpscare(player: Node3D, intensity: float = 1, decayRate: float = 0.8, jumpscarePosOffset: Vector3 = Vector3.ZERO):
+func jumpscare(intensity: float = 1, decayRate: float = 0.8, jumpscarePosOffset: Vector3 = Vector3.ZERO):
 	if GameState.playerActions["cameras"]:
 		GameState.closeCamera.emit()
 	
@@ -68,7 +81,7 @@ func jumpscare(player: Node3D, intensity: float = 1, decayRate: float = 0.8, jum
 	$"AnimationPlayer".play("jumpscare")
 	
 func _ready() -> void:
-	currentStage = Stage.ZERO
+	currentStage = 0
 
 func _process(_delta: float) -> void:
 	if killed: return

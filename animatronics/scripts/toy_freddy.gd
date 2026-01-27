@@ -6,9 +6,14 @@ extends Animatronic
 @export_range(0, 20) var AI_LEVEL: int = 20
 var hasMoved: bool = false
 
+@onready var killStage: int = kill()
+
+func _init():
+	super(3)
+
 func handleStage() -> void:
 	match currentStage:
-		Stage.ZERO, Stage.ONE:
+		0, 1:
 			var curTime = GameState.globalTimer
 			curTime = round(curTime * 10) / 10
 			
@@ -33,12 +38,12 @@ func handleStage() -> void:
 			@warning_ignore("int_as_enum_without_cast")
 			currentStage += 1
 
-		Stage.KILL:
+		killStage:
 			# TODO: Write Blackout Code
 			pass
 		
 		_:
 			print(
 				"Invalid Stage Reached for Toy Freddy Animatronic: " + 
-				Stage.keys()[currentStage]
+				str(currentStage)
 				)
