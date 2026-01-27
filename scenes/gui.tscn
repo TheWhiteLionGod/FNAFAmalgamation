@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0jleoc11s5o1"]
+[gd_scene load_steps=14 format=3 uid="uid://b0jleoc11s5o1"]
 
 [ext_resource type="Script" path="res://scripts/player/cam_btn.gd" id="1_jg77a"]
 [ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="2_0sul2"]
 [ext_resource type="Script" path="res://scripts/player/timer.gd" id="2_6miqm"]
 [ext_resource type="Shader" path="res://shaders/camera_open.gdshader" id="2_qc5hu"]
+[ext_resource type="Script" path="res://scripts/movement_btn.gd" id="5_4edql"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eww4y"]
 bg_color = Color(1, 1, 1, 0)
@@ -322,6 +323,59 @@ text = "0:00.0"
 label_settings = SubResource("LabelSettings_b4nho")
 horizontal_alignment = 2
 
+[node name="Movement" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("5_4edql")
+
+[node name="Buttons" type="HBoxContainer" parent="Movement"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Left" type="Button" parent="Movement/Buttons"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Vertical" type="VBoxContainer" parent="Movement/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Top" type="Button" parent="Movement/Buttons/Vertical"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Bottom" type="HBoxContainer" parent="Movement/Buttons/Vertical"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Mask" type="Button" parent="Movement/Buttons/Vertical/Bottom"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cam" type="Button" parent="Movement/Buttons/Vertical/Bottom"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Button" parent="Movement/Buttons"]
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 8
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4y2lm")
@@ -338,3 +392,8 @@ libraries = {
 [connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button4" to="Cams" method="changeCamera" binds= ["CAM4"]]
 [connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button1" to="Cams" method="changeCamera" binds= ["CAM1"]]
 [connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button2" to="Cams" method="changeCamera" binds= ["CAM2"]]
+[connection signal="mouse_entered" from="Movement/Buttons/Left" to="Movement" method="_turn_left"]
+[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Top" to="Movement" method="_look_up"]
+[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Bottom/Mask" to="Movement" method="_mask_btn"]
+[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Bottom/Cam" to="Movement" method="_cam_btn"]
+[connection signal="mouse_entered" from="Movement/Buttons/Right" to="Movement" method="_turn_right"]
