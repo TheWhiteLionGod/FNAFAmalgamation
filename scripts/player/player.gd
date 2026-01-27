@@ -14,36 +14,22 @@ extends Node3D
 
 var adjustingLeftDoor: bool = false
 var adjustingRightDoor: bool = false
-var adjustingMask: bool = false
 var playerKilled: bool = false
 
 var doorDebounceExtraOffset: float = 0.35
-
-@onready var equipMaskAnimation: Animation = $"AnimationPlayer".get_animation("equip_mask")
-@onready var unequipMaskAnimation: Animation = $"AnimationPlayer".get_animation("unequip_mask")
 
 func _input(event: InputEvent) -> void:
 	if playerKilled: return
 
 	if event.is_action_pressed("mask") and !GameState.playerActions["cameras"]:
-		if adjustingMask:
+		if $"Mask".adjustingMask:
 			return
-		adjustingMask = true
 
 		GameState.playerActions["mask"] = !GameState.playerActions["mask"]
-
-		if GameState.playerActions["mask"]:
-			$"Mask".visible = true
-			$"AnimationPlayer".play("equip_mask")
-
-			await get_tree().create_timer(equipMaskAnimation.length).timeout
-			adjustingMask = false
-		else:
-			$"AnimationPlayer".play("unequip_mask")
-
-			await get_tree().create_timer(unequipMaskAnimation.length).timeout
-			adjustingMask = false
-			$"Mask".visible = false
+		if GameState.playerActions["mask"]: 
+			GameState.maskOn.emit()
+		else: 
+			GameState.maskOff.emit()
 
 	elif GameState.playerActions["mask"]:
 		return # Player can't do anything with mask on
