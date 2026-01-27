@@ -214,7 +214,7 @@ size = Vector2(4, 5)
 script = ExtResource("6_b4p5w")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
-totalUnits = 80
+totalUnits = 2000
 
 [node name="Main" type="Node3D"]
 

@@ -24,6 +24,8 @@ var curCamNode: Camera3D
 signal openCamera()
 signal closeCamera()
 signal switchCamera()
+signal maskOn()
+signal maskOff()
 signal musicBoxEmpty()
 signal playerKilled()
 signal shakeScreen(intensity: float, decay_rate)

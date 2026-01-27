@@ -21,12 +21,17 @@ func _look_up() -> void:
 	pass # Replace with function body.
 
 func _mask_btn() -> void:
-	print("Mask")
-	pass # Replace with function body.
+	GameState.playerActions["mask"] = !GameState.playerActions["mask"]
+	if GameState.playerActions["mask"]: 
+		GameState.maskOn.emit()
+	else: 
+		GameState.maskOff.emit()
 
 func _cam_btn() -> void:
 	if playerKilled: return
 
 	GameState.playerActions["cameras"]  = !GameState.playerActions["cameras"]
-	if GameState.playerActions["cameras"]: GameState.openCamera.emit()
-	else: GameState.closeCamera.emit()
+	if GameState.playerActions["cameras"]: 
+		GameState.openCamera.emit()
+	else: 
+		GameState.closeCamera.emit()
