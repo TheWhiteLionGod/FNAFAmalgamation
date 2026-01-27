@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="2_0sul2"]
 [ext_resource type="Script" path="res://scripts/player/timer.gd" id="2_6miqm"]
 [ext_resource type="Shader" path="res://shaders/camera_open.gdshader" id="2_qc5hu"]
-[ext_resource type="Script" path="res://scripts/movement_btn.gd" id="5_4edql"]
+[ext_resource type="Script" path="res://scripts/player/movement_btn.gd" id="5_pohxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eww4y"]
 bg_color = Color(1, 1, 1, 0)
@@ -333,7 +333,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
-script = ExtResource("5_4edql")
+script = ExtResource("5_pohxx")
 
 [node name="Buttons" type="HBoxContainer" parent="Movement"]
 layout_mode = 2

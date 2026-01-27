@@ -1,5 +1,13 @@
 extends MarginContainer
 
+var playerKilled: bool = false
+
+func _ready() -> void:
+	GameState.playerKilled.connect(killPlayer)
+
+func killPlayer() -> void:
+	playerKilled = true
+
 func _turn_left() -> void:
 	print("Turn Left")
 	pass # Replace with function body.
@@ -17,5 +25,8 @@ func _mask_btn() -> void:
 	pass # Replace with function body.
 
 func _cam_btn() -> void:
-	print("Camera")
-	pass # Replace with function body.
+	if playerKilled: return
+
+	GameState.playerActions["cameras"]  = !GameState.playerActions["cameras"]
+	if GameState.playerActions["cameras"]: GameState.openCamera.emit()
+	else: GameState.closeCamera.emit()
