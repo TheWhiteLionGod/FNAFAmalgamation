@@ -107,6 +107,7 @@ func _ready():
 	playerKilled = false
 	GameState.playerKilled.connect(endGame)
 	GameState.shakeScreen.connect(cameraShake)
+	GameState.playerNode = self
 
 func _process(delta):
 	if not playerKilled:

@@ -20,6 +20,7 @@ var playerActions: Dictionary = {
 var globalTimer: float = 0.0
 var activeCamera: Camera = Camera.CAM1
 var curCamNode: Camera3D
+var playerNode: Node3D
 
 signal openCamera()
 signal closeCamera()

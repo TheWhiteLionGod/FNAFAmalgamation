@@ -9,18 +9,22 @@ func killPlayer() -> void:
 	playerKilled = true
 
 func _turn_left() -> void:
+	if playerKilled: return
 	print("Turn Left")
-	pass # Replace with function body.
 
 func _turn_right() -> void:
+	if playerKilled: return
 	print("Turn Right")
-	pass # Replace with function body.
 
 func _look_up() -> void:
+	if playerKilled: return
 	print("Look Up")
-	pass # Replace with function body.
 
 func _mask_btn() -> void:
+	if playerKilled: return
+	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerActions["cameras"]:
+		return
+
 	GameState.playerActions["mask"] = !GameState.playerActions["mask"]
 	if GameState.playerActions["mask"]: 
 		GameState.maskOn.emit()
@@ -29,6 +33,8 @@ func _mask_btn() -> void:
 
 func _cam_btn() -> void:
 	if playerKilled: return
+	if GameState.playerActions["mask"]:
+		return
 
 	GameState.playerActions["cameras"]  = !GameState.playerActions["cameras"]
 	if GameState.playerActions["cameras"]: 

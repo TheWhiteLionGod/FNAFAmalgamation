@@ -73,6 +73,8 @@ func playerKilled():
 func jumpscare(intensity: float = 1, decayRate: float = 0.8, jumpscarePosOffset: Vector3 = Vector3.ZERO):
 	if GameState.playerActions["cameras"]:
 		GameState.closeCamera.emit()
+	if GameState.playerActions["mask"]:
+		GameState.maskOff.emit()
 	
 	# Shake Screen
 	GameState.shakeScreen.emit(intensity, decayRate)
