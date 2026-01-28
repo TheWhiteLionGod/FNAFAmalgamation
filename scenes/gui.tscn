@@ -155,6 +155,78 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Timer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 88.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+script = ExtResource("2_6miqm")
+
+[node name="Time" type="Label" parent="Timer"]
+layout_mode = 2
+text = "0:00.0"
+label_settings = SubResource("LabelSettings_b4nho")
+horizontal_alignment = 2
+
+[node name="Movement" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("5_pohxx")
+
+[node name="Buttons" type="HBoxContainer" parent="Movement"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Left" type="Button" parent="Movement/Buttons"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Vertical" type="VBoxContainer" parent="Movement/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Top" type="Button" parent="Movement/Buttons/Vertical"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Bottom" type="HBoxContainer" parent="Movement/Buttons/Vertical"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Mask" type="Button" parent="Movement/Buttons/Vertical/Bottom"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cam" type="Button" parent="Movement/Buttons/Vertical/Bottom"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Button" parent="Movement/Buttons"]
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 8
+
 [node name="Cams" type="MarginContainer" parent="."]
 visible = false
 anchors_preset = 3
@@ -304,83 +376,16 @@ text = "2"
 layout_mode = 2
 theme_override_constants/margin_bottom = 10
 
-[node name="Timer" type="MarginContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -120.0
-offset_bottom = 88.0
-grow_horizontal = 0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 25
-script = ExtResource("2_6miqm")
-
-[node name="Time" type="Label" parent="Timer"]
-layout_mode = 2
-text = "0:00.0"
-label_settings = SubResource("LabelSettings_b4nho")
-horizontal_alignment = 2
-
-[node name="Movement" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-script = ExtResource("5_pohxx")
-
-[node name="Buttons" type="HBoxContainer" parent="Movement"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Left" type="Button" parent="Movement/Buttons"]
-clip_contents = true
-custom_minimum_size = Vector2(50, 2.08165e-12)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Vertical" type="VBoxContainer" parent="Movement/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Top" type="Button" parent="Movement/Buttons/Vertical"]
-custom_minimum_size = Vector2(2.08165e-12, 50)
-layout_mode = 2
-size_flags_vertical = 2
-
-[node name="Bottom" type="HBoxContainer" parent="Movement/Buttons/Vertical"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Mask" type="Button" parent="Movement/Buttons/Vertical/Bottom"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Cam" type="Button" parent="Movement/Buttons/Vertical/Bottom"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Right" type="Button" parent="Movement/Buttons"]
-custom_minimum_size = Vector2(50, 2.08165e-12)
-layout_mode = 2
-size_flags_horizontal = 8
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4y2lm")
 }
 
+[connection signal="mouse_entered" from="Movement/Buttons/Left" to="Movement" method="_turn_left"]
+[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Top" to="Movement" method="_look_up"]
+[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Bottom/Mask" to="Movement" method="_mask_btn"]
+[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Bottom/Cam" to="Movement" method="_cam_btn"]
+[connection signal="mouse_entered" from="Movement/Buttons/Right" to="Movement" method="_turn_right"]
 [connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Electrocute/Button8" to="Cams" method="changeCamera" binds= ["CAM8"]]
 [connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Electrocute/Button9" to="Cams" method="changeCamera" binds= ["CAM9"]]
 [connection signal="pressed" from="Cams/Cams/Top Cams/HBoxContainer/Show Stage/Button6" to="Cams" method="changeCamera" binds= ["CAM6"]]
@@ -392,8 +397,3 @@ libraries = {
 [connection signal="pressed" from="Cams/Cams/Office Cams/Vent Cams/Button4" to="Cams" method="changeCamera" binds= ["CAM4"]]
 [connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button1" to="Cams" method="changeCamera" binds= ["CAM1"]]
 [connection signal="pressed" from="Cams/Cams/Office Cams/Door Cams/Button2" to="Cams" method="changeCamera" binds= ["CAM2"]]
-[connection signal="mouse_entered" from="Movement/Buttons/Left" to="Movement" method="_turn_left"]
-[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Top" to="Movement" method="_look_up"]
-[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Bottom/Mask" to="Movement" method="_mask_btn"]
-[connection signal="mouse_entered" from="Movement/Buttons/Vertical/Bottom/Cam" to="Movement" method="_cam_btn"]
-[connection signal="mouse_entered" from="Movement/Buttons/Right" to="Movement" method="_turn_right"]

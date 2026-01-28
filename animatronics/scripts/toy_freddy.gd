@@ -6,7 +6,7 @@ extends Animatronic
 @export_range(0, 20) var AI_LEVEL: int = 20
 var hasMoved: bool = false
 
-@onready var killStage: int = kill()
+@onready var killStage: int = getKillStage()
 
 func _init():
 	super(3)
@@ -18,7 +18,7 @@ func handleStage() -> void:
 			curTime = round(curTime * 10) / 10
 			
 			# NOT Movement Opportunity (10.0, 20.0, 30.0, etc)
-			if int(curTime) % 1 != 0 || curTime - int(curTime) != 0:
+			if int(curTime) % 2 != 0 || curTime - int(curTime) != 0:
 				hasMoved = false # Resetting Boolean
 				return
 
@@ -31,12 +31,13 @@ func handleStage() -> void:
 				return; # Failed Movement
 
 			# Move
+			print(currentStage)
 			print("move")
-			moveToStageMarker()
 
 			# Progressing Stage
-			@warning_ignore("int_as_enum_without_cast")
 			currentStage += 1
+			
+			moveToStageMarker()
 
 		killStage:
 			# TODO: Write Blackout Code

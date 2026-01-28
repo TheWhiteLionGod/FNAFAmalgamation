@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_wmppe"]
 [ext_resource type="PackedScene" uid="uid://cjrf7utewjj34" path="res://models/mask.tscn" id="2_ywd37"]
-[ext_resource type="Script" path="res://scripts/player/mask.gd" id="3_q0h3j"]
+[ext_resource type="Script" path="res://scripts/player/mask.gd" id="3_a60cr"]
 
 [sub_resource type="Animation" id="Animation_rermt"]
 length = 0.3
@@ -98,9 +98,9 @@ _data = {
 script = ExtResource("1_wmppe")
 
 [node name="Mask" parent="." instance=ExtResource("2_ywd37")]
-transform = Transform3D(-0.0999083, 0.00425951, -0.000409503, 0.00163844, 0.046919, 0.0882945, 0.00395304, 0.0882071, -0.0469457, 2.08165e-12, -0.5, 2.08165e-12)
+transform = Transform3D(-0.0999083, 0.00425952, -0.000409503, 0.00163844, 0.046919, 0.0882945, 0.00395304, 0.0882072, -0.0469457, 2.08165e-12, -0.5, 2.08165e-12)
 visible = false
-script = ExtResource("3_q0h3j")
+script = ExtResource("3_a60cr")
 
 [node name="Camera" type="Camera3D" parent="."]
 current = true

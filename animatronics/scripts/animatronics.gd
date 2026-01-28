@@ -36,7 +36,7 @@ func handleStage() -> void:
 # 	main.add_child(clone)
 
 ## Kill Stage
-func kill() -> int:
+func getKillStage() -> int:
 	return stages - 1
 
 ## Get all markers that are representing the move coordinates in an ordered array
@@ -82,6 +82,7 @@ func jumpscare(intensity: float = 1, decayRate: float = 0.8, jumpscarePosOffset:
 	
 func _ready() -> void:
 	currentStage = 0
+	moveToStageMarker()
 
 func _process(_delta: float) -> void:
 	if killed: return
