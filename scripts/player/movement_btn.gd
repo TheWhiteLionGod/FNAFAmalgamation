@@ -4,17 +4,34 @@ var playerKilled: bool = false
 
 func _ready() -> void:
 	GameState.playerKilled.connect(killPlayer)
+	GameState.turn.connect(turnPlayer)
 
 func killPlayer() -> void:
 	playerKilled = true
 
+func turnPlayer() -> void:
+	var tween = create_tween()
+	tween.tween_property(
+		GameState.playerNode, 
+		"rotation_degrees",
+		Vector3(
+			GameState.playerNode.rotation_degrees.x, 
+			GameState.playerActions["direction"] * 90, 
+			GameState.playerNode.rotation_degrees.z
+			), 
+		0.25)
+
 func _turn_left() -> void:
 	if playerKilled: return
-	print("Turn Left")
+	
+	GameState.playerActions["direction"] += 1
+	GameState.turn.emit()
 
 func _turn_right() -> void:
 	if playerKilled: return
-	print("Turn Right")
+
+	GameState.playerActions["direction"] -= 1
+	GameState.turn.emit()
 
 func _look_up() -> void:
 	if playerKilled: return
