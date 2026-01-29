@@ -705,4 +705,3 @@ player = NodePath("../../Player")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 363.135, -1)
-AI_LEVEL = null

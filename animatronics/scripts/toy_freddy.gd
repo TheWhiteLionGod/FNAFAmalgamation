@@ -36,7 +36,7 @@ func handleStage() -> void:
 
 			# Progressing Stage
 			currentStage += 1
-			
+
 			moveToStageMarker()
 
 		killStage:
