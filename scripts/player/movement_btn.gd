@@ -10,27 +10,50 @@ func killPlayer() -> void:
 	playerKilled = true
 
 func turnPlayer() -> void:
+	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+		return
+
+	# Turning Left and Right
 	var tween = create_tween()
+	var rotationY: float = lerp_angle(
+		GameState.playerNode.rotation.y, 
+		GameState.playerActions["direction"] * deg_to_rad(90), 
+		1
+	)
+	
 	tween.tween_property(
 		GameState.playerNode, 
-		"rotation_degrees",
+		"rotation",
 		Vector3(
-			GameState.playerNode.rotation_degrees.x, 
-			GameState.playerActions["direction"] * 90, 
-			GameState.playerNode.rotation_degrees.z
+			GameState.playerNode.rotation.x, 
+			rotationY,
+			GameState.playerNode.rotation.z
 			), 
 		0.25)
 
 func _turn_left() -> void:
 	if playerKilled: return
+	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+		return
 	
 	GameState.playerActions["direction"] += 1
+	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+		GameState.playerActions["direction"] += 1
+
+	GameState.playerActions["direction"] %= GameState.Facing.size()
 	GameState.turn.emit()
 
 func _turn_right() -> void:
 	if playerKilled: return
+	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+		return
 
 	GameState.playerActions["direction"] -= 1
+	if GameState.playerActions["direction"] < 0:
+		GameState.playerActions["direction"] += GameState.Facing.size()
+	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+		GameState.playerActions["direction"] -= 1
+	
 	GameState.turn.emit()
 
 func _look_up() -> void:
