@@ -11,31 +11,69 @@ func killPlayer() -> void:
 
 func turnPlayer() -> void:
 	var tween = create_tween()
+	# Turning Up
+	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+		var rotationX: float = lerp_angle(
+			GameState.playerNode.rotation.x, 
+			deg_to_rad(90),
+			1
+		)
+
+		tween.tween_property(
+			GameState.playerNode, 
+			"rotation",
+			Vector3(rotationX, 0, 0), 
+			0.25
+		)
+
+		return
+
+	# Turning Left and Right
+	var rotationY: float = lerp_angle(
+		GameState.playerNode.rotation.y, 
+		GameState.playerActions["direction"] * deg_to_rad(90), 
+		1
+	)
+	
 	tween.tween_property(
 		GameState.playerNode, 
-		"rotation_degrees",
-		Vector3(
-			GameState.playerNode.rotation_degrees.x, 
-			GameState.playerActions["direction"] * 90, 
-			GameState.playerNode.rotation_degrees.z
-			), 
-		0.25)
+		"rotation",
+		Vector3(0, rotationY, 0), 
+		0.25
+	)
 
 func _turn_left() -> void:
 	if playerKilled: return
+	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+		return
 	
 	GameState.playerActions["direction"] += 1
+	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+		GameState.playerActions["direction"] += 1
+
+	GameState.playerActions["direction"] %= GameState.Facing.size()
 	GameState.turn.emit()
 
 func _turn_right() -> void:
 	if playerKilled: return
+	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+		return
 
 	GameState.playerActions["direction"] -= 1
+	if GameState.playerActions["direction"] < 0:
+		GameState.playerActions["direction"] += GameState.Facing.size()
+	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+		GameState.playerActions["direction"] -= 1
+	
 	GameState.turn.emit()
 
 func _look_up() -> void:
 	if playerKilled: return
-	print("Look Up")
+	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+		return
+
+	GameState.playerActions["direction"] = GameState.Facing.TOP_VENT
+	GameState.turn.emit()
 
 func _mask_btn() -> void:
 	if playerKilled: return

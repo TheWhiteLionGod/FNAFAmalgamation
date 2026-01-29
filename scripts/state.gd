@@ -9,7 +9,7 @@ enum Camera {
 }
 
 enum Facing {
-	OFFICE, TABLE, OUTSIDE, MUSIC_BOX
+	OFFICE, TABLE, OUTSIDE, MUSIC_BOX, TOP_VENT
 }
 
 var playerActions: Dictionary = {
