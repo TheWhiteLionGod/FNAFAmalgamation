@@ -30,6 +30,9 @@ func handleStage() -> void:
 			if randi_range(0, 20) > AI_LEVEL:
 				return; # Failed Movement
 
+			GameState.playerActions["direction"] = GameState.Facing.MUSIC_BOX
+			GameState.turn.emit()
+
 			jumpscare(0.8, 1.7, Vector3(0.05, -1.55, -2.4))
 			playerKilled()
 
