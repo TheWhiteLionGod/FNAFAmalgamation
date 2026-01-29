@@ -4,7 +4,7 @@ Abstract Class to Handle Animatronic Behavior
 extends Skeleton3D
 class_name Animatronic
 
-@onready var player: Node3D = get_tree().current_scene.get_node("Player")
+@onready var player: Node3D = GameState.playerNode
 
 # Instance Variables
 var stages: int # Including Kill Stage
