@@ -3,8 +3,8 @@ This Node Will Handle and Change Cameras on Signal
 """
 extends Node3D
 
-const CAMERA_ROTATION_SPEED_PER_SECOND: float = 10 # In Degrees
-const CAMERA_MAX_ROTATION: float = 30 # In Degrees
+const CAMERA_ROTATION_SPEED_PER_SECOND: float = 5 # In Degrees
+const CAMERA_MAX_ROTATION: float = 20 # In Degrees
 
 var rotateSign: int = 1
 
