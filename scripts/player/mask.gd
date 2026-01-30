@@ -11,7 +11,7 @@ func _ready() -> void:
 	GameState.maskOff.connect(takeMaskoff)
 
 func putMaskOn() -> void:
-	if adjustingMask || GameState.playerActions["cameras"]: 
+	if adjustingMask: 
 		return
 
 	adjustingMask = true

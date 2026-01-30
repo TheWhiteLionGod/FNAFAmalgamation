@@ -50,9 +50,6 @@ func changeCamera() -> void:
 	guiAnimationPlayer.play("camera_open")
 
 func openCameras() -> void:
-	if GameState.playerActions["mask"]:
-		return
-
 	cameraGui.show()
 	cameraShaders.show()
 	GameState.curCamNode.current = true

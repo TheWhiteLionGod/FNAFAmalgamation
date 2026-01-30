@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=48 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
@@ -25,14 +25,15 @@ sky = SubResource("Sky_rl326")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxv2n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ihwb"]
 albedo_texture = ExtResource("3_nh7ed")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_eic0o"]
-material = SubResource("StandardMaterial3D_nxv2n")
-size = Vector3(7, 1, 0.25)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxv2n"]
+albedo_texture = ExtResource("3_nh7ed")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_5pkxj"]
 material = SubResource("StandardMaterial3D_nxv2n")
@@ -145,9 +146,13 @@ _data = {
 "open_right_door": SubResource("Animation_ua6cx")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_eic0o"]
+material = SubResource("StandardMaterial3D_nxv2n")
+size = Vector3(7, 2, 0.25)
+
 [sub_resource type="BoxMesh" id="BoxMesh_2khhk"]
 material = SubResource("StandardMaterial3D_nxv2n")
-size = Vector3(7, 1, 0.25)
+size = Vector3(7, 2, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8vmtj"]
 material = SubResource("StandardMaterial3D_nxv2n")
@@ -251,9 +256,15 @@ metadata/anim = ""
 [node name="LeftWall" type="Node3D" parent="Rooms/Office"]
 transform = Transform3D(-3.08195e-08, 3.48787e-16, 1, 2.45918e-16, 1, -3.48787e-16, -0.705068, 3.48787e-16, -4.37114e-08, -2.9843, 0, 0.88487)
 
-[node name="Top" type="MeshInstance3D" parent="Rooms/Office/LeftWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-mesh = SubResource("BoxMesh_eic0o")
+[node name="Top" type="CSGBox3D" parent="Rooms/Office/LeftWall"]
+transform = Transform3D(1, 1.14112e-23, -1.16579e-15, 6.14845e-24, 1, -1.52459e-23, -1.56992e-15, -1.5246e-23, 1, 0, 3, 0)
+material_override = SubResource("StandardMaterial3D_0ihwb")
+size = Vector3(7, 2, 0.25)
+
+[node name="VentCutOut" type="CSGBox3D" parent="Rooms/Office/LeftWall/Top"]
+transform = Transform3D(1, 1.14112e-23, -1.16579e-15, 6.14845e-24, 1, -6.81855e-23, -1.56992e-15, -4.17157e-23, 1, 0, 0, -0.5)
+operation = 2
+size = Vector3(1, 0.75, 2)
 
 [node name="Left" type="MeshInstance3D" parent="Rooms/Office/LeftWall"]
 transform = Transform3D(1, 0, -1.83805e-08, 0, 1.49918, 0, -4.15043e-09, 0, 1, -2.125, 0.979, 2.08165e-12)
@@ -277,7 +288,7 @@ libraries = {
 transform = Transform3D(-3.08195e-08, -3.48787e-16, -1, 2.45918e-16, 1, -3.48787e-16, 0.705067, -3.48787e-16, -4.37114e-08, 2.99461, 0, 0.88487)
 
 [node name="Top" type="MeshInstance3D" parent="Rooms/Office/RightWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 3, 2.08165e-12)
 mesh = SubResource("BoxMesh_eic0o")
 
 [node name="Left" type="MeshInstance3D" parent="Rooms/Office/RightWall"]
@@ -307,7 +318,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1)
 metadata/anim = ""
 
 [node name="Top" type="MeshInstance3D" parent="Rooms/Office/Window"]
-transform = Transform3D(0.819624, 0, 0, 0, 1, 0, 0, 0, 1, 1.70617e-12, 2.5, 2.08165e-12)
+transform = Transform3D(0.819624, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 3, 2.08165e-12)
 mesh = SubResource("BoxMesh_2khhk")
 
 [node name="Bottom" type="MeshInstance3D" parent="Rooms/Office/Window"]
@@ -318,7 +329,7 @@ mesh = SubResource("BoxMesh_2khhk")
 transform = Transform3D(0.819624, 0, 0, 0, 1, 0, 0, 0, 1, -2.66378, 1.25, 2.08165e-12)
 mesh = SubResource("BoxMesh_8vmtj")
 
-[node name="Left2" type="MeshInstance3D" parent="Rooms/Office/Window"]
+[node name="Right" type="MeshInstance3D" parent="Rooms/Office/Window"]
 transform = Transform3D(0.819624, 0, 0, 0, 1, 0, 0, 0, 1, 2.66378, 1.25, 2.08165e-12)
 mesh = SubResource("BoxMesh_8vmtj")
 
@@ -396,7 +407,7 @@ transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-
 mesh = SubResource("PlaneMesh_gled1")
 
 [node name="CAM3" type="Node3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.433, 2.5, 0.9)
 
 [node name="Markers" type="Node3D" parent="Rooms/CAM3"]
 
@@ -680,7 +691,7 @@ transform = Transform3D(0.906307, -0.144544, 0.397131, 3.27752e-16, 0.939693, 0.
 transform = Transform3D(0.906307, 0.144544, -0.397131, 3.27752e-16, 0.939693, 0.34202, 0.422618, -0.309976, 0.851651, 19.5, 1.5, 2)
 
 [node name="CAM3" type="Camera3D" parent="Cameras"]
-transform = Transform3D(-0.34202, 4.47045e-16, 0.939693, 3.48787e-16, 1, -3.48787e-16, -0.939693, 2.0846e-16, -0.34202, 16.25, 0.5, 9.75)
+transform = Transform3D(-0.34202, 4.47045e-16, 0.939693, 3.48787e-16, 1, -3.48787e-16, -0.939693, 2.0846e-16, -0.34202, -3, 3, 0.75)
 
 [node name="CAM4" type="Camera3D" parent="Cameras"]
 transform = Transform3D(-0.5, -1.27665e-16, -0.866025, 3.48787e-16, 1, -3.48787e-16, 0.866025, -4.76452e-16, -0.5, 18.75, 0.5, 9.75)
