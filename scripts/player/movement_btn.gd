@@ -154,11 +154,6 @@ func _look_up() -> void:
 func _mask_btn() -> void:
 	if playerKilled: return
 
-	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
-		GameState.playerActions["direction"] = GameState.Facing.OFFICE
-		GameState.turn.emit()
-		return
-
 	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerActions["cameras"]:
 		return
 
