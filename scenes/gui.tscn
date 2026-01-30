@@ -224,20 +224,19 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Cams" type="MarginContainer" parent="."]
-visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -450.0
-offset_top = -469.0
+offset_left = -512.0
+offset_top = -445.0
+offset_right = -62.0056
+offset_bottom = -76.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 50
 script = ExtResource("1_jg77a")
 
 [node name="Cams" type="VBoxContainer" parent="Cams"]
