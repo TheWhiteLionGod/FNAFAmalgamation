@@ -10,7 +10,6 @@ class_name Animatronic
 var stages: int # Including Kill Stage
 
 var currentStage: int = 0
-var killed: bool = false
 
 # Making Animatronics Class Abstract
 @warning_ignore("SHADOWED_VARIABLE")
@@ -67,7 +66,6 @@ func moveToStageMarker():
 
 func playerKilled():
 	GameState.playerKilled.emit()
-	killed = true
 
 ## Jumpscare
 func jumpscare(intensity: float = 1, decayRate: float = 0.8, jumpscarePosOffset: Vector3 = Vector3.ZERO):
@@ -87,5 +85,7 @@ func _ready() -> void:
 	moveToStageMarker()
 
 func _process(_delta: float) -> void:
-	if killed: return
+	if GameState.playerDead: 
+		return
+	
 	handleStage()

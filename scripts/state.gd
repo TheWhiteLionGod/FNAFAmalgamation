@@ -27,6 +27,7 @@ var globalTimer: float = 0.0
 var activeCamera: Camera = Camera.CAM1
 var curCamNode: Camera3D
 var playerNode: Node3D
+var playerDead: bool = false
 
 signal openCamera()
 signal closeCamera()
@@ -43,7 +44,11 @@ signal blackoutEnd()
 func _ready() -> void:
 	globalTimer = 0
 	activeCamera = Camera.CAM1
+	playerKilled.connect(killPlayer)
 
 ## Wait for x seconds
 func wait(duration: float):
 	await get_tree().create_timer(duration).timeout
+
+func killPlayer() -> void:
+	playerDead = true

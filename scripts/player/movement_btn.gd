@@ -8,10 +8,8 @@ extends MarginContainer
 
 const visibleColor: Color = Color(1, 1, 1, 1)
 const invisibleColor: Color = Color(1, 1, 1, 0)
-var playerKilled: bool = false
 
 func _ready() -> void:
-	GameState.playerKilled.connect(killPlayer)
 	GameState.turn.connect(turnPlayer)
 
 func makeInvisible(btn: Button) -> void:
@@ -82,9 +80,6 @@ func _process(_delta: float) -> void:
 		print("Invalid State")
 		pass
 
-func killPlayer() -> void:
-	playerKilled = true
-
 func turnPlayer() -> void:
 	var tween = create_tween()
 	# Turning Up
@@ -119,7 +114,7 @@ func turnPlayer() -> void:
 	)
 
 func _turn_left() -> void:
-	if playerKilled: return
+	if GameState.playerDead: return
 	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
 		return
 	
@@ -131,7 +126,7 @@ func _turn_left() -> void:
 	GameState.turn.emit()
 
 func _turn_right() -> void:
-	if playerKilled: return
+	if GameState.playerDead: return
 	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
 		return
 
@@ -144,7 +139,7 @@ func _turn_right() -> void:
 	GameState.turn.emit()
 
 func _look_up() -> void:
-	if playerKilled: return
+	if GameState.playerDead: return
 	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
 		return
 
@@ -152,7 +147,7 @@ func _look_up() -> void:
 	GameState.turn.emit()
 
 func _mask_btn() -> void:
-	if playerKilled: return
+	if GameState.playerDead: return
 
 	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerActions["cameras"]:
 		return
@@ -164,7 +159,7 @@ func _mask_btn() -> void:
 		GameState.maskOff.emit()
 
 func _cam_btn() -> void:
-	if playerKilled: return
+	if GameState.playerDead: return
 	
 	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
 		GameState.playerActions["direction"] = GameState.Facing.OFFICE
