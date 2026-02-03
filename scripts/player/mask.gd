@@ -18,7 +18,8 @@ func putMaskOn() -> void:
 	visible = true
 	maskAnimationPlayer.play("equip_mask")
 
-	await get_tree().create_timer(equipMaskAnimation.length).timeout
+	await maskAnimationPlayer.animation_finished
+
 	adjustingMask = false
 
 func takeMaskoff() -> void:
@@ -27,6 +28,7 @@ func takeMaskoff() -> void:
 	adjustingMask = true
 	maskAnimationPlayer.play("unequip_mask")
 	
-	await get_tree().create_timer(unequipMaskAnimation.length).timeout
+	await maskAnimationPlayer.animation_finished
+	
 	visible = false
 	adjustingMask = false

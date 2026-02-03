@@ -36,7 +36,12 @@ signal turn()
 signal musicBoxEmpty()
 signal playerKilled()
 signal shakeScreen(intensity: float, decay_rate)
+signal blackout(duration: float)
 
 func _ready() -> void:
 	globalTimer = 0
 	activeCamera = Camera.CAM1
+
+## Wait for x seconds
+func wait(duration: float):
+	await get_tree().create_timer(duration).timeout

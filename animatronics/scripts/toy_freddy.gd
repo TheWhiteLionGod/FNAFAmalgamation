@@ -6,6 +6,8 @@ extends Animatronic
 @export_range(0, 20) var AI_LEVEL: int = 20
 var hasMoved: bool = false
 
+
+
 @onready var killStage: int = getKillStage()
 
 func _init():
@@ -40,8 +42,9 @@ func handleStage() -> void:
 			moveToStageMarker()
 
 		killStage:
-			# TODO: Write Blackout Code
-			pass
+			GameState.blackout.emit(5)
+
+			
 		
 		_:
 			print(

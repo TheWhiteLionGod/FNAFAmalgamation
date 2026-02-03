@@ -5,7 +5,6 @@ extends Node3D
 @onready var leftDoorAnimations: AnimationPlayer = main.get_node("Rooms").get_node("Office").get_node("LeftWall").get_node("LeftDoorAnimation")
 @onready var rightDoorAnimations: AnimationPlayer = main.get_node("Rooms").get_node("Office").get_node("RightWall").get_node("RightDoorAnimation")
 
-
 @onready var leftDoorCloseAnimation: Animation = leftDoorAnimations.get_animation("close_left_door")
 @onready var leftDoorOpenAnimation: Animation = leftDoorAnimations.get_animation("open_left_door")
 
@@ -17,6 +16,9 @@ var adjustingRightDoor: bool = false
 var playerKilled: bool = false
 
 var doorDebounceExtraOffset: float = 0.35
+
+@onready var environment: Environment = main.get_node("WorldEnvironment").environment
+@onready var bufferEnergy: float = environment.background_energy_multiplier
 
 func _input(event: InputEvent) -> void:
 	if playerKilled: return
@@ -51,12 +53,12 @@ func _input(event: InputEvent) -> void:
 		if GameState.playerActions["left_door"]:
 			leftDoorAnimations.play("close_left_door")
 
-			await get_tree().create_timer(leftDoorCloseAnimation.length + doorDebounceExtraOffset).timeout
+			await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
 			adjustingLeftDoor = false
 		else:
 			leftDoorAnimations.play("open_left_door")
 
-			await get_tree().create_timer(leftDoorOpenAnimation.length + doorDebounceExtraOffset).timeout
+			await GameState.wait(leftDoorOpenAnimation.length + doorDebounceExtraOffset)
 			adjustingLeftDoor = false
 	
 	elif event.is_action_pressed("right_door"):
@@ -69,12 +71,12 @@ func _input(event: InputEvent) -> void:
 		if GameState.playerActions["right_door"]:
 			rightDoorAnimations.play("close_right_door")
 
-			await get_tree().create_timer(rightDoorCloseAnimation.length + doorDebounceExtraOffset).timeout
+			await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
 			adjustingRightDoor = false
 		else:
 			rightDoorAnimations.play("open_right_door")
 
-			await get_tree().create_timer(rightDoorOpenAnimation.length + doorDebounceExtraOffset).timeout
+			await GameState.wait(rightDoorOpenAnimation.length + doorDebounceExtraOffset)
 			adjustingRightDoor = false
 	
 	elif event.is_action_pressed("cameras"):
@@ -100,6 +102,9 @@ var noise_speed := 50.0    # Speed of the noise sampling
 var time_passed := 0.0
 var noise = FastNoiseLite.new()
 
+# Blackout Parameters
+var isBlackout := false
+
 func _ready():
 	noise.seed = randi()
 	noise.frequency = 0.5
@@ -107,6 +112,7 @@ func _ready():
 	playerKilled = false
 	GameState.playerKilled.connect(endGame)
 	GameState.shakeScreen.connect(cameraShake)
+	GameState.blackout.connect(blackout)
 	GameState.playerNode = self
 
 func _process(delta):
@@ -136,10 +142,26 @@ func _process(delta):
 		camera.h_offset = 0
 		camera.v_offset = 0
 		camera.rotation.z = 0
+	
+	# Blackout
+	if isBlackout:
+		main.get_node("WorldEnvironment").environment.background_energy_multiplier = 0
+	else:
+		main.get_node("WorldEnvironment").environment.background_energy_multiplier = bufferEnergy
+
 
 func cameraShake(intensity: float = 1, decay_rate: float = 0.8):
 	trauma = clamp(trauma + intensity, 0.0, 1.0)
 	trauma_decay = decay_rate
+
+
+func blackout(duration: float):
+	isBlackout = true
+
+	await get_tree().create_timer(duration).timeout
+
+	isBlackout = false
+
 
 func endGame():
 	playerKilled = true
