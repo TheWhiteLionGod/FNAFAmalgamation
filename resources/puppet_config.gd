@@ -1,3 +1,6 @@
+"""
+Config For Puppet
+"""
 extends Resource
 class_name PuppetConfig
 

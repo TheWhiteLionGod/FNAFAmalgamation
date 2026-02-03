@@ -1,3 +1,6 @@
+"""
+Config For Music Box
+"""
 extends Resource
 class_name MusicBoxConfig
 

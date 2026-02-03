@@ -1,3 +1,6 @@
+"""
+Config For Toy Freddy
+"""
 extends Resource
 class_name ToyFreddyConfig
 

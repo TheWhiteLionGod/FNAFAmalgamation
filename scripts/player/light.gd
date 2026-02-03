@@ -1,5 +1,5 @@
 """
-This script controls the Office Light
+This Script Controls the Office Light
 """
 extends SpotLight3D
 

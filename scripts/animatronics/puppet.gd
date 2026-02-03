@@ -1,5 +1,5 @@
 """
-This Node will Handle the Puppet Animatronic
+This Script Will Handle the Puppet Animatronic
 """
 extends Animatronic
 
