@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=48 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 [ext_resource type="Texture2D" uid="uid://cdne788v57nce" path="res://assets/floor.webp" id="4_singl"]
 [ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
+[ext_resource type="Script" path="res://scripts/light.gd" id="5_xr2ny"]
 [ext_resource type="Script" path="res://animatronics/resources/music_box_config.gd" id="6_b4p5w"]
 [ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="8_ld3j8"]
 
@@ -382,6 +383,11 @@ skeleton = NodePath("")
 [node name="Floor" type="MeshInstance3D" parent="Rooms/Office"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2)
 mesh = SubResource("PlaneMesh_dl2he")
+
+[node name="OfficeLight" type="SpotLight3D" parent="Rooms/Office" node_paths=PackedStringArray("main")]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 4, 2)
+script = ExtResource("5_xr2ny")
+main = NodePath("../../..")
 
 [node name="CAM1" type="Node3D" parent="Rooms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 2.08165e-12)

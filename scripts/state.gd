@@ -19,6 +19,7 @@ var playerActions: Dictionary = {
 	"cameras" : false,
 	"mask" : false,
 	"audio_lure" : false,
+	"in_blackout": false,
 	"direction": Facing.OFFICE
 }
 
@@ -36,7 +37,8 @@ signal turn()
 signal musicBoxEmpty()
 signal playerKilled()
 signal shakeScreen(intensity: float, decay_rate)
-signal blackout(duration: float)
+signal blackoutStart(duration: float)
+signal blackoutEnd()
 
 func _ready() -> void:
 	globalTimer = 0

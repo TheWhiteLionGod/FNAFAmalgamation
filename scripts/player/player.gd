@@ -11,14 +11,24 @@ extends Node3D
 @onready var rightDoorCloseAnimation: Animation = rightDoorAnimations.get_animation("close_right_door")
 @onready var rightDoorOpenAnimation: Animation = rightDoorAnimations.get_animation("open_right_door")
 
+@onready var camera = $"Camera"
+
+# Shake Parameters
+var trauma := 0.0          # Current intensity (0 to 1)
+var trauma_decay := 0.8    # How fast it fades
+var max_offset := 0.5      # Max distance (m) the camera can shift
+var max_roll := 0.1        # Max rotation (radians) for side-to-side tilt
+var noise_speed := 50.0    # Speed of the noise sampling
+
+var time_passed := 0.0
+var noise = FastNoiseLite.new()
+
+# States
 var adjustingLeftDoor: bool = false
 var adjustingRightDoor: bool = false
 var playerKilled: bool = false
 
 var doorDebounceExtraOffset: float = 0.35
-
-@onready var environment: Environment = main.get_node("WorldEnvironment").environment
-@onready var bufferEnergy: float = environment.background_energy_multiplier
 
 func _input(event: InputEvent) -> void:
 	if playerKilled: return
@@ -90,21 +100,6 @@ func _input(event: InputEvent) -> void:
 		# TODO
 		pass
 
-@onready var camera = $"Camera"
-
-# Shake Parameters
-var trauma := 0.0          # Current intensity (0 to 1)
-var trauma_decay := 0.8    # How fast it fades
-var max_offset := 0.5      # Max distance (m) the camera can shift
-var max_roll := 0.1        # Max rotation (radians) for side-to-side tilt
-var noise_speed := 50.0    # Speed of the noise sampling
-
-var time_passed := 0.0
-var noise = FastNoiseLite.new()
-
-# Blackout Parameters
-var isBlackout := false
-
 func _ready():
 	noise.seed = randi()
 	noise.frequency = 0.5
@@ -112,7 +107,6 @@ func _ready():
 	playerKilled = false
 	GameState.playerKilled.connect(endGame)
 	GameState.shakeScreen.connect(cameraShake)
-	GameState.blackout.connect(blackout)
 	GameState.playerNode = self
 
 func _process(delta):
@@ -142,25 +136,11 @@ func _process(delta):
 		camera.h_offset = 0
 		camera.v_offset = 0
 		camera.rotation.z = 0
-	
-	# Blackout
-	if isBlackout:
-		main.get_node("WorldEnvironment").environment.background_energy_multiplier = 0
-	else:
-		main.get_node("WorldEnvironment").environment.background_energy_multiplier = bufferEnergy
 
 
 func cameraShake(intensity: float = 1, decay_rate: float = 0.8):
 	trauma = clamp(trauma + intensity, 0.0, 1.0)
 	trauma_decay = decay_rate
-
-
-func blackout(duration: float):
-	isBlackout = true
-
-	await get_tree().create_timer(duration).timeout
-
-	isBlackout = false
 
 
 func endGame():

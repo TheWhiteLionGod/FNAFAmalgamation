@@ -6,12 +6,14 @@ extends Animatronic
 @export_range(0, 20) var AI_LEVEL: int = 20
 var hasMoved: bool = false
 
-
-
 @onready var killStage: int = getKillStage()
 
 func _init():
 	super(3)
+
+func _ready() -> void:
+	super._ready()
+	GameState.blackoutEnd.connect(checkForKill)
 
 func handleStage() -> void:
 	match currentStage:
@@ -32,22 +34,25 @@ func handleStage() -> void:
 			if randi_range(0, 20) > AI_LEVEL:
 				return; # Failed Movement
 
-			# Move
-			print(currentStage)
-			print("move")
-
 			# Progressing Stage
 			currentStage += 1
-
 			moveToStageMarker()
 
 		killStage:
-			GameState.blackout.emit(5)
+			if !GameState.playerActions["in_blackout"]:
+				GameState.playerActions["in_blackout"] = true
+				GameState.blackoutStart.emit(5)
 
-			
-		
 		_:
 			print(
 				"Invalid Stage Reached for Toy Freddy Animatronic: " + 
 				str(currentStage)
 				)
+
+func checkForKill() -> void:
+	if GameState.playerActions["mask"] && GameState.playerActions["direction"] == GameState.Facing.OFFICE:
+		currentStage = 0
+		return
+
+	jumpscare(0.8, 1.7)
+	playerKilled()
