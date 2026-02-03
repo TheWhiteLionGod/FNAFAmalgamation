@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj17spi75jcuo"]
+[gd_scene load_steps=11 format=3 uid="uid://bj17spi75jcuo"]
 
-[ext_resource type="Texture2D" uid="uid://bgvq1dts60gpc" path="res://animatronics/raw/ToyBonnie/textures/Toy_Bonnie_Body_baseColor.png" id="1_tm2bm"]
-[ext_resource type="Texture2D" uid="uid://ct8gb2mbp1qy4" path="res://animatronics/raw/ToyBonnie/textures/Toy_Bonnie_Body_metallicRoughness.png" id="2_7dyys"]
-[ext_resource type="Texture2D" uid="uid://j5reg0k6f7ss" path="res://animatronics/raw/ToyBonnie/textures/Toy_Bonnie_Eyes_baseColor.jpeg" id="3_2nros"]
-[ext_resource type="Texture2D" uid="uid://di32pccfq5pvk" path="res://animatronics/raw/ToyBonnie/textures/Toy_Bonnie_Eyes_emissive.png" id="4_82m1d"]
+[ext_resource type="Script" path="res://scripts/animatronics/toy_bonnie.gd" id="1_bfioh"]
+[ext_resource type="Texture2D" uid="uid://bgvq1dts60gpc" path="res://raw/ToyBonnie/textures/Toy_Bonnie_Body_baseColor.png" id="1_tm2bm"]
+[ext_resource type="Texture2D" uid="uid://ct8gb2mbp1qy4" path="res://raw/ToyBonnie/textures/Toy_Bonnie_Body_metallicRoughness.png" id="2_7dyys"]
+[ext_resource type="Texture2D" uid="uid://j5reg0k6f7ss" path="res://raw/ToyBonnie/textures/Toy_Bonnie_Eyes_baseColor.jpeg" id="3_2nros"]
+[ext_resource type="Texture2D" uid="uid://di32pccfq5pvk" path="res://raw/ToyBonnie/textures/Toy_Bonnie_Eyes_emissive.png" id="4_82m1d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m66o6"]
 resource_name = "Toy_Bonnie_Body"
@@ -638,6 +639,7 @@ bones/56/enabled = true
 bones/56/position = Vector3(0, 0, 0)
 bones/56/rotation = Quaternion(0, 0, 0, 1)
 bones/56/scale = Vector3(1, 1, 1)
+script = ExtResource("1_bfioh")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_hee6j")
