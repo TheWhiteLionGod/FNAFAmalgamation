@@ -3,13 +3,19 @@ This Node will Handle the Puppet Animatronic
 """
 extends Animatronic
 
+signal configReady
 @export var musicBox: StaticBody3D
 @export_range(0, 20) var AI_LEVEL: int = 20
+@export var config: PuppetConfig:
+	set(value):
+		config = value
+		configReady.emit()
 
 @onready var killStage: int = getKillStage()
 
 func _init():
-	super(2)
+	await configReady
+	super(config.stages)
 
 func _ready() -> void:
 	GameState.musicBoxEmpty.connect(enterKillStage)
@@ -21,7 +27,6 @@ func handleStage() -> void:
 	match currentStage:
 		0:
 			visible = false
-			pass
 
 		killStage:
 			visible = true
@@ -33,7 +38,7 @@ func handleStage() -> void:
 			GameState.playerActions["direction"] = GameState.Facing.MUSIC_BOX
 			GameState.turn.emit()
 
-			jumpscare(0.8, 1.7, Vector3(2.4,-1.55,0.075))
+			jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset)
 			playerKilled()
 
 		_:
