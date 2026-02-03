@@ -1,15 +1,15 @@
 [gd_scene load_steps=48 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
-[ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://animatronics/models/music_box.tscn" id="1_hemyu"]
+[ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="2_05f7s"]
 [ext_resource type="Texture2D" uid="uid://bbagu1j63814c" path="res://assets/vent.jpeg" id="3_exq5r"]
 [ext_resource type="Texture2D" uid="uid://bdl2f5b7105gx" path="res://assets/wall.jpeg" id="3_nh7ed"]
 [ext_resource type="PackedScene" uid="uid://b0jleoc11s5o1" path="res://scenes/gui.tscn" id="3_o5db8"]
 [ext_resource type="Texture2D" uid="uid://cdne788v57nce" path="res://assets/floor.webp" id="4_singl"]
-[ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://animatronics/models/toy_freddy.tscn" id="5_gbba8"]
+[ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://models/toy_freddy.tscn" id="5_gbba8"]
 [ext_resource type="Script" path="res://scripts/player/light.gd" id="5_wr4gb"]
-[ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://animatronics/models/puppet.tscn" id="8_ld3j8"]
+[ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://models/puppet.tscn" id="8_ld3j8"]
 [ext_resource type="Script" path="res://resources/music_box_config.gd" id="10_6tyi6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
