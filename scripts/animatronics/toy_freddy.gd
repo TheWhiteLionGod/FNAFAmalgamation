@@ -52,6 +52,7 @@ func handleStage() -> void:
 func checkForKill() -> void:
 	if GameState.playerActions["mask"] && GameState.playerActions["direction"] == GameState.Facing.OFFICE:
 		currentStage = 0
+		moveToStageMarker()
 		return
 
 	jumpscare(0.8, 1.7)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bkxr7gel0vftq"]
 
-[ext_resource type="Script" path="res://animatronics/scripts/music_box.gd" id="1_gn0q8"]
+[ext_resource type="Script" path="res://scripts/animatronics/music_box.gd" id="1_ifxe4"]
 [ext_resource type="Texture2D" uid="uid://t8to2to1er74" path="res://animatronics/raw/MusicBox/Textures/MusicBox/Background.png" id="2_6rn0i"]
 [ext_resource type="Texture2D" uid="uid://bq08lj5bqvv6t" path="res://animatronics/raw/MusicBox/Textures/MusicBox/Fill.png" id="3_5568b"]
 
@@ -162,7 +162,7 @@ size = Vector3(1.289, 1.328, 1.324)
 viewport_path = NodePath("UI/SubViewport")
 
 [node name="MusicBox" type="StaticBody3D" node_paths=PackedStringArray("textureProgressBar")]
-script = ExtResource("1_gn0q8")
+script = ExtResource("1_ifxe4")
 textureProgressBar = NodePath("UI/SubViewport/Control/TextureProgressBar")
 
 [node name="Model" type="Node3D" parent="."]

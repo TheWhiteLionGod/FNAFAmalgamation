@@ -15,10 +15,9 @@ var currentStage: int = 0
 @warning_ignore("SHADOWED_VARIABLE")
 func _init(stages: int = 3) -> void:
 	self.stages = stages
-	print(self.stages)
 	visible = false
 
-	assert(get_script() != preload("res://animatronics/scripts/animatronics.gd"), 
+	assert(get_script() != preload("res://scripts/animatronics/animatronics.gd"), 
 	"Animatronic Class is abstract and cannot be instantiated.")
 
 # Making handleStage Method Abstract

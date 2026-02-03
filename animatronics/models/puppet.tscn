@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dibsmrtsfh4p0"]
 
+[ext_resource type="Script" path="res://scripts/animatronics/puppet.gd" id="1_accfh"]
 [ext_resource type="Texture2D" uid="uid://qxhcx4cuh1g" path="res://animatronics/raw/Puppet/textures/Char_Mat_Marrionette_baseColor.png" id="1_nsids"]
-[ext_resource type="Script" path="res://animatronics/scripts/puppet.gd" id="1_yt0y0"]
 [ext_resource type="Texture2D" uid="uid://8rktiipkc4uc" path="res://animatronics/raw/Puppet/textures/Char_Mat_Marrionette_metallicRoughness.png" id="2_awp0c"]
 [ext_resource type="Texture2D" uid="uid://kj8fjgcql0id" path="res://animatronics/raw/Puppet/textures/Char_Mat_Marrionette_normal.png" id="3_cqwgr"]
 [ext_resource type="Texture2D" uid="uid://btr2ape2otcly" path="res://animatronics/raw/Puppet/textures/Char_Mat_Marrionette.001_metallicRoughness.png" id="4_hmf8e"]
@@ -5217,7 +5217,7 @@ bones/134/enabled = true
 bones/134/position = Vector3(6.93889e-18, 0.0538335, 0)
 bones/134/rotation = Quaternion(-1.38778e-17, 1.20371e-34, -8.67362e-18, 1)
 bones/134/scale = Vector3(1, 1, 1)
-script = ExtResource("1_yt0y0")
+script = ExtResource("1_accfh")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_88uuu")

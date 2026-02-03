@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cjnrp3ro4wu0y"]
 
-[ext_resource type="Script" path="res://animatronics/scripts/toy_freddy.gd" id="1_8g4qp"]
+[ext_resource type="Script" path="res://scripts/animatronics/toy_freddy.gd" id="1_75xy4"]
 [ext_resource type="Texture2D" uid="uid://com4wqw340d34" path="res://animatronics/raw/ToyFreddy/textures/Toy_Freddy_baseColor.jpeg" id="1_hrqae"]
 [ext_resource type="Texture2D" uid="uid://diwgr063gmvhg" path="res://animatronics/raw/ToyFreddy/textures/Toy_Freddy_emissive.png" id="2_h1d8r"]
 [ext_resource type="Texture2D" uid="uid://cvx6hsh6011l1" path="res://animatronics/raw/ToyFreddy/textures/Toy_Freddy_normal.png" id="3_d0hug"]
@@ -627,7 +627,7 @@ bones/55/enabled = true
 bones/55/position = Vector3(0, 0, 0)
 bones/55/rotation = Quaternion(0, 0, 0, 1)
 bones/55/scale = Vector3(1, 1, 1)
-script = ExtResource("1_8g4qp")
+script = ExtResource("1_75xy4")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ju672")
