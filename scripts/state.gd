@@ -40,6 +40,8 @@ signal playerKilled()
 signal shakeScreen(intensity: float, decay_rate)
 signal blackoutStart(duration: float)
 signal blackoutEnd()
+signal sealVent(camera: Camera)
+signal placeAudioLure(camera: Camera)
 
 func _ready() -> void:
 	globalTimer = 0

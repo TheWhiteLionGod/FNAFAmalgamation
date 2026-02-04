@@ -99,8 +99,10 @@ func _input(event: InputEvent) -> void:
 			GameState.closeCamera.emit()
 		
 	elif event.is_action_pressed("audio_lure"):
-		# TODO
-		pass
+		if GameState.activeCamera == GameState.Camera.CAM3 || GameState.activeCamera == GameState.Camera.CAM4:
+			GameState.sealVent.emit(GameState.activeCamera)
+		else:
+			GameState.placeAudioLure.emit(GameState.activeCamera)
 
 func _ready():
 	noise.seed = randi()
