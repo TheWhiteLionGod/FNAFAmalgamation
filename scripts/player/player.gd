@@ -32,75 +32,101 @@ var adjustingRightDoor: bool = false
 
 var doorDebounceExtraOffset: float = 0.35
 
-func _input(event: InputEvent) -> void:
-	if GameState.playerState.playerDead: return
+func canEnterCams() -> bool:
+	return (!GameState.playerState.maskOn and 
+			GameState.playerState.facing == GameState.Facing.OFFICE)
 
-	if event.is_action_pressed("mask") and !GameState.playerState.inCameras:
-		if $"Mask".adjustingMask:
+func canUseMask() -> bool:
+	return (!GameState.playerState.inCameras and 
+			(GameState.playerState.facing == GameState.Facing.OFFICE or 
+			GameState.playerState.facing == GameState.Facing.TOP_VENT) and
+			!$"Mask".adjustingMask)
+
+func canUseFlashlight() -> bool:
+	return !GameState.playerState.maskOn
+
+func canUseLeftDoor() -> bool:
+	return !adjustingLeftDoor and !GameState.playerState.maskOn
+
+func canUseRightDoor() -> bool:
+	return !adjustingRightDoor and !GameState.playerState.maskOn
+
+func canUseAudioLure() -> bool:
+	return GameState.playerState.inCameras
+
+func _input(event: InputEvent) -> void:
+	if GameState.playerState.playerDead: 
+		return
+
+	if event.is_action_pressed("mask"):
+		if !canUseMask():
 			return
 
 		if GameState.playerState.maskOn: 
 			GameState.maskOff.emit()
-		else:
-			GameState.maskOn.emit()
+			return
+		GameState.maskOn.emit()
 
-	elif GameState.playerState.maskOn:
-		return # Player can't do anything with mask on
-
-	elif event.is_action_pressed("flashlight"):
+	elif event.is_action_pressed("flashlight") or event.is_action_released("flashlight"):
+		if !canUseFlashlight() or event.is_action_released("flashlight"):
+			GameState.flashlightOff.emit()
+			$"Flashlight".visible = false
+			return
+		
 		GameState.flashlightOn.emit()
 		$"Flashlight".visible = true
-	elif event.is_action_released("flashlight"):
-		GameState.flashlightOff.emit()
-		$"Flashlight".visible = false
 
 	elif event.is_action_pressed("left_door"):
-		if adjustingLeftDoor:
+		if !canUseLeftDoor():
 			return
 		adjustingLeftDoor = true
 
 		if GameState.playerState.leftDoorClosed:
 			GameState.leftDoorOpen.emit()
 			leftDoorAnimations.play("open_left_door")
-
 			await GameState.wait(leftDoorOpenAnimation.length + doorDebounceExtraOffset)
 			adjustingLeftDoor = false
-		else:
-			GameState.leftDoorClose.emit()
-			leftDoorAnimations.play("close_left_door")
-
-			await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
-			adjustingLeftDoor = false			
+			return
+		
+		GameState.leftDoorClose.emit()
+		leftDoorAnimations.play("close_left_door")
+		await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
+		adjustingLeftDoor = false			
 	
 	elif event.is_action_pressed("right_door"):
-		if adjustingRightDoor:
+		if !canUseRightDoor():
 			return
 		adjustingRightDoor = true
 		
 		if GameState.playerState.rightDoorClosed:
 			GameState.rightDoorOpen.emit()
 			rightDoorAnimations.play("open_right_door")
-
 			await GameState.wait(rightDoorOpenAnimation.length + doorDebounceExtraOffset)
 			adjustingRightDoor = false
-		else:
-			GameState.rightDoorClose.emit()
-			rightDoorAnimations.play("close_right_door")
+			return
 
-			await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
-			adjustingRightDoor = false
+		GameState.rightDoorClose.emit()
+		rightDoorAnimations.play("close_right_door")
+		await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
+		adjustingRightDoor = false
 	
 	elif event.is_action_pressed("cameras"):
+		if !canEnterCams():
+			return
+
 		if GameState.playerState.inCameras:
 			GameState.closeCamera.emit()
-		else:
-			GameState.openCamera.emit()
+			return
+		GameState.openCamera.emit()
 		
 	elif event.is_action_pressed("audio_lure"):
-		if GameState.playerState.activeCamera == GameState.Camera.CAM3 || GameState.playerState.activeCamera == GameState.Camera.CAM4:
+		if !canUseAudioLure():
+			return
+
+		if GameState.playerState.activeCamera == GameState.Camera.CAM3 or GameState.playerState.activeCamera == GameState.Camera.CAM4:
 			GameState.sealVent.emit(GameState.playerState.activeCamera)
-		else:
-			GameState.placeAudioLure.emit(GameState.playerState.activeCamera)
+			return
+		GameState.placeAudioLure.emit(GameState.playerState.activeCamera)
 
 func _ready():
 	noise.seed = randi()
@@ -110,7 +136,7 @@ func _ready():
 	GameState.playerNode = self
 
 func _process(delta):
-	if not GameState.playerState.playerDead:
+	if !GameState.playerState.playerDead:
 		if GameState.playerState.inCameras:
 			$"Flashlight".global_transform = GameState.curCamNode.global_transform
 		else:

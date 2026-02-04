@@ -118,7 +118,7 @@ func turnPlayer(dir: GameState.Facing) -> void:
 
 func _turn_left() -> void:
 	if GameState.playerState.playerDead: return
-	if GameState.playerState.maskOn || GameState.playerState.inCameras:
+	if GameState.playerState.maskOn or GameState.playerState.inCameras:
 		return
 	
 	var dir: GameState.Facing = GameState.playerState.facing + 1
@@ -129,7 +129,7 @@ func _turn_left() -> void:
 
 func _turn_right() -> void:
 	if GameState.playerState.playerDead: return
-	if GameState.playerState.maskOn || GameState.playerState.inCameras:
+	if GameState.playerState.maskOn or GameState.playerState.inCameras:
 		return
 
 	var dir: GameState.Facing = GameState.playerState.facing - 1
@@ -140,7 +140,7 @@ func _turn_right() -> void:
 
 func _look_up() -> void:
 	if GameState.playerState.playerDead: return
-	if GameState.playerState.maskOn || GameState.playerState.inCameras:
+	if GameState.playerState.maskOn or GameState.playerState.inCameras:
 		return
 
 	GameState.turn.emit(GameState.Facing.TOP_VENT)
@@ -148,7 +148,7 @@ func _look_up() -> void:
 func _mask_btn() -> void:
 	if GameState.playerState.playerDead: return
 
-	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerState.inCameras:
+	if GameState.playerNode.get_node("Mask").adjustingMask or GameState.playerState.inCameras:
 		return
 
 	if GameState.playerState.maskOn: 

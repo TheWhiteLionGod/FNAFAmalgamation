@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	if currentUnits == 0:
 		GameState.musicBoxEmpty.emit()
 
-	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		windDown(delta)
 		return
 

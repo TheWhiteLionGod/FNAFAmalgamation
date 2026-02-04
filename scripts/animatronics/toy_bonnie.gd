@@ -29,7 +29,7 @@ func handleStage() -> void:
 			curTime = round(curTime * 10) / 10
 			
 			# NOT Movement Opportunity
-			if int(curTime) % config.movementInterval != 0 || curTime - int(curTime) != 0:
+			if int(curTime) % config.movementInterval != 0 or curTime - int(curTime) != 0:
 				hasMoved = false # Resetting Boolean
 				return
 
@@ -61,7 +61,7 @@ func handleStage() -> void:
 				)
 
 func checkForKill() -> void:
-	if GameState.playerState.maskOn && GameState.playerState.facing == config.direction:
+	if GameState.playerState.maskOn and GameState.playerState.facing == config.direction:
 		currentStage = 0
 		doingBlackout = false
 		moveToStageMarker()
