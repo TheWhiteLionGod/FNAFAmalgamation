@@ -33,7 +33,7 @@ func handleStage() -> void:
 			GameState.playerActions["direction"] = GameState.Facing.MUSIC_BOX
 			GameState.turn.emit()
 
-			jumpscare(0.8, 1.7, Vector3(2.4,-1.55,0.075))
+			jumpscare(0.8, 1.7, Vector3(2.4,-1.55,0.075), GameState.Facing.MUSIC_BOX)
 			playerKilled()
 
 		_:

@@ -8,6 +8,8 @@ var hasMoved: bool = false
 
 @onready var killStage: int = getKillStage()
 
+var blackout: bool = false
+
 func _init():
 	super(3)
 
@@ -22,7 +24,7 @@ func handleStage() -> void:
 			curTime = round(curTime * 10) / 10
 			
 			# NOT Movement Opportunity (10.0, 20.0, 30.0, etc)
-			if int(curTime) % 2 != 0 || curTime - int(curTime) != 0:
+			if int(curTime) % 1 != 0 || curTime - int(curTime) != 0:
 				hasMoved = false # Resetting Boolean
 				return
 
@@ -39,9 +41,10 @@ func handleStage() -> void:
 			moveToStageMarker()
 
 		killStage:
-			if !GameState.playerActions["in_blackout"]:
+			if !blackout:
+				blackout = true
 				GameState.playerActions["in_blackout"] = true
-				GameState.blackoutStart.emit(5)
+				GameState.blackoutStart.emit(1)
 
 		_:
 			print(
@@ -50,10 +53,12 @@ func handleStage() -> void:
 				)
 
 func checkForKill() -> void:
+	blackout = false
+
 	if GameState.playerActions["mask"] && GameState.playerActions["direction"] == GameState.Facing.OFFICE:
 		currentStage = 0
 		moveToStageMarker()
 		return
 
-	jumpscare(0.8, 1.7)
+	jumpscare(0.8, 1.7, Vector3(0, -1.25, -0.9), GameState.Facing.OFFICE)
 	playerKilled()
