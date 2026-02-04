@@ -27,7 +27,7 @@ func _ready() -> void:
 	for cam in cameras:
 		camInitalRotation[nameToEnum(cam.name)] = cam.rotation_degrees
 
-	GameState.curCamNode = get_node(enumToName(GameState.activeCamera))
+	GameState.curCamNode = get_node(enumToName(GameState.playerState.activeCamera))
 	GameState.switchCamera.connect(changeCamera)
 	GameState.openCamera.connect(openCameras)
 	GameState.closeCamera.connect(closeCameras)
@@ -36,15 +36,15 @@ func _process(delta: float) -> void:
 	var cameraRotationY: float = GameState.curCamNode.rotation_degrees.y # Current Camera Rotation (In Degrees)
 	
 	# Rotating Camera
-	if cameraRotationY > camInitalRotation[GameState.activeCamera].y + CAMERA_MAX_ROTATION:
+	if cameraRotationY > camInitalRotation[GameState.playerState.activeCamera].y + CAMERA_MAX_ROTATION:
 		rotateSign = -1
-	elif cameraRotationY < camInitalRotation[GameState.activeCamera].y - CAMERA_MAX_ROTATION:
+	elif cameraRotationY < camInitalRotation[GameState.playerState.activeCamera].y - CAMERA_MAX_ROTATION:
 		rotateSign = 1
 	
 	GameState.curCamNode.rotation_degrees.y += CAMERA_ROTATION_SPEED_PER_SECOND * delta * rotateSign
 
 func changeCamera() -> void:
-	GameState.curCamNode = get_node(enumToName(GameState.activeCamera))
+	GameState.curCamNode = get_node(enumToName(GameState.playerState.activeCamera))
 	GameState.curCamNode.current = true
 
 	guiAnimationPlayer.play("camera_open")

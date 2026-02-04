@@ -8,19 +8,19 @@ extends MarginContainer
 func changeCamera(cameraName: String) -> void:
 	var newCamera: GameState.Camera = GameState.Camera[cameraName]
 
-	GameState.activeCamera = newCamera
+	GameState.playerState.activeCamera = newCamera
 	GameState.switchCamera.emit()
 
-	if GameState.activeCamera == GameState.Camera.CAM3 || GameState.activeCamera == GameState.Camera.CAM4:
+	if GameState.playerState.activeCamera == GameState.Camera.CAM3 || GameState.playerState.activeCamera == GameState.Camera.CAM4:
 		springTrapBtn.text = "Seal Vent"
 		return
 	springTrapBtn.text = "Place Audio Lure"
 
 func springTrapBtnPressed() -> void:
-	if GameState.activeCamera == GameState.Camera.CAM3 || GameState.activeCamera == GameState.Camera.CAM4:
+	if GameState.playerState.activeCamera == GameState.Camera.CAM3 || GameState.playerState.activeCamera == GameState.Camera.CAM4:
 		# Sealing Vent
-		GameState.sealVent.emit(GameState.activeCamera)
+		GameState.sealVent.emit(GameState.playerState.activeCamera)
 		return
 
 	# Placing Audio Lure
-	GameState.placeAudioLure.emit(GameState.activeCamera)
+	GameState.placeAudioLure.emit(GameState.playerState.activeCamera)

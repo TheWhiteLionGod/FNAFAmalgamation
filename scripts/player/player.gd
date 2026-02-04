@@ -33,26 +33,26 @@ var adjustingRightDoor: bool = false
 var doorDebounceExtraOffset: float = 0.35
 
 func _input(event: InputEvent) -> void:
-	if GameState.playerDead: return
+	if GameState.playerState.playerDead: return
 
-	if event.is_action_pressed("mask") and !GameState.playerActions["cameras"]:
+	if event.is_action_pressed("mask") and !GameState.playerState.inCameras:
 		if $"Mask".adjustingMask:
 			return
 
-		GameState.playerActions["mask"] = !GameState.playerActions["mask"]
-		if GameState.playerActions["mask"]: 
+		GameState.playerState.maskOn = !GameState.playerState.maskOn
+		if GameState.playerState.maskOn: 
 			GameState.maskOn.emit()
 		else: 
 			GameState.maskOff.emit()
 
-	elif GameState.playerActions["mask"]:
+	elif GameState.playerState.maskOn:
 		return # Player can't do anything with mask on
 
 	elif event.is_action_pressed("flashlight"):
-		GameState.playerActions["flashlight"] = true
+		GameState.playerState.flashlightOn = true
 		$"Flashlight".visible = true
 	elif event.is_action_released("flashlight"):
-		GameState.playerActions["flashlight"] = false
+		GameState.playerState.flashlightOn = false
 		$"Flashlight".visible = false
 
 	elif event.is_action_pressed("left_door"):
@@ -60,9 +60,9 @@ func _input(event: InputEvent) -> void:
 			return
 		adjustingLeftDoor = true
 
-		GameState.playerActions["left_door"] = !GameState.playerActions["left_door"]
+		GameState.playerState.leftDoorClosed = !GameState.playerState.leftDoorClosed
 
-		if GameState.playerActions["left_door"]:
+		if GameState.playerState.leftDoorClosed:
 			leftDoorAnimations.play("close_left_door")
 
 			await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
@@ -78,9 +78,9 @@ func _input(event: InputEvent) -> void:
 			return
 		adjustingRightDoor = true
 		
-		GameState.playerActions["right_door"] = !GameState.playerActions["right_door"]
+		GameState.playerState.rightDoorClosed = !GameState.playerState.rightDoorClosed
 
-		if GameState.playerActions["right_door"]:
+		if GameState.playerState.rightDoorClosed:
 			rightDoorAnimations.play("close_right_door")
 
 			await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
@@ -92,17 +92,17 @@ func _input(event: InputEvent) -> void:
 			adjustingRightDoor = false
 	
 	elif event.is_action_pressed("cameras"):
-		GameState.playerActions["cameras"] = !GameState.playerActions["cameras"]
-		if GameState.playerActions["cameras"]:
+		GameState.playerState.inCameras = !GameState.playerState.inCameras
+		if GameState.playerState.inCameras:
 			GameState.openCamera.emit()
 		else:
 			GameState.closeCamera.emit()
 		
 	elif event.is_action_pressed("audio_lure"):
-		if GameState.activeCamera == GameState.Camera.CAM3 || GameState.activeCamera == GameState.Camera.CAM4:
-			GameState.sealVent.emit(GameState.activeCamera)
+		if GameState.playerState.activeCamera == GameState.Camera.CAM3 || GameState.playerState.activeCamera == GameState.Camera.CAM4:
+			GameState.sealVent.emit(GameState.playerState.activeCamera)
 		else:
-			GameState.placeAudioLure.emit(GameState.activeCamera)
+			GameState.placeAudioLure.emit(GameState.playerState.activeCamera)
 
 func _ready():
 	noise.seed = randi()
@@ -112,8 +112,8 @@ func _ready():
 	GameState.playerNode = self
 
 func _process(delta):
-	if not GameState.playerDead:
-		if GameState.playerActions["cameras"]:
+	if not GameState.playerState.playerDead:
+		if GameState.playerState.inCameras:
 			$"Flashlight".global_transform = GameState.curCamNode.global_transform
 		else:
 			$"Flashlight".global_transform = global_transform

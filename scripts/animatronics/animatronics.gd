@@ -73,12 +73,12 @@ func jumpscare(
 	jumpscarePosOffset: Vector3 = Vector3.ZERO, 
 	direction: GameState.Facing = GameState.Facing.OFFICE):
 
-	if GameState.playerActions["cameras"]:
+	if GameState.playerState.inCamera:
 		GameState.closeCamera.emit()
-	if GameState.playerActions["mask"]:
+	if GameState.playerState.maskOn:
 		GameState.maskOff.emit()
 	
-	GameState.playerActions["direction"] = direction
+	GameState.playerState.facing = direction
 	GameState.turn.emit()
 	
 	# Shake Screen
@@ -92,7 +92,7 @@ func _ready() -> void:
 	moveToStageMarker()
 
 func _process(_delta: float) -> void:
-	if GameState.playerDead: 
+	if GameState.playerState.playerDead: 
 		return
 	
 	handleStage()

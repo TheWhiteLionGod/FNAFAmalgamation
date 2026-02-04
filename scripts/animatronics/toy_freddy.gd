@@ -44,7 +44,7 @@ func handleStage() -> void:
 				return; # Failed Movement
 
 			# Progressing Stage
-			if GameState.playerActions["in_blackout"] && currentStage + 1 == killStage:
+			if GameState.playerState.inBlackout && currentStage + 1 == killStage:
 				return; # Failing Movement If Blackout is Occuring
 
 			currentStage += 1
@@ -53,7 +53,7 @@ func handleStage() -> void:
 		killStage:
 			if !blackout:
 				blackout = true
-				GameState.playerActions["in_blackout"] = true
+				GameState.playerState.inBlackout = true
 				GameState.blackoutStart.emit(config.blackoutLength)
 
 		_:
@@ -68,7 +68,7 @@ func checkForKill() -> void:
 
 	blackout = false
 
-	if GameState.playerActions["mask"] && GameState.playerActions["direction"] == GameState.Facing.OFFICE:
+	if GameState.playerState.maskOn && GameState.playerState.facing == GameState.Facing.OFFICE:
 		currentStage = 0
 		moveToStageMarker()
 		return

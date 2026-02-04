@@ -15,7 +15,7 @@ func _ready() -> void:
 	GameState.blackoutStart.connect(flickerLights)
 
 func _process(_delta: float) -> void:
-	if !GameState.playerActions["in_blackout"]:
+	if !GameState.playerState.inBlackout:
 		return
 
 	if GameState.globalTimer - startTime >= duration:
@@ -33,7 +33,7 @@ func flickerLights(dur: int) -> void:
 	environment.background_energy_multiplier = 0
 
 func resetLights() -> void:
-	GameState.playerActions["in_blackout"] = false
+	GameState.playerState.inBlackout = false
 	visible = true
 	environment.background_energy_multiplier = bufferEnergy
 	GameState.blackoutEnd.emit()

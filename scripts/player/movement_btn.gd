@@ -30,49 +30,49 @@ func makeVisible(btn: Button) -> void:
 	btn.mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _process(_delta: float) -> void:
-	if GameState.playerActions["cameras"]:
+	if GameState.playerState.inCameras:
 		makeInvisible(leftBtn)
 		makeInvisible(rightBtn)
 		makeInvisible(topBtn)
 		makeVisible(camBtn)
 		makeInvisible(maskBtn)
 	
-	elif GameState.playerActions["mask"]:
+	elif GameState.playerState.maskOn:
 		makeInvisible(leftBtn)
 		makeInvisible(rightBtn)
 		makeInvisible(topBtn)
 		makeInvisible(camBtn)
 		makeVisible(maskBtn)
 
-	elif GameState.playerActions["direction"] == GameState.Facing.OFFICE:
+	elif GameState.playerState.facing == GameState.Facing.OFFICE:
 		makeVisible(leftBtn)
 		makeVisible(rightBtn)
 		makeVisible(topBtn)
 		makeVisible(camBtn)
 		makeVisible(maskBtn)
 
-	elif GameState.playerActions["direction"] == GameState.Facing.TABLE:
+	elif GameState.playerState.facing == GameState.Facing.TABLE:
 		makeVisible(leftBtn)
 		makeVisible(rightBtn)
 		makeInvisible(topBtn)
 		makeInvisible(camBtn)
 		makeInvisible(maskBtn)
 
-	elif GameState.playerActions["direction"] == GameState.Facing.OUTSIDE:
+	elif GameState.playerState.facing == GameState.Facing.OUTSIDE:
 		makeVisible(leftBtn)
 		makeVisible(rightBtn)
 		makeInvisible(topBtn)
 		makeInvisible(camBtn)
 		makeInvisible(maskBtn)
 
-	elif GameState.playerActions["direction"] == GameState.Facing.MUSIC_BOX:
+	elif GameState.playerState.facing == GameState.Facing.MUSIC_BOX:
 		makeVisible(leftBtn)
 		makeVisible(rightBtn)
 		makeInvisible(topBtn)
 		makeInvisible(camBtn)
 		makeInvisible(maskBtn)
 
-	elif GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+	elif GameState.playerState.facing == GameState.Facing.TOP_VENT:
 		makeInvisible(leftBtn)
 		makeInvisible(rightBtn)
 		makeInvisible(topBtn)
@@ -86,7 +86,7 @@ func _process(_delta: float) -> void:
 func turnPlayer() -> void:
 	var tween = create_tween()
 	# Turning Up
-	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
+	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
 		var rotationX: float = lerp_angle(
 			GameState.playerNode.rotation.x, 
 			deg_to_rad(90),
@@ -105,7 +105,7 @@ func turnPlayer() -> void:
 	# Turning Left and Right
 	var rotationY: float = lerp_angle(
 		GameState.playerNode.rotation.y, 
-		GameState.playerActions["direction"] * deg_to_rad(90), 
+		GameState.playerState.facing * deg_to_rad(90), 
 		1
 	)
 	
@@ -117,63 +117,63 @@ func turnPlayer() -> void:
 	)
 
 func _turn_left() -> void:
-	if GameState.playerDead: return
-	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+	if GameState.playerState.playerDead: return
+	if GameState.playerState.maskOn || GameState.playerState.inCameras:
 		return
 	
-	GameState.playerActions["direction"] += 1
-	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
-		GameState.playerActions["direction"] += 1
+	GameState.playerState.facing += 1
+	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
+		GameState.playerState.facing += 1
 
-	GameState.playerActions["direction"] %= GameState.Facing.size()
+	GameState.playerState.facing %= GameState.Facing.size()
 	GameState.turn.emit()
 
 func _turn_right() -> void:
-	if GameState.playerDead: return
-	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+	if GameState.playerState.playerDead: return
+	if GameState.playerState.maskOn || GameState.playerState.inCameras:
 		return
 
-	GameState.playerActions["direction"] -= 1
-	if GameState.playerActions["direction"] < 0:
-		GameState.playerActions["direction"] += GameState.Facing.size()
-	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
-		GameState.playerActions["direction"] -= 1
+	GameState.playerState.facing -= 1
+	if GameState.playerState.facing < 0:
+		GameState.playerState.facing += GameState.Facing.size()
+	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
+		GameState.playerState.facing -= 1
 	
 	GameState.turn.emit()
 
 func _look_up() -> void:
-	if GameState.playerDead: return
-	if GameState.playerActions["mask"] || GameState.playerActions["cameras"]:
+	if GameState.playerState.playerDead: return
+	if GameState.playerState.maskOn || GameState.playerState.inCameras:
 		return
 
-	GameState.playerActions["direction"] = GameState.Facing.TOP_VENT
+	GameState.playerState.facing = GameState.Facing.TOP_VENT
 	GameState.turn.emit()
 
 func _mask_btn() -> void:
-	if GameState.playerDead: return
+	if GameState.playerState.playerDead: return
 
-	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerActions["cameras"]:
+	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerState.inCameras:
 		return
 
-	GameState.playerActions["mask"] = !GameState.playerActions["mask"]
-	if GameState.playerActions["mask"]: 
+	GameState.playerState.maskOn = !GameState.playerState.maskOn
+	if GameState.playerState.maskOn: 
 		GameState.maskOn.emit()
 	else: 
 		GameState.maskOff.emit()
 
 func _cam_btn() -> void:
-	if GameState.playerDead: return
+	if GameState.playerState.playerDead: return
 	
-	if GameState.playerActions["direction"] == GameState.Facing.TOP_VENT:
-		GameState.playerActions["direction"] = GameState.Facing.OFFICE
+	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
+		GameState.playerState.facing = GameState.Facing.OFFICE
 		GameState.turn.emit()
 		return
 
-	if GameState.playerActions["mask"]:
+	if GameState.playerState.maskOn:
 		return
 
-	GameState.playerActions["cameras"]  = !GameState.playerActions["cameras"]
-	if GameState.playerActions["cameras"]: 
+	GameState.playerState.inCameras  = !GameState.playerState.inCameras
+	if GameState.playerState.inCameras: 
 		GameState.openCamera.emit()
 	else: 
 		GameState.closeCamera.emit()

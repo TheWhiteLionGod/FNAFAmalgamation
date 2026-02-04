@@ -28,6 +28,10 @@ func _process(delta: float) -> void:
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		windDown(delta)
 		return
+
+	if GameState.playerState.inCameras:
+		windDown(delta)
+		return 
 	
 	var result: Dictionary = Raycaster.raycastToMousePos(player.get_node("Camera"))
 	if result == {} or result.collider != self:
@@ -35,7 +39,7 @@ func _process(delta: float) -> void:
 		return
 
 	# Winding down when mask is on
-	if GameState.playerActions["mask"]:
+	if GameState.playerState.maskOn:
 		windDown(delta)
 		return
 
