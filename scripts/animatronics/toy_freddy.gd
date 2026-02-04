@@ -11,10 +11,9 @@ signal configReady
 		configReady.emit()
 
 var hasMoved: bool = false
+var doingBlackout: bool = false
 
 @onready var killStage: int = getKillStage()
-
-var blackout: bool = false
 
 func _init():
 	await configReady
@@ -22,7 +21,6 @@ func _init():
 
 func _ready() -> void:
 	super._ready()
-	GameState.blackoutEnd.connect(checkForKill)
 
 func handleStage() -> void:
 	match currentStage:
@@ -44,16 +42,16 @@ func handleStage() -> void:
 				return; # Failed Movement
 
 			# Progressing Stage
-			if GameState.playerState.inBlackout && currentStage + 1 == killStage:
-				return; # Failing Movement If Blackout is Occuring
-
 			currentStage += 1
 			moveToStageMarker()
 
 		killStage:
-			if !blackout:
-				blackout = true
-				GameState.blackoutStart.emit(config.blackoutLength)
+			if doingBlackout:
+				return
+			doingBlackout = true
+			GameState.blackoutStart.emit(config.blackoutLength)
+			await GameState.blackoutEnd
+			checkForKill()
 
 		_:
 			print(
@@ -65,12 +63,11 @@ func checkForKill() -> void:
 	if currentStage != killStage:
 		return
 
-	blackout = false
-
-	if GameState.playerState.maskOn && GameState.playerState.facing == GameState.Facing.OFFICE:
+	if GameState.playerState.maskOn && GameState.playerState.facing == config.direction:
 		currentStage = 0
+		doingBlackout = false
 		moveToStageMarker()
 		return
 
-	jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset, GameState.Facing.OFFICE)
+	jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset, config.direction)
 	playerKilled()

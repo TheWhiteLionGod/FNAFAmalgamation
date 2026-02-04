@@ -26,13 +26,16 @@ func _process(_delta: float) -> void:
 		visible = !visible
 
 func flickerLights(dur: int) -> void:
-	duration = dur
-	startTime = GameState.globalTimer
+	# If Blackout Isn't Being Extended
+	if duration == 0:
+		startTime = GameState.globalTimer
+	duration += dur
 	
 	visible = false
 	environment.background_energy_multiplier = 0
 
 func resetLights() -> void:
 	visible = true
+	duration = 0
 	environment.background_energy_multiplier = bufferEnergy
 	GameState.blackoutEnd.emit()
