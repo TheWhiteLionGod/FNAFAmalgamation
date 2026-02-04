@@ -1,3 +1,6 @@
+"""
+This Script Controls The GUI Movement Buttons
+"""
 extends MarginContainer
 
 @onready var leftBtn: Button = $"Buttons/Left"

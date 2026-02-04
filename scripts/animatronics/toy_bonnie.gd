@@ -1,11 +1,11 @@
 """
-This Script Will Control Toy Freddy Behavior
+This Script Will Control Toy Bonnie Behavior
 """
 extends Animatronic
 
 signal configReady
 @export_range(0, 20) var AI_LEVEL: int = 20
-@export var config: ToyFreddyConfig:
+@export var config: ToyBonnieConfig:
 	set(value):
 		config = value
 		configReady.emit()
@@ -13,8 +13,6 @@ signal configReady
 var hasMoved: bool = false
 
 @onready var killStage: int = getKillStage()
-
-var blackout: bool = false
 
 func _init():
 	await configReady
@@ -26,7 +24,7 @@ func _ready() -> void:
 
 func handleStage() -> void:
 	match currentStage:
-		0, 1:
+		0, 1, 2:
 			var curTime = GameState.globalTimer
 			curTime = round(curTime * 10) / 10
 			
@@ -51,14 +49,13 @@ func handleStage() -> void:
 			moveToStageMarker()
 
 		killStage:
-			if !blackout:
-				blackout = true
+			if !GameState.playerActions["in_blackout"]:
 				GameState.playerActions["in_blackout"] = true
 				GameState.blackoutStart.emit(config.blackoutLength)
 
 		_:
 			print(
-				"Invalid Stage Reached for Toy Freddy Animatronic: " + 
+				"Invalid Stage Reached for Toy Bonnie Animatronic: " + 
 				str(currentStage)
 				)
 
@@ -66,12 +63,10 @@ func checkForKill() -> void:
 	if currentStage != killStage:
 		return
 
-	blackout = false
-
 	if GameState.playerActions["mask"] && GameState.playerActions["direction"] == GameState.Facing.OFFICE:
 		currentStage = 0
 		moveToStageMarker()
 		return
 
-	jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset, GameState.Facing.OFFICE)
+	jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset)
 	playerKilled()

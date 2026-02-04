@@ -1,3 +1,6 @@
+"""
+This Script Controls Player Behavior
+"""
 extends Node3D
 
 @export var main: Node3D

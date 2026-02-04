@@ -1,3 +1,6 @@
+"""
+This Script Controls the Player Putting On and Off The Mask
+"""
 extends Node3D
 
 @onready var maskAnimationPlayer: AnimationPlayer = get_parent().get_node("AnimationPlayer")
