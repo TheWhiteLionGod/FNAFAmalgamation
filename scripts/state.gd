@@ -28,15 +28,22 @@ class PlayerState:
 
 var globalTimer: float = 0.0
 var curCamNode: Camera3D
+
 var playerNode: Node3D
-var playerState := PlayerState.new()
+var playerState: PlayerState = PlayerState.new()
 
 signal openCamera()
 signal closeCamera()
-signal switchCamera()
+signal switchCamera(camera: Camera)
 signal maskOn()
 signal maskOff()
-signal turn()
+signal flashlightOn()
+signal flashlightOff()
+signal leftDoorOpen()
+signal leftDoorClose()
+signal rightDoorOpen()
+signal rightDoorClose()
+signal turn(dir: Facing)
 signal musicBoxEmpty()
 signal playerKilled()
 signal shakeScreen(intensity: float, decay_rate)
@@ -48,11 +55,27 @@ signal placeAudioLure(camera: Camera)
 func _ready() -> void:
 	globalTimer = 0
 	playerState.activeCamera = Camera.CAM1
-	playerKilled.connect(killPlayer)
+	
+	openCamera.connect(func(): playerState.inCameras = true)
+	closeCamera.connect(func(): playerState.inCameras = false)
+	switchCamera.connect(func(camera): playerState.activeCamera = camera)
+	maskOn.connect(func(): playerState.maskOn = true)
+	maskOff.connect(func(): playerState.maskOn = false)
+	flashlightOn.connect(func(): playerState.flashlightOn = true)
+	flashlightOff.connect(func(): playerState.flashlightOn = false)
+	leftDoorOpen.connect(func(): playerState.leftDoorClosed = false)
+	leftDoorClose.connect(func(): playerState.leftDoorClosed = true)
+	rightDoorOpen.connect(func(): playerState.rightDoorClosed = false)
+	rightDoorClose.connect(func(): playerState.rightDoorClosed = true)
+	turn.connect(func(dir): playerState.facing = dir)
+	# Music Box Empty Doesn't Change State
+	playerKilled.connect(func(): playerState.playerDead = true)
+	# Shake Screen Doesn't Affect State
+	blackoutStart.connect(func(_dur: int): playerState.inBlackout = true)
+	blackoutEnd.connect(func(): playerState.inBlackout = false)
+	# Sealing Vent Doesn't Affect State
+	# Audio Lure Doesn't Affect State
 
 ## Wait for x seconds
 func wait(duration: float):
 	await get_tree().create_timer(duration).timeout
-
-func killPlayer() -> void:
-	playerState.playerDead = true

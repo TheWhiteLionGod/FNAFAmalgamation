@@ -83,10 +83,10 @@ func _process(_delta: float) -> void:
 		print("Invalid State")
 		pass
 
-func turnPlayer() -> void:
+func turnPlayer(dir: GameState.Facing) -> void:
 	var tween = create_tween()
 	# Turning Up
-	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
+	if dir == GameState.Facing.TOP_VENT:
 		var rotationX: float = lerp_angle(
 			GameState.playerNode.rotation.x, 
 			deg_to_rad(90),
@@ -105,7 +105,7 @@ func turnPlayer() -> void:
 	# Turning Left and Right
 	var rotationY: float = lerp_angle(
 		GameState.playerNode.rotation.y, 
-		GameState.playerState.facing * deg_to_rad(90), 
+		dir * deg_to_rad(90), 
 		1
 	)
 	
@@ -121,33 +121,29 @@ func _turn_left() -> void:
 	if GameState.playerState.maskOn || GameState.playerState.inCameras:
 		return
 	
-	GameState.playerState.facing += 1
-	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-		GameState.playerState.facing += 1
+	var dir: GameState.Facing = GameState.playerState.facing + 1
+	if dir == GameState.Facing.TOP_VENT:
+		dir = GameState.Facing.OFFICE
 
-	GameState.playerState.facing %= GameState.Facing.size()
-	GameState.turn.emit()
+	GameState.turn.emit(dir)
 
 func _turn_right() -> void:
 	if GameState.playerState.playerDead: return
 	if GameState.playerState.maskOn || GameState.playerState.inCameras:
 		return
 
-	GameState.playerState.facing -= 1
-	if GameState.playerState.facing < 0:
-		GameState.playerState.facing += GameState.Facing.size()
-	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-		GameState.playerState.facing -= 1
+	var dir: GameState.Facing = GameState.playerState.facing - 1
+	if dir < 0:
+		dir = GameState.Facing.MUSIC_BOX
 	
-	GameState.turn.emit()
+	GameState.turn.emit(dir)
 
 func _look_up() -> void:
 	if GameState.playerState.playerDead: return
 	if GameState.playerState.maskOn || GameState.playerState.inCameras:
 		return
 
-	GameState.playerState.facing = GameState.Facing.TOP_VENT
-	GameState.turn.emit()
+	GameState.turn.emit(GameState.Facing.TOP_VENT)
 
 func _mask_btn() -> void:
 	if GameState.playerState.playerDead: return
@@ -155,25 +151,22 @@ func _mask_btn() -> void:
 	if GameState.playerNode.get_node("Mask").adjustingMask || GameState.playerState.inCameras:
 		return
 
-	GameState.playerState.maskOn = !GameState.playerState.maskOn
 	if GameState.playerState.maskOn: 
-		GameState.maskOn.emit()
-	else: 
 		GameState.maskOff.emit()
+		return
+	GameState.maskOn.emit()
 
 func _cam_btn() -> void:
 	if GameState.playerState.playerDead: return
 	
 	if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-		GameState.playerState.facing = GameState.Facing.OFFICE
-		GameState.turn.emit()
+		GameState.turn.emit(GameState.Facing.OFFICE)
 		return
 
 	if GameState.playerState.maskOn:
 		return
 
-	GameState.playerState.inCameras  = !GameState.playerState.inCameras
 	if GameState.playerState.inCameras: 
-		GameState.openCamera.emit()
-	else: 
 		GameState.closeCamera.emit()
+		return
+	GameState.openCamera.emit()

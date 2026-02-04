@@ -33,7 +33,6 @@ func flickerLights(dur: int) -> void:
 	environment.background_energy_multiplier = 0
 
 func resetLights() -> void:
-	GameState.playerState.inBlackout = false
 	visible = true
 	environment.background_energy_multiplier = bufferEnergy
 	GameState.blackoutEnd.emit()

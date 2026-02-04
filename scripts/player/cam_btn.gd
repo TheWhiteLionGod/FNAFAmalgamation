@@ -7,11 +7,9 @@ extends MarginContainer
 
 func changeCamera(cameraName: String) -> void:
 	var newCamera: GameState.Camera = GameState.Camera[cameraName]
+	GameState.switchCamera.emit(newCamera)
 
-	GameState.playerState.activeCamera = newCamera
-	GameState.switchCamera.emit()
-
-	if GameState.playerState.activeCamera == GameState.Camera.CAM3 || GameState.playerState.activeCamera == GameState.Camera.CAM4:
+	if newCamera == GameState.Camera.CAM3 || newCamera == GameState.Camera.CAM4:
 		springTrapBtn.text = "Seal Vent"
 		return
 	springTrapBtn.text = "Place Audio Lure"

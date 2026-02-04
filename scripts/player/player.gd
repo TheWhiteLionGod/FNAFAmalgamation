@@ -39,20 +39,19 @@ func _input(event: InputEvent) -> void:
 		if $"Mask".adjustingMask:
 			return
 
-		GameState.playerState.maskOn = !GameState.playerState.maskOn
 		if GameState.playerState.maskOn: 
-			GameState.maskOn.emit()
-		else: 
 			GameState.maskOff.emit()
+		else:
+			GameState.maskOn.emit()
 
 	elif GameState.playerState.maskOn:
 		return # Player can't do anything with mask on
 
 	elif event.is_action_pressed("flashlight"):
-		GameState.playerState.flashlightOn = true
+		GameState.flashlightOn.emit()
 		$"Flashlight".visible = true
 	elif event.is_action_released("flashlight"):
-		GameState.playerState.flashlightOn = false
+		GameState.flashlightOff.emit()
 		$"Flashlight".visible = false
 
 	elif event.is_action_pressed("left_door"):
@@ -60,43 +59,42 @@ func _input(event: InputEvent) -> void:
 			return
 		adjustingLeftDoor = true
 
-		GameState.playerState.leftDoorClosed = !GameState.playerState.leftDoorClosed
-
 		if GameState.playerState.leftDoorClosed:
-			leftDoorAnimations.play("close_left_door")
-
-			await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
-			adjustingLeftDoor = false
-		else:
+			GameState.leftDoorOpen.emit()
 			leftDoorAnimations.play("open_left_door")
 
 			await GameState.wait(leftDoorOpenAnimation.length + doorDebounceExtraOffset)
 			adjustingLeftDoor = false
+		else:
+			GameState.leftDoorClose.emit()
+			leftDoorAnimations.play("close_left_door")
+
+			await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
+			adjustingLeftDoor = false			
 	
 	elif event.is_action_pressed("right_door"):
 		if adjustingRightDoor:
 			return
 		adjustingRightDoor = true
 		
-		GameState.playerState.rightDoorClosed = !GameState.playerState.rightDoorClosed
-
 		if GameState.playerState.rightDoorClosed:
-			rightDoorAnimations.play("close_right_door")
-
-			await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
-			adjustingRightDoor = false
-		else:
+			GameState.rightDoorOpen.emit()
 			rightDoorAnimations.play("open_right_door")
 
 			await GameState.wait(rightDoorOpenAnimation.length + doorDebounceExtraOffset)
 			adjustingRightDoor = false
+		else:
+			GameState.rightDoorClose.emit()
+			rightDoorAnimations.play("close_right_door")
+
+			await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
+			adjustingRightDoor = false
 	
 	elif event.is_action_pressed("cameras"):
-		GameState.playerState.inCameras = !GameState.playerState.inCameras
 		if GameState.playerState.inCameras:
-			GameState.openCamera.emit()
-		else:
 			GameState.closeCamera.emit()
+		else:
+			GameState.openCamera.emit()
 		
 	elif event.is_action_pressed("audio_lure"):
 		if GameState.playerState.activeCamera == GameState.Camera.CAM3 || GameState.playerState.activeCamera == GameState.Camera.CAM4:

@@ -4,8 +4,6 @@ Abstract Class to Handle Animatronic Behavior
 extends Skeleton3D
 class_name Animatronic
 
-@onready var player: Node3D = GameState.playerNode
-
 # Instance Variables
 var stages: int # Including Kill Stage
 
@@ -73,18 +71,17 @@ func jumpscare(
 	jumpscarePosOffset: Vector3 = Vector3.ZERO, 
 	direction: GameState.Facing = GameState.Facing.OFFICE):
 
-	if GameState.playerState.inCamera:
+	if GameState.playerState.inCameras:
 		GameState.closeCamera.emit()
 	if GameState.playerState.maskOn:
 		GameState.maskOff.emit()
 	
-	GameState.playerState.facing = direction
-	GameState.turn.emit()
+	GameState.turn.emit(direction)
 	
 	# Shake Screen
 	GameState.shakeScreen.emit(intensity, decayRate)
 	
-	global_position = player.position + jumpscarePosOffset
+	global_position = GameState.playerNode.position + jumpscarePosOffset
 	$"AnimationPlayer".play("jumpscare")
 	
 func _ready() -> void:

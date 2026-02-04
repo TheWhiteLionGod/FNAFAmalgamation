@@ -43,8 +43,8 @@ func _process(delta: float) -> void:
 	
 	GameState.curCamNode.rotation_degrees.y += CAMERA_ROTATION_SPEED_PER_SECOND * delta * rotateSign
 
-func changeCamera() -> void:
-	GameState.curCamNode = get_node(enumToName(GameState.playerState.activeCamera))
+func changeCamera(camera: GameState.Camera) -> void:
+	GameState.curCamNode = get_node(enumToName(camera))
 	GameState.curCamNode.current = true
 
 	guiAnimationPlayer.play("camera_open")

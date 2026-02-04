@@ -50,7 +50,6 @@ func handleStage() -> void:
 
 		killStage:
 			if !GameState.playerState.inBlackout:
-				GameState.playerState.inBlackout = true
 				GameState.blackoutStart.emit(config.blackoutLength)
 
 		_:
