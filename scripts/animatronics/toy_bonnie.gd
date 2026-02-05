@@ -4,7 +4,7 @@ This Script Will Control Toy Bonnie Behavior
 extends Animatronic
 
 signal configReady
-@export_range(0, 20) var AI_LEVEL: int = 20
+@export_range(0, 20) var AI_LEVEL: int
 @export var config: ToyBonnieConfig:
 	set(value):
 		config = value
@@ -38,7 +38,8 @@ func handleStage() -> void:
 			
 			# This is a Movement Opportunity
 			hasMoved = true
-			if randi_range(0, 20) > AI_LEVEL:
+			print(AI_LEVEL)
+			if randi_range(0, 20) >= AI_LEVEL:
 				return; # Failed Movement
 
 			# Progressing Stage
