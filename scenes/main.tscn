@@ -242,7 +242,7 @@ totalUnits = 2000
 [sub_resource type="Resource" id="Resource_gbs6i"]
 script = ExtResource("12_kak3c")
 stages = 3
-movementInterval = 10
+movementInterval = 15
 blackoutLength = 5
 intensity = 0.8
 decayRate = 1.7
@@ -251,8 +251,8 @@ direction = 0
 [sub_resource type="Resource" id="Resource_wj5qb"]
 script = ExtResource("15_q2pmh")
 stages = 4
-movementInterval = 1
-blackoutLength = 1
+movementInterval = 7
+blackoutLength = 3
 intensity = 0.8
 decayRate = 1.7
 direction = 0
@@ -820,6 +820,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 [node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
 transform = Transform3D(1.19249e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 2.75, 2.08165e-12, 3.75)
 visible = false
+AI_LEVEL = 20
 config = SubResource("Resource_ai6cq")
 
 [node name="MusicBox" parent="Animatronics" node_paths=PackedStringArray("player") instance=ExtResource("1_hemyu")]
@@ -829,8 +830,10 @@ player = NodePath("../../Player")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
 config = SubResource("Resource_gbs6i")
 
 [node name="ToyBonnie" parent="Animatronics" instance=ExtResource("14_bmlnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
 config = SubResource("Resource_wj5qb")
