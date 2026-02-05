@@ -67,5 +67,5 @@ func checkForKill() -> void:
 		moveToStageMarker()
 		return
 
-	jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset, config.direction)
+	jumpscare(config.intensity, config.decayRate, config.direction)
 	playerKilled()

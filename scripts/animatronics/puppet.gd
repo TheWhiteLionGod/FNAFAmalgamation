@@ -37,7 +37,7 @@ func handleStage() -> void:
 
 			GameState.turn.emit(GameState.Facing.MUSIC_BOX)
 
-			jumpscare(config.intensity, config.decayRate, config.jumpscarePosOffset, GameState.Facing.MUSIC_BOX)
+			jumpscare(config.intensity, config.decayRate, GameState.Facing.MUSIC_BOX)
 			playerKilled()
 
 		_:
