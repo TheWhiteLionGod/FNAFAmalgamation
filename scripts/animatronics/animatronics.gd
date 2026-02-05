@@ -69,8 +69,7 @@ func playerKilled():
 ## Jumpscare
 func jumpscare(
 	intensity: float = 1, 
-	decayRate: float = 0.8, 
-	jumpscarePosOffset: Vector3 = Vector3.ZERO, 
+	decayRate: float = 0.8,  
 	direction: GameState.Facing = GameState.Facing.OFFICE):
 
 	if GameState.playerState.inCameras:
