@@ -85,8 +85,8 @@ func jumpscare(
 	# Moves animatronic to final marker (should be jumpscare marker)
 	var markers: Array[Node] = getMarkers()
 	global_transform = markers[len(markers) - 1].global_transform
-
 	$"AnimationPlayer".play("jumpscare")
+
 	
 func _ready() -> void:
 	currentStage = 0
