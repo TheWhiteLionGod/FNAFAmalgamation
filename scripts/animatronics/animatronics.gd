@@ -4,6 +4,8 @@ Abstract Class to Handle Animatronic Behavior
 extends Skeleton3D
 class_name Animatronic
 
+@onready var player: Node3D = GameState.playerNode
+
 # Instance Variables
 var stages: int # Including Kill Stage
 
@@ -49,8 +51,8 @@ func getMarkers() -> Array[Node]:
 func moveToStageMarker():
 	var markers: Array[Node] = getMarkers()
 
-	# Cannot move further
-	if currentStage > len(markers) - 1:
+	# Cannot move further than jumpscare
+	if currentStage > len(markers):
 		return
 
 	var marker: Marker3D = markers[currentStage]
@@ -81,7 +83,15 @@ func jumpscare(
 	# Shake Screen
 	GameState.shakeScreen.emit(intensity, decayRate)
 	
-	global_position = GameState.playerNode.position + jumpscarePosOffset
+	# Moves animatronic to final marker (should be jumpscare marker)
+	# If there are no markers then use jumpscarePosOffset instead
+	var markers: Array[Node] = getMarkers()
+	
+	if markers:
+		global_transform = markers[len(markers) - 1].global_transform
+	else:
+		global_position = GameState.playerNode.position + jumpscarePosOffset
+
 	$"AnimationPlayer".play("jumpscare")
 	
 func _ready() -> void:

@@ -121,6 +121,7 @@ func _turn_left() -> void:
 	if GameState.playerState.maskOn or GameState.playerState.inCameras:
 		return
 	
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
 	var dir: GameState.Facing = GameState.playerState.facing + 1
 	if dir == GameState.Facing.TOP_VENT:
 		dir = GameState.Facing.OFFICE
@@ -132,6 +133,7 @@ func _turn_right() -> void:
 	if GameState.playerState.maskOn or GameState.playerState.inCameras:
 		return
 
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
 	var dir: GameState.Facing = GameState.playerState.facing - 1
 	if dir < 0:
 		dir = GameState.Facing.MUSIC_BOX
