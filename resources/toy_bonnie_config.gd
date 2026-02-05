@@ -11,5 +11,4 @@ class_name ToyBonnieConfig
 @export_group("Jumpscare")
 @export var intensity: float = 0.8
 @export var decayRate: float = 1.7
-@export var jumpscarePosOffset: Vector3 = Vector3(0, 0, 0)
 @export var direction: GameState.Facing = GameState.Facing.OFFICE

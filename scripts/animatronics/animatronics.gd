@@ -84,13 +84,8 @@ func jumpscare(
 	GameState.shakeScreen.emit(intensity, decayRate)
 	
 	# Moves animatronic to final marker (should be jumpscare marker)
-	# If there are no markers then use jumpscarePosOffset instead
 	var markers: Array[Node] = getMarkers()
-	
-	if markers:
-		global_transform = markers[len(markers) - 1].global_transform
-	else:
-		global_position = GameState.playerNode.position + jumpscarePosOffset
+	global_transform = markers[len(markers) - 1].global_transform
 
 	$"AnimationPlayer".play("jumpscare")
 	
