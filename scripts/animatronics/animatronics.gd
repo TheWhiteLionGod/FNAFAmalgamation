@@ -62,6 +62,8 @@ func moveToStageMarker():
 
 	if !marker.get_meta("anim").is_empty():
 		$"AnimationPlayer".play(marker.get_meta("anim"))
+	else:
+		$"AnimationPlayer".play("RESET")
 
 func playerKilled():
 	GameState.playerKilled.emit()
