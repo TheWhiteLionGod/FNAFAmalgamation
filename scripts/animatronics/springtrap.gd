@@ -11,11 +11,12 @@ signal configReady
 		configReady.emit()
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-var hasMoved: bool = false
+var movementOpportunity: MovementOpportunity
 
 func _init():
 	await configReady
 	super(config.stages)
+	movementOpportunity = MovementOpportunity.new(config.movementInterval)
 
 func _ready() -> void:
 	super._ready()
@@ -28,31 +29,18 @@ func _ready() -> void:
 func handleStage() -> void:
 	match currentStage:
 		0, 1, 2, 3, 4, 5, 6, 7:
-			var curTime = GameState.globalTimer
-			curTime = round(curTime * 10) / 10
-			
-			# NOT Movement Opportunity
-			if int(curTime) % config.movementInterval != 0 or curTime - int(curTime) != 0:
-				hasMoved = false # Resetting Boolean
+			# Failed Movement
+			if !movementOpportunity.check(AI_LEVEL):
 				return
-
-			if hasMoved:
-				return
-			
-			# This is a Movement Opportunity
-			hasMoved = true
-			if randi_range(0, 20) >= AI_LEVEL:
-				return; # Failed Movement
 
 			# Moving 2 Cams Forward / Backwards
-			# currentStage += rng.randi_range(2, -1)
-			# currentStage = min(max(currentStage, 0), 11)
-			currentStage = 10
+			currentStage += rng.randi_range(2, -1)
+			currentStage = min(max(currentStage, 0), 11)
 			moveToStageMarker()
 
 		# Vents Kill
 		8, 9:
-			pass
+			currentStage += 1;
 
 		# Door Kill
 		10, 11:			

@@ -10,7 +10,7 @@ signal configReady
 		config = value
 		configReady.emit()
 
-var hasMoved: bool = false
+var movementOpportunity: MovementOpportunity
 var doingBlackout: bool = false
 
 @onready var killStage: int = getKillStage()
@@ -18,6 +18,7 @@ var doingBlackout: bool = false
 func _init():
 	await configReady
 	super(config.stages)
+	movementOpportunity = MovementOpportunity.new(config.movementInterval)
 
 func _ready() -> void:
 	super._ready()
@@ -25,21 +26,9 @@ func _ready() -> void:
 func handleStage() -> void:
 	match currentStage:
 		0, 1:
-			var curTime = GameState.globalTimer
-			curTime = round(curTime * 10) / 10
-			
-			# NOT Movement Opportunity
-			if int(curTime) % config.movementInterval != 0 or curTime - int(curTime) != 0:
-				hasMoved = false # Resetting Boolean
+			# Failed Movement
+			if !movementOpportunity.check(AI_LEVEL):
 				return
-
-			if hasMoved:
-				return
-			
-			# This is a Movement Opportunity
-			hasMoved = true
-			if randi_range(0, 20) >= AI_LEVEL:
-				return; # Failed Movement
 
 			# Progressing Stage
 			currentStage += 1

@@ -8,7 +8,6 @@ class_name Animatronic
 
 # Instance Variables
 var stages: int # Including Kill Stage
-
 var currentStage: int = 0
 
 # Making Animatronics Class Abstract
