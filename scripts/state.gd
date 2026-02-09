@@ -28,6 +28,8 @@ class PlayerState:
 
 var globalTimer: float = 0.0
 var curCamNode: Camera3D
+var sealedCam: Camera
+var audioCam: Camera
 
 var playerNode: Node3D
 var playerState: PlayerState = PlayerState.new()
@@ -73,8 +75,8 @@ func _ready() -> void:
 	# Shake Screen Doesn't Affect State
 	blackoutStart.connect(func(_dur: int): playerState.inBlackout = true)
 	blackoutEnd.connect(func(): playerState.inBlackout = false)
-	# Sealing Vent Doesn't Affect State
-	# Audio Lure Doesn't Affect State
+	sealVent.connect(func(camera): sealedCam = camera)
+	placeAudioLure.connect(func(camera): audioCam = camera)
 
 ## Wait for x seconds
 func wait(duration: float):

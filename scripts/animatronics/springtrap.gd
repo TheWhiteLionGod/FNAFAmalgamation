@@ -19,8 +19,10 @@ func _init():
 
 func _ready() -> void:
 	super._ready()
+	GameState.placeAudioLure.connect(listenToAudioLure)
+
 	# Spawning in Any Camera Other Than Door & Vent Camera
-	currentStage = rng.randi_range(0, 7)
+	currentStage = rng.randi_range(0, 5)
 	moveToStageMarker()
 
 func handleStage() -> void:
@@ -62,3 +64,14 @@ func handleStage() -> void:
 				"Invalid Stage Reached for Springtrap Animatronic: " + 
 				str(currentStage)
 				)
+
+func listenToAudioLure(luredCamera: GameState.Camera) -> void:
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
+	var curCamera: GameState.Camera = 10 - currentStage
+	var probOfListening: float = float(1) / float(abs(curCamera - luredCamera) + 1)
+
+	if rng.randf() > probOfListening:
+		return # Lure Failed
+
+	currentStage = 10 - luredCamera
+	moveToStageMarker()
