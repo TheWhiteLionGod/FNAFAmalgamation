@@ -24,7 +24,6 @@ func _ready() -> void:
 	moveToStageMarker()
 
 func handleStage() -> void:
-	print(currentStage)
 	match currentStage:
 		0, 1, 2, 3, 4, 5, 6, 7:
 			var curTime = GameState.globalTimer
@@ -44,8 +43,9 @@ func handleStage() -> void:
 				return; # Failed Movement
 
 			# Moving 2 Cams Forward / Backwards
-			currentStage += rng.randi_range(2, -1)
-			currentStage = min(max(currentStage, 0), 11)
+			# currentStage += rng.randi_range(2, -1)
+			# currentStage = min(max(currentStage, 0), 11)
+			currentStage = 10
 			moveToStageMarker()
 
 		# Vents Kill
@@ -53,8 +53,9 @@ func handleStage() -> void:
 			pass
 
 		# Door Kill
-		10, 11:
-			pass
+		10, 11:			
+			jumpscare(config.intensity, config.decayRate, config.direction)
+			playerKilled()
 
 		_:
 			print(

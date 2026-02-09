@@ -56,6 +56,7 @@ func moveToStageMarker():
 		return
 
 	var marker: Marker3D = markers[currentStage]
+	print(marker)
 
 	visible = true	
 	global_transform = marker.global_transform
@@ -87,6 +88,7 @@ func jumpscare(
 	# Moves animatronic to final marker (should be jumpscare marker)
 	var markers: Array[Node] = getMarkers()
 	global_transform = markers[len(markers) - 1].global_transform
+	print(markers[len(markers) - 1])
 	$"AnimationPlayer".play("jumpscare")
 
 	
