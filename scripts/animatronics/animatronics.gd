@@ -86,10 +86,10 @@ func jumpscare(
 	GameState.shakeScreen.emit(intensity, decayRate)
 	
 	# Moves animatronic to final marker (should be jumpscare marker)
+	$"AnimationPlayer".play("jumpscare")
 	var markers: Array[Node] = getMarkers()
 	global_transform = markers[len(markers) - 1].global_transform
 	print(markers[len(markers) - 1])
-	$"AnimationPlayer".play("jumpscare")
 
 	
 func _ready() -> void:
