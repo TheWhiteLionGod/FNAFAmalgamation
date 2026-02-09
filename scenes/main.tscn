@@ -262,7 +262,7 @@ direction = 0
 [sub_resource type="Resource" id="Resource_7riqb"]
 script = ExtResource("17_0p0d2")
 stages = 12
-movementInterval = 2
+movementInterval = 10
 intensity = 0.8
 decayRate = 1.7
 direction = 0
@@ -455,7 +455,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM1"]
 
 [node name="Springtrap11" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM1"]
@@ -489,7 +488,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM2"]
 
 [node name="Springtrap10" type="Marker3D" parent="Rooms/CAM2/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM2"]
@@ -527,7 +525,6 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08
 metadata/anim = "crawl"
 
 [node name="Springtrap9" type="Marker3D" parent="Rooms/CAM3/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM3"]
@@ -560,7 +557,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.5, 0.9)
 [node name="Markers" type="Node3D" parent="Rooms/CAM4"]
 
 [node name="Springtrap8" type="Marker3D" parent="Rooms/CAM4/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM4"]
@@ -589,7 +585,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM5A"]
 
 [node name="Springtrap7" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5A"]
@@ -625,7 +620,6 @@ transform = Transform3D(-0.5, 4.76452e-16, 0.866025, 3.48787e-16, 1, -3.48787e-1
 metadata/anim = ""
 
 [node name="Springtrap6" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5B"]
@@ -657,7 +651,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 20)
 [node name="Markers" type="Node3D" parent="Rooms/CAM5C"]
 
 [node name="Springtrap5" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5C"]
@@ -697,7 +690,6 @@ transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48
 metadata/anim = ""
 
 [node name="Springtrap4" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM6"]
@@ -737,7 +729,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2.08165e-12, 10)
 [node name="Markers" type="Node3D" parent="Rooms/CAM7"]
 
 [node name="Springtrap3" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
@@ -777,7 +768,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM8"]
 
 [node name="Springtrap2" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM8"]
@@ -809,7 +799,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 10)
 [node name="Markers" type="Node3D" parent="Rooms/CAM9"]
 
 [node name="Springtrap" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM9"]
@@ -897,5 +886,6 @@ AI_LEVEL = 0
 config = SubResource("Resource_wj5qb")
 
 [node name="Springtrap" parent="Animatronics" instance=ExtResource("16_i88ij")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -4.1, 2)
 AI_LEVEL = 20
 config = SubResource("Resource_7riqb")

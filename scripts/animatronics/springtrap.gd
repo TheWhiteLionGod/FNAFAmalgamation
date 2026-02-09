@@ -20,7 +20,7 @@ func _init():
 func _ready() -> void:
 	super._ready()
 	# Spawning in Any Camera Other Than Door & Vent Camera
-	currentStage = rng.randi_range(4, 11)
+	currentStage = rng.randi_range(0, 7)
 	moveToStageMarker()
 
 func handleStage() -> void:

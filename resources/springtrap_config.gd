@@ -5,7 +5,7 @@ extends Resource
 class_name SpringtrapConfig
 
 @export var stages: int = 12;
-@export var movementInterval: int = 2;
+@export var movementInterval: int = 10;
 
 @export_group("Jumpscare")
 @export var intensity: float = 0.8
