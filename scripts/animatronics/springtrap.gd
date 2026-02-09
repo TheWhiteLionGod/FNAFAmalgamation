@@ -1,19 +1,17 @@
 """
-This Script Will Control Toy Bonnie Behavior
+This Script Will Control Springtrap Behavior
 """
 extends Animatronic
 
 signal configReady
 @export_range(0, 20) var AI_LEVEL: int
-@export var config: ToyBonnieConfig:
+@export var config: SpringtrapConfig:
 	set(value):
 		config = value
 		configReady.emit()
 
-@onready var killStage: int = getKillStage()
-
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var hasMoved: bool = false
-var doingBlackout: bool = false
 
 func _init():
 	await configReady
@@ -21,10 +19,14 @@ func _init():
 
 func _ready() -> void:
 	super._ready()
+	# Spawning in Any Camera Other Than Door & Vent Camera
+	currentStage = rng.randi_range(4, 11)
+	moveToStageMarker()
 
 func handleStage() -> void:
+	print(currentStage)
 	match currentStage:
-		0, 1, 2:
+		0, 1, 2, 3, 4, 5, 6, 7:
 			var curTime = GameState.globalTimer
 			curTime = round(curTime * 10) / 10
 			
@@ -41,31 +43,21 @@ func handleStage() -> void:
 			if randi_range(0, 20) >= AI_LEVEL:
 				return; # Failed Movement
 
-			# Progressing Stage
-			currentStage += 1
+			# Moving 2 Cams Forward / Backwards
+			currentStage += rng.randi_range(2, -1)
+			currentStage = min(max(currentStage, 0), 11)
 			moveToStageMarker()
 
-		killStage:
-			if doingBlackout:
-				return
-			doingBlackout = true
+		# Vents Kill
+		8, 9:
+			pass
 
-			GameState.blackoutStart.emit(config.blackoutLength)
-			await GameState.blackoutEnd
-			checkForKill()
+		# Door Kill
+		10, 11:
+			pass
 
 		_:
 			print(
-				"Invalid Stage Reached for Toy Bonnie Animatronic: " + 
+				"Invalid Stage Reached for Springtrap Animatronic: " + 
 				str(currentStage)
 				)
-
-func checkForKill() -> void:
-	if GameState.playerState.maskOn and GameState.playerState.facing == config.direction:
-		currentStage = 0
-		doingBlackout = false
-		moveToStageMarker()
-		return
-
-	jumpscare(config.intensity, config.decayRate, config.direction)
-	playerKilled()

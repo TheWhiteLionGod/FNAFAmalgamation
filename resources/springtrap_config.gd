@@ -1,12 +1,11 @@
 """
-Config For Toy Freddy
+Config For Springtrap
 """
 extends Resource
-class_name ToyFreddyConfig
+class_name SpringtrapConfig
 
-@export var stages: int = 3;
-@export var movementInterval: int = 15;
-@export var blackoutLength: int = 5;
+@export var stages: int = 12;
+@export var movementInterval: int = 2;
 
 @export_group("Jumpscare")
 @export var intensity: float = 0.8
