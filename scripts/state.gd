@@ -28,8 +28,11 @@ class PlayerState:
 
 var globalTimer: float = 0.0
 var curCamNode: Camera3D
-var sealedCam: Camera
-var audioCam: Camera
+
+@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+var sealedCam: Camera = -1
+@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+var audioCam: Camera = -1
 
 var playerNode: Node3D
 var playerState: PlayerState = PlayerState.new()
@@ -75,8 +78,18 @@ func _ready() -> void:
 	# Shake Screen Doesn't Affect State
 	blackoutStart.connect(func(_dur: int): playerState.inBlackout = true)
 	blackoutEnd.connect(func(): playerState.inBlackout = false)
-	sealVent.connect(func(camera): sealedCam = camera)
-	placeAudioLure.connect(func(camera): audioCam = camera)
+	sealVent.connect(func(camera): 
+		sealedCam = camera
+		wait(10)
+		@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+		sealedCam = -1
+	)
+	placeAudioLure.connect(func(camera):
+		audioCam = camera
+		wait(10)
+		@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+		audioCam = -1
+	)
 
 ## Wait for x seconds
 func wait(duration: float):
