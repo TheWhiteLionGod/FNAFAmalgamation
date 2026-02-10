@@ -263,7 +263,7 @@ direction = 0
 script = ExtResource("17_0p0d2")
 stages = 12
 movementInterval = 10
-intensity = 0.8
+intensity = 0.1
 decayRate = 1.7
 direction = 0
 
