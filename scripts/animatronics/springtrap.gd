@@ -22,28 +22,58 @@ func _ready() -> void:
 	super._ready()
 	GameState.placeAudioLure.connect(listenToAudioLure)
 
-	# Spawning in Any Camera Other Than Door & Vent Camera
-	currentStage = rng.randi_range(0, 5)
+	# Spawning in Random Camera
+	currentStage = rng.randi_range(4, 10)
 	moveToStageMarker()
 
 func handleStage() -> void:
 	match currentStage:
-		0, 1, 2, 3, 4, 5, 6, 7:
+		4, 5, 6, 7, 8, 9, 10:
 			# Failed Movement
 			if !movementOpportunity.check(AI_LEVEL):
 				return
 
 			# Moving 2 Cams Forward / Backwards
-			currentStage += rng.randi_range(2, -1)
-			currentStage = min(max(currentStage, 0), 11)
+			currentStage -= rng.randi_range(2, -1)
+			currentStage = min(max(currentStage, 0), 10)
 			moveToStageMarker()
 
 		# Vents Kill
-		8, 9:
-			currentStage += 1;
+		2, 3:
+			# Failed Movement
+			if !movementOpportunity.check(AI_LEVEL):
+				return
+			
+			# Kills Player
+			if currentStage != GameState.sealedCam:
+				currentStage = -1
+				return
+
+			# Springtrap Can Leave, Stay in Vent, or Rush Door From Here
+			currentStage += rng.randi_range(-1, 1) * 2
+			currentStage = min(max(currentStage, 0), 11)
+			moveToStageMarker()
 
 		# Door Kill
-		10, 11:			
+		0, 1: 
+			# Failed Movement
+			if !movementOpportunity.check(AI_LEVEL):
+				return
+
+			# Right Door
+			if currentStage == 1 and !GameState.playerState.rightDoorClosed:
+				currentStage = -1
+				return
+			
+			elif currentStage == 0 and !GameState.playerState.leftDoorClosed:
+				currentStage = -1
+				return
+			
+			# Clearing Springtrap
+			currentStage = rng.randi_range(4, 10)
+			moveToStageMarker()
+
+		-1:
 			jumpscare(config.intensity, config.decayRate, config.direction)
 			playerKilled()
 
@@ -55,11 +85,10 @@ func handleStage() -> void:
 
 func listenToAudioLure(luredCamera: GameState.Camera) -> void:
 	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
-	var curCamera: GameState.Camera = 10 - currentStage
-	var probOfListening: float = float(1) / float(abs(curCamera - luredCamera) + 1)
+	var probOfListening: float = float(1) / float(abs(currentStage - luredCamera) + 1)
 
-	if rng.randf() > probOfListening:
+	if rng.randf() >= probOfListening:
 		return # Lure Failed
 
-	currentStage = 10 - luredCamera
+	currentStage = luredCamera
 	moveToStageMarker()

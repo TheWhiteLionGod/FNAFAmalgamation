@@ -4,7 +4,6 @@ This Script Will Handle the Puppet Animatronic
 extends Animatronic
 
 signal configReady
-@export var musicBox: StaticBody3D
 @export_range(0, 20) var AI_LEVEL: int
 @export var config: PuppetConfig:
 	set(value):
