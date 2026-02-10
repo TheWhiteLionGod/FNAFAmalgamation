@@ -81,7 +81,6 @@ func restartGame():
 	get_tree().current_scene.get_node("Animatronics").get_node("MusicBox")._ready()
 
 	GameState.playerState.playerDead = false
-	print("jqiwe")
 
 ## Jumpscare
 func jumpscare(
