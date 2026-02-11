@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0jleoc11s5o1"]
+[gd_scene load_steps=16 format=3 uid="uid://b0jleoc11s5o1"]
 
 [ext_resource type="Script" path="res://scripts/player/cam_btn.gd" id="1_jg77a"]
 [ext_resource type="Shader" path="res://shaders/camera_static.gdshader" id="2_0sul2"]
 [ext_resource type="Script" path="res://scripts/player/timer.gd" id="2_6miqm"]
 [ext_resource type="Shader" path="res://shaders/camera_open.gdshader" id="2_qc5hu"]
 [ext_resource type="Script" path="res://scripts/player/movement_btn.gd" id="5_pohxx"]
+[ext_resource type="Script" path="res://scripts/player/main_menu.gd" id="6_rrrr7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eww4y"]
 bg_color = Color(1, 1, 1, 0)
@@ -30,6 +31,14 @@ shader_parameter/glitch_amount = 0.0
 [sub_resource type="LabelSettings" id="LabelSettings_b4nho"]
 font_size = 25
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4agsh"]
+bg_color = Color(0.243137, 0.701961, 0.388235, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_vysww"]
 length = 0.001
@@ -378,6 +387,41 @@ text = "Place Audio Lure"
 layout_mode = 2
 theme_override_constants/margin_bottom = 10
 
+[node name="MainMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_rrrr7")
+
+[node name="Background" type="ColorRect" parent="MainMenu"]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Animatronics" type="GridContainer" parent="MainMenu"]
+layout_mode = 2
+offset_top = 10.0
+offset_right = 930.0
+offset_bottom = 638.0
+size_flags_horizontal = 3
+
+[node name="Play" type="Button" parent="MainMenu"]
+clip_contents = true
+layout_mode = 2
+offset_left = 940.0
+offset_top = 438.0
+offset_right = 1142.0
+offset_bottom = 638.0
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_4agsh")
+text = "GO!"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4y2lm")
@@ -400,3 +444,4 @@ libraries = {
 [connection signal="pressed" from="Cams/Cams/Bottom/Cam/Door Cams/Button1" to="Cams" method="changeCamera" binds= ["CAM1"]]
 [connection signal="pressed" from="Cams/Cams/Bottom/Cam/Door Cams/Button2" to="Cams" method="changeCamera" binds= ["CAM2"]]
 [connection signal="pressed" from="Cams/Cams/Bottom/SpringTrapBtn" to="Cams" method="springTrapBtnPressed"]
+[connection signal="pressed" from="MainMenu/Play" to="MainMenu" method="_play_game"]

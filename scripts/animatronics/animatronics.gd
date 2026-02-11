@@ -55,7 +55,6 @@ func moveToStageMarker():
 		return
 
 	var marker: Marker3D = markers[currentStage]
-	print(marker)
 
 	visible = true	
 	global_transform = marker.global_transform
@@ -67,6 +66,22 @@ func moveToStageMarker():
 
 func playerKilled():
 	GameState.playerKilled.emit()
+
+func restartGame():
+	for connection in get_incoming_connections():
+		var sourceSignal = connection["signal"]
+		var targetCallable = connection["callable"]
+		
+		if sourceSignal.is_connected(targetCallable):
+			sourceSignal.disconnect(targetCallable)
+	
+	self._ready()
+
+	# Update music box
+	get_tree().current_scene.get_node("Animatronics").get_node("MusicBox")._ready()
+
+	GameState.playerState.playerDead = false
+	print("jqiwe")
 
 ## Jumpscare
 func jumpscare(
@@ -86,17 +101,16 @@ func jumpscare(
 	
 	# Moves animatronic to final marker (should be jumpscare marker)
 	$"AnimationPlayer".play("jumpscare")
+
 	var markers: Array[Node] = getMarkers()
 	global_transform = markers[len(markers) - 1].global_transform
-	print(markers[len(markers) - 1])
-
 	
 func _ready() -> void:
 	currentStage = 0
 	moveToStageMarker()
 
+	GameState.restartGame.connect(restartGame)
+
 func _process(_delta: float) -> void:
-	if GameState.playerState.playerDead: 
-		return
-	
-	handleStage()
+	if !GameState.playerState.playerDead:
+		handleStage()

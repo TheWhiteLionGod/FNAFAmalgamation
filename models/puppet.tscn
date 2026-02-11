@@ -5218,7 +5218,6 @@ bones/134/position = Vector3(6.93889e-18, 0.0538335, 0)
 bones/134/rotation = Quaternion(-1.38778e-17, 1.20371e-34, -8.67362e-18, 1)
 bones/134/scale = Vector3(1, 1, 1)
 script = ExtResource("1_accfh")
-AI_LEVEL = null
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_88uuu")

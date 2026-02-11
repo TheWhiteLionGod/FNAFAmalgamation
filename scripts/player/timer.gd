@@ -23,3 +23,7 @@ func _process(delta: float) -> void:
 	timer += delta
 	GameState.globalTimer = timer
 	updateText()
+
+
+func turn() -> void:
+	pass # Replace with function body.

@@ -58,7 +58,7 @@ func openCameras() -> void:
 
 func closeCameras() -> void:
 	guiAnimationPlayer.play("camera_close")
-	await get_tree().create_timer(cameraOpenAnimation.length).timeout
+	await GameState.wait(cameraOpenAnimation.length)
 
 	player.get_node("Camera").current = true
 	

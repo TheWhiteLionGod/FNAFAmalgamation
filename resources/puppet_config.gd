@@ -9,3 +9,4 @@ class_name PuppetConfig
 @export_group("Jumpscare")
 @export var intensity: float = 0.8
 @export var decayRate: float = 1.7
+@export var direction: GameState.Facing = GameState.Facing.MUSIC_BOX
