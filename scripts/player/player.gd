@@ -124,7 +124,14 @@ func _input(event: InputEvent) -> void:
 			return
 
 		if GameState.playerState.activeCamera == GameState.Camera.CAM3 or GameState.playerState.activeCamera == GameState.Camera.CAM4:
+			# Vent Already Sealed
+			if GameState.sealedCam != -1:
+				return
 			GameState.sealVent.emit(GameState.playerState.activeCamera)
+			return
+
+		# Audio Already Placed
+		if GameState.audioCam != -1:
 			return
 		GameState.placeAudioLure.emit(GameState.playerState.activeCamera)
 
