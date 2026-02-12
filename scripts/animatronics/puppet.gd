@@ -18,6 +18,7 @@ func _init():
 
 func _ready() -> void:
 	GameState.musicBoxEmpty.connect(enterKillStage)
+	super._ready()
 
 func enterKillStage() -> void:
 	currentStage = killStage

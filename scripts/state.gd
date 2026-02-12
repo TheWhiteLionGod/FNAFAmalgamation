@@ -59,8 +59,10 @@ signal sealVent(camera: Camera)
 signal placeAudioLure(camera: Camera)
 
 func _ready() -> void:
+	GameState.restartGame.connect(restart)
+
 	globalTimer = 0
-	playerState.activeCamera = Camera.CAM1
+	playerState = PlayerState.new()
 	
 	openCamera.connect(func(): playerState.inCameras = true)
 	closeCamera.connect(func(): playerState.inCameras = false)
@@ -91,6 +93,11 @@ func _ready() -> void:
 		@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 		audioCam = -1
 	)
+
+func restart():
+	globalTimer = 0
+	playerState = PlayerState.new()
+	print(playerState.playerDead)
 
 ## Wait for x seconds
 func wait(duration: float):

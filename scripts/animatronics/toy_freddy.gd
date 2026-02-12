@@ -21,6 +21,7 @@ func _init():
 	movementOpportunity = MovementOpportunity.new(config.movementInterval)
 
 func _ready() -> void:
+	doingBlackout = false
 	super._ready()
 
 func handleStage() -> void:
