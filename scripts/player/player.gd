@@ -148,7 +148,7 @@ func _process(delta):
 			$"Flashlight".global_transform = GameState.curCamNode.global_transform
 		else:
 			$"Flashlight".global_transform = global_transform
-	print(GameState.playerState.activeCamera)
+	
 	# Shake Screen
 	if trauma > 0:
 		# 1. Decay trauma over time

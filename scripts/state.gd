@@ -97,7 +97,6 @@ func _ready() -> void:
 func restart():
 	globalTimer = 0
 	playerState = PlayerState.new()
-	print(playerState.playerDead)
 
 ## Wait for x seconds
 func wait(duration: float):

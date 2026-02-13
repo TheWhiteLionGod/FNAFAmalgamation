@@ -117,9 +117,6 @@ func turnPlayer(dir: GameState.Facing) -> void:
 	)
 
 func _turn_left() -> void:
-	print(GameState.playerState.playerDead)
-	print(GameState.playerState.maskOn)
-	print(GameState.playerState.inCameras)
 	if GameState.playerState.playerDead: return
 	if GameState.playerState.maskOn or GameState.playerState.inCameras:
 		return
