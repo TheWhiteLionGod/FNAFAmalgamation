@@ -1,5 +1,5 @@
 """
-This Script Will Control Toy Bonnie Behavior
+This Script Will Control Toy Chica Behavior
 """
 extends Animatronic
 
@@ -46,7 +46,7 @@ func handleStage() -> void:
 
 		_:
 			print(
-				"Invalid Stage Reached for Toy Bonnie Animatronic: " + 
+				"Invalid Stage Reached for Toy Chica Animatronic: " + 
 				str(currentStage)
 				)
 

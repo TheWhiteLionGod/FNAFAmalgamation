@@ -56,7 +56,9 @@ signal shakeScreen(intensity: float, decay_rate)
 signal blackoutStart(duration: float)
 signal blackoutEnd()
 signal sealVent(camera: Camera)
+signal ventUnsealed(camera: Camera)
 signal placeAudioLure(camera: Camera)
+signal lureEnd(camera: Camera)
 
 func _ready() -> void:
 	GameState.restartGame.connect(restart)
@@ -83,13 +85,19 @@ func _ready() -> void:
 	blackoutEnd.connect(func(): playerState.inBlackout = false)
 	sealVent.connect(func(camera): 
 		sealedCam = camera
-		wait(10)
+		await wait(10)
+		ventUnsealed.emit()
+	)
+	ventUnsealed.connect(func(): 
 		@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 		sealedCam = -1
 	)
 	placeAudioLure.connect(func(camera):
 		audioCam = camera
-		wait(10)
+		await wait(10)
+		lureEnd.emit()
+	)
+	lureEnd.connect(func():
 		@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 		audioCam = -1
 	)

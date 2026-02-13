@@ -1,11 +1,11 @@
 """
-Config For Toy Bonnie
+Config For Toy Chica
 """
 extends Resource
 class_name ToyChicaConfig
 
 @export var stages: int = 4;
-@export var movementInterval: int = 7;
+@export var movementInterval: int = 12;
 @export var blackoutLength: int = 3;
 
 @export_group("Jumpscare")

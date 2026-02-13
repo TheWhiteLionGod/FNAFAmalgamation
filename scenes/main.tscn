@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=61 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" path="res://resources/toy_bonnie_config.gd" id="15_q2pmh"]
 [ext_resource type="PackedScene" uid="uid://dt1t76g8eavas" path="res://models/springtrap.tscn" id="16_i88ij"]
 [ext_resource type="Script" path="res://resources/springtrap_config.gd" id="17_0p0d2"]
+[ext_resource type="PackedScene" uid="uid://i6acri1jy37s" path="res://models/toy_chica.tscn" id="18_a2iu4"]
+[ext_resource type="Script" path="res://resources/toy_chica_config.gd" id="19_0ytx8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -240,13 +242,13 @@ direction = 3
 script = ExtResource("10_6tyi6")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
-totalUnits = 80
+totalUnits = 2000
 
 [sub_resource type="Resource" id="Resource_gbs6i"]
 script = ExtResource("12_kak3c")
 stages = 3
-movementInterval = 1
-blackoutLength = 1
+movementInterval = 15
+blackoutLength = 5
 intensity = 0.8
 decayRate = 1.7
 direction = 0
@@ -263,8 +265,17 @@ direction = 0
 [sub_resource type="Resource" id="Resource_7riqb"]
 script = ExtResource("17_0p0d2")
 stages = 12
-movementInterval = 1
+movementInterval = 10
 intensity = 0.1
+decayRate = 1.7
+direction = 0
+
+[sub_resource type="Resource" id="Resource_0a2xk"]
+script = ExtResource("19_0ytx8")
+stages = 4
+movementInterval = 1
+blackoutLength = 1
+intensity = 0.8
 decayRate = 1.7
 direction = 0
 
@@ -303,12 +314,20 @@ metadata/anim = ""
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.036, 0.083, 2.969)
 metadata/anim = ""
 
+[node name="ToyChica5" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["toy_chica"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.20861)
+metadata/anim = ""
+
 [node name="ToyFreddy2" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_freddy"]]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 1.5)
 metadata/anim = ""
 
 [node name="ToyBonnie3" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_bonnie"]]
 transform = Transform3D(0.707107, -6.22982e-23, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, -2, 2.08165e-12, 1.5)
+metadata/anim = ""
+
+[node name="ToyChica4" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_chica"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, 2, 2.08165e-12, 1.5)
 metadata/anim = ""
 
 [node name="LeftWall" type="Node3D" parent="Rooms/Office"]
@@ -456,7 +475,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM1"]
 
 [node name="Springtrap0" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["springtrap"]]
-metadata/anim = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1.5)
+metadata/anim = "eyes_forward"
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM1"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2, 2.08165e-12)
@@ -489,7 +509,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM2"]
 
 [node name="Springtrap1" type="Marker3D" parent="Rooms/CAM2/Markers" groups=["springtrap"]]
-metadata/anim = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1.5)
+metadata/anim = "eyes_forward"
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM2"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2, 2.08165e-12)
@@ -526,7 +547,8 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08
 metadata/anim = "crawl"
 
 [node name="Springtrap2" type="Marker3D" parent="Rooms/CAM3/Markers" groups=["springtrap"]]
-metadata/anim = ""
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -0.75, 0.2, -0.25)
+metadata/anim = "left_vent"
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM3"]
 transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, -3.48787e-16, -1, 8.74228e-08, -1, 4.17016e-15, 4.37114e-08, 2.08165e-12, 1, 2.08165e-12)
@@ -558,6 +580,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.5, 0.9)
 [node name="Markers" type="Node3D" parent="Rooms/CAM4"]
 
 [node name="Springtrap3" type="Marker3D" parent="Rooms/CAM4/Markers" groups=["springtrap"]]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 3.82137e-15, 4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.75, 0.2, 2.08165e-12)
+metadata/anim = "right_vent"
+
+[node name="ToyChica3" type="Marker3D" parent="Rooms/CAM4/Markers" groups=["toy_chica"]]
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM4"]
@@ -586,7 +612,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM5A"]
 
 [node name="Springtrap4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["springtrap"]]
-metadata/anim = ""
+transform = Transform3D(0.939693, -2.0846e-16, 0.34202, 3.48787e-16, 1, -3.48787e-16, -0.34202, 4.47045e-16, 0.939693, 2, 2.08165e-12, -1)
+metadata/anim = "eyes_forward"
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5A"]
 mesh = SubResource("PlaneMesh_n4j47")
@@ -621,7 +648,8 @@ transform = Transform3D(-0.5, 4.76452e-16, 0.866025, 3.48787e-16, 1, -3.48787e-1
 metadata/anim = ""
 
 [node name="Springtrap5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["springtrap"]]
-metadata/anim = ""
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 1.5, 2.08165e-12, 1.5)
+metadata/anim = "look_left"
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5B"]
 mesh = SubResource("PlaneMesh_n4j47")
@@ -652,6 +680,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 20)
 [node name="Markers" type="Node3D" parent="Rooms/CAM5C"]
 
 [node name="Springtrap6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["springtrap"]]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 2.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5C"]
@@ -690,8 +719,12 @@ metadata/anim = ""
 transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48787e-16, 0.258819, 2.4663e-16, 0.965926, 1.25, 0.5, -1.75)
 metadata/anim = ""
 
-[node name="Springtrap7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["springtrap"]]
+[node name="ToyChica" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["toy_chica"]]
+transform = Transform3D(0.866026, -4.76452e-16, -0.5, 3.48787e-16, 1, -3.48787e-16, 0.5, 1.27665e-16, 0.866026, 2.74733, 0.5, -1.29845)
 metadata/anim = ""
+
+[node name="Springtrap7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["springtrap"]]
+metadata/anim = "eyes_forward"
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM6"]
 mesh = SubResource("PlaneMesh_n4j47")
@@ -730,6 +763,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2.08165e-12, 10)
 [node name="Markers" type="Node3D" parent="Rooms/CAM7"]
 
 [node name="Springtrap8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["springtrap"]]
+metadata/anim = "eyes_forward"
+
+[node name="ToyChica2" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["toy_chica"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, -1, 2.08165e-12, 2.08165e-12)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
@@ -769,7 +806,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM8"]
 
 [node name="Springtrap9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["springtrap"]]
-metadata/anim = ""
+metadata/anim = "look_right"
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM8"]
 mesh = SubResource("PlaneMesh_vcosm")
@@ -800,7 +837,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 10)
 [node name="Markers" type="Node3D" parent="Rooms/CAM9"]
 
 [node name="Springtrap10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["springtrap"]]
-metadata/anim = ""
+metadata/anim = "look_left"
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM9"]
 mesh = SubResource("PlaneMesh_vcosm")
@@ -883,9 +920,15 @@ config = SubResource("Resource_gbs6i")
 
 [node name="ToyBonnie" parent="Animatronics" instance=ExtResource("14_bmlnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
 config = SubResource("Resource_wj5qb")
 
 [node name="Springtrap" parent="Animatronics" instance=ExtResource("16_i88ij")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -4.1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
 AI_LEVEL = 20
 config = SubResource("Resource_7riqb")
+
+[node name="ToyChica" parent="Animatronics" instance=ExtResource("18_a2iu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
+config = SubResource("Resource_0a2xk")
