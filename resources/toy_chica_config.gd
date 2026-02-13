@@ -5,8 +5,8 @@ extends Resource
 class_name ToyChicaConfig
 
 @export var stages: int = 4;
-@export var movementInterval: int = 5;
-@export var blackoutLength: int = 4;
+@export var movementInterval: int = 12;
+@export var blackoutLength: int = 3;
 
 @export_group("Jumpscare")
 @export var intensity: float = 0.8
