@@ -273,8 +273,8 @@ direction = 0
 [sub_resource type="Resource" id="Resource_0a2xk"]
 script = ExtResource("19_0ytx8")
 stages = 4
-movementInterval = 1
-blackoutLength = 1
+movementInterval = 12
+blackoutLength = 3
 intensity = 0.8
 decayRate = 1.7
 direction = 0
