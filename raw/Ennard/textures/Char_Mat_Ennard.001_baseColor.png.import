@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi3hpjud4fard"
+path.s3tc="res://.godot/imported/Char_Mat_Ennard.001_baseColor.png-fcca4166841593bafbab14d6c7d47076.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Ennard.001_baseColor.png-fcca4166841593bafbab14d6c7d47076.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Ennard/textures/Char_Mat_Ennard.001_baseColor.png"
-dest_files=["res://.godot/imported/Char_Mat_Ennard.001_baseColor.png-fcca4166841593bafbab14d6c7d47076.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Ennard.001_baseColor.png-fcca4166841593bafbab14d6c7d47076.s3tc.ctex", "res://.godot/imported/Char_Mat_Ennard.001_baseColor.png-fcca4166841593bafbab14d6c7d47076.etc2.ctex"]
 
 [params]
 

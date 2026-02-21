@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0mbdbjvty0nc"
+path.s3tc="res://.godot/imported/Chica_Eyes_baseColor.png-9f56be6aef829cfd83158f3c8fe72194.s3tc.ctex"
 path.etc2="res://.godot/imported/Chica_Eyes_baseColor.png-9f56be6aef829cfd83158f3c8fe72194.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Chica/textures/Chica_Eyes_baseColor.png"
-dest_files=["res://.godot/imported/Chica_Eyes_baseColor.png-9f56be6aef829cfd83158f3c8fe72194.etc2.ctex"]
+dest_files=["res://.godot/imported/Chica_Eyes_baseColor.png-9f56be6aef829cfd83158f3c8fe72194.s3tc.ctex", "res://.godot/imported/Chica_Eyes_baseColor.png-9f56be6aef829cfd83158f3c8fe72194.etc2.ctex"]
 
 [params]
 

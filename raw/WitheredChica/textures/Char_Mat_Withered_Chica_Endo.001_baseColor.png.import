@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgaf4fpx1048j"
+path.s3tc="res://.godot/imported/Char_Mat_Withered_Chica_Endo.001_baseColor.png-ac6ec02b46836a8d953ae0cfe7392b29.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Withered_Chica_Endo.001_baseColor.png-ac6ec02b46836a8d953ae0cfe7392b29.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/WitheredChica/textures/Char_Mat_Withered_Chica_Endo.001_baseColor.png"
-dest_files=["res://.godot/imported/Char_Mat_Withered_Chica_Endo.001_baseColor.png-ac6ec02b46836a8d953ae0cfe7392b29.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Withered_Chica_Endo.001_baseColor.png-ac6ec02b46836a8d953ae0cfe7392b29.s3tc.ctex", "res://.godot/imported/Char_Mat_Withered_Chica_Endo.001_baseColor.png-ac6ec02b46836a8d953ae0cfe7392b29.etc2.ctex"]
 
 [params]
 

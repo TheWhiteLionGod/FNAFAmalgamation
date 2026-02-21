@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4d6wd83g3d0r"
+path.s3tc="res://.godot/imported/Ballora_Body_baseColor.png-b8f878730f882a6eb44037c12c2095ec.s3tc.ctex"
 path.etc2="res://.godot/imported/Ballora_Body_baseColor.png-b8f878730f882a6eb44037c12c2095ec.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Ballora/textures/Ballora_Body_baseColor.png"
-dest_files=["res://.godot/imported/Ballora_Body_baseColor.png-b8f878730f882a6eb44037c12c2095ec.etc2.ctex"]
+dest_files=["res://.godot/imported/Ballora_Body_baseColor.png-b8f878730f882a6eb44037c12c2095ec.s3tc.ctex", "res://.godot/imported/Ballora_Body_baseColor.png-b8f878730f882a6eb44037c12c2095ec.etc2.ctex"]
 
 [params]
 

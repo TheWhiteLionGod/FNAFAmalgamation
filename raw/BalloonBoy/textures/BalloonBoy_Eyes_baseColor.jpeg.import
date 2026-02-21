@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4novp01yxt7"
+path.s3tc="res://.godot/imported/BalloonBoy_Eyes_baseColor.jpeg-d8d0978c6cd038f2fed215e19d179fa1.s3tc.ctex"
 path.etc2="res://.godot/imported/BalloonBoy_Eyes_baseColor.jpeg-d8d0978c6cd038f2fed215e19d179fa1.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/BalloonBoy/textures/BalloonBoy_Eyes_baseColor.jpeg"
-dest_files=["res://.godot/imported/BalloonBoy_Eyes_baseColor.jpeg-d8d0978c6cd038f2fed215e19d179fa1.etc2.ctex"]
+dest_files=["res://.godot/imported/BalloonBoy_Eyes_baseColor.jpeg-d8d0978c6cd038f2fed215e19d179fa1.s3tc.ctex", "res://.godot/imported/BalloonBoy_Eyes_baseColor.jpeg-d8d0978c6cd038f2fed215e19d179fa1.etc2.ctex"]
 
 [params]
 

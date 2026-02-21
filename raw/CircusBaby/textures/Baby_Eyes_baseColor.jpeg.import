@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjnbpq8haw3rd"
+path.s3tc="res://.godot/imported/Baby_Eyes_baseColor.jpeg-f13130fada8eee0e95b2210cb45d51f6.s3tc.ctex"
 path.etc2="res://.godot/imported/Baby_Eyes_baseColor.jpeg-f13130fada8eee0e95b2210cb45d51f6.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/CircusBaby/textures/Baby_Eyes_baseColor.jpeg"
-dest_files=["res://.godot/imported/Baby_Eyes_baseColor.jpeg-f13130fada8eee0e95b2210cb45d51f6.etc2.ctex"]
+dest_files=["res://.godot/imported/Baby_Eyes_baseColor.jpeg-f13130fada8eee0e95b2210cb45d51f6.s3tc.ctex", "res://.godot/imported/Baby_Eyes_baseColor.jpeg-f13130fada8eee0e95b2210cb45d51f6.etc2.ctex"]
 
 [params]
 

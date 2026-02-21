@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqbj2x1t7yynu"
+path.s3tc="res://.godot/imported/Char_Mat_Nightmare_Freddy_Body_normal.png-44f25c21115034816ad0810f1c20e365.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Nightmare_Freddy_Body_normal.png-44f25c21115034816ad0810f1c20e365.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareFredbear/textures/Char_Mat_Nightmare_Freddy_Body_normal.png"
-dest_files=["res://.godot/imported/Char_Mat_Nightmare_Freddy_Body_normal.png-44f25c21115034816ad0810f1c20e365.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Nightmare_Freddy_Body_normal.png-44f25c21115034816ad0810f1c20e365.s3tc.ctex", "res://.godot/imported/Char_Mat_Nightmare_Freddy_Body_normal.png-44f25c21115034816ad0810f1c20e365.etc2.ctex"]
 
 [params]
 

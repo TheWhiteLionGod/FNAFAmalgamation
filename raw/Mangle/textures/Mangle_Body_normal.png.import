@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c87815taujmpi"
+path.s3tc="res://.godot/imported/Mangle_Body_normal.png-36b5074acb00beeb4c90d44f1ee0ab0e.s3tc.ctex"
 path.etc2="res://.godot/imported/Mangle_Body_normal.png-36b5074acb00beeb4c90d44f1ee0ab0e.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Mangle/textures/Mangle_Body_normal.png"
-dest_files=["res://.godot/imported/Mangle_Body_normal.png-36b5074acb00beeb4c90d44f1ee0ab0e.etc2.ctex"]
+dest_files=["res://.godot/imported/Mangle_Body_normal.png-36b5074acb00beeb4c90d44f1ee0ab0e.s3tc.ctex", "res://.godot/imported/Mangle_Body_normal.png-36b5074acb00beeb4c90d44f1ee0ab0e.etc2.ctex"]
 
 [params]
 

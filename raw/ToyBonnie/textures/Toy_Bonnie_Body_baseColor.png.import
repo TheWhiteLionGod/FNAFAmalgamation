@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgvq1dts60gpc"
+path.s3tc="res://.godot/imported/Toy_Bonnie_Body_baseColor.png-5f10693a30a2a412497182e3171939a1.s3tc.ctex"
 path.etc2="res://.godot/imported/Toy_Bonnie_Body_baseColor.png-5f10693a30a2a412497182e3171939a1.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/ToyBonnie/textures/Toy_Bonnie_Body_baseColor.png"
-dest_files=["res://.godot/imported/Toy_Bonnie_Body_baseColor.png-5f10693a30a2a412497182e3171939a1.etc2.ctex"]
+dest_files=["res://.godot/imported/Toy_Bonnie_Body_baseColor.png-5f10693a30a2a412497182e3171939a1.s3tc.ctex", "res://.godot/imported/Toy_Bonnie_Body_baseColor.png-5f10693a30a2a412497182e3171939a1.etc2.ctex"]
 
 [params]
 

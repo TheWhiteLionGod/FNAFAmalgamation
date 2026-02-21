@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blrbi6xtwkvrl"
+path.s3tc="res://.godot/imported/Char_Mat_Withered_Bonnie_Endo_W_Eyes_normal.png-ea7305bf8b3978e40fb7a5e19cdc175b.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Withered_Bonnie_Endo_W_Eyes_normal.png-ea7305bf8b3978e40fb7a5e19cdc175b.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/WitheredBonnie/textures/Char_Mat_Withered_Bonnie_Endo_W_Eyes_normal.png"
-dest_files=["res://.godot/imported/Char_Mat_Withered_Bonnie_Endo_W_Eyes_normal.png-ea7305bf8b3978e40fb7a5e19cdc175b.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Withered_Bonnie_Endo_W_Eyes_normal.png-ea7305bf8b3978e40fb7a5e19cdc175b.s3tc.ctex", "res://.godot/imported/Char_Mat_Withered_Bonnie_Endo_W_Eyes_normal.png-ea7305bf8b3978e40fb7a5e19cdc175b.etc2.ctex"]
 
 [params]
 

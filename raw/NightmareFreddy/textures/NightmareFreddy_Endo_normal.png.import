@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gsxjjqtmtbbe"
+path.s3tc="res://.godot/imported/NightmareFreddy_Endo_normal.png-adbaa71e3d0fd046da8f19cf41265613.s3tc.ctex"
 path.etc2="res://.godot/imported/NightmareFreddy_Endo_normal.png-adbaa71e3d0fd046da8f19cf41265613.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareFreddy/textures/NightmareFreddy_Endo_normal.png"
-dest_files=["res://.godot/imported/NightmareFreddy_Endo_normal.png-adbaa71e3d0fd046da8f19cf41265613.etc2.ctex"]
+dest_files=["res://.godot/imported/NightmareFreddy_Endo_normal.png-adbaa71e3d0fd046da8f19cf41265613.s3tc.ctex", "res://.godot/imported/NightmareFreddy_Endo_normal.png-adbaa71e3d0fd046da8f19cf41265613.etc2.ctex"]
 
 [params]
 

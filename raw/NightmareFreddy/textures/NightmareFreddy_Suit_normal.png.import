@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bytloxbe8sdn"
+path.s3tc="res://.godot/imported/NightmareFreddy_Suit_normal.png-d30a9c67b23e0cb30d093ec299c05501.s3tc.ctex"
 path.etc2="res://.godot/imported/NightmareFreddy_Suit_normal.png-d30a9c67b23e0cb30d093ec299c05501.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareFreddy/textures/NightmareFreddy_Suit_normal.png"
-dest_files=["res://.godot/imported/NightmareFreddy_Suit_normal.png-d30a9c67b23e0cb30d093ec299c05501.etc2.ctex"]
+dest_files=["res://.godot/imported/NightmareFreddy_Suit_normal.png-d30a9c67b23e0cb30d093ec299c05501.s3tc.ctex", "res://.godot/imported/NightmareFreddy_Suit_normal.png-d30a9c67b23e0cb30d093ec299c05501.etc2.ctex"]
 
 [params]
 

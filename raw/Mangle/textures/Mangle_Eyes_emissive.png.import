@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0opq720q2u7q"
+path.s3tc="res://.godot/imported/Mangle_Eyes_emissive.png-3cae260ecd9bee786b271f190d636941.s3tc.ctex"
 path.etc2="res://.godot/imported/Mangle_Eyes_emissive.png-3cae260ecd9bee786b271f190d636941.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Mangle/textures/Mangle_Eyes_emissive.png"
-dest_files=["res://.godot/imported/Mangle_Eyes_emissive.png-3cae260ecd9bee786b271f190d636941.etc2.ctex"]
+dest_files=["res://.godot/imported/Mangle_Eyes_emissive.png-3cae260ecd9bee786b271f190d636941.s3tc.ctex", "res://.godot/imported/Mangle_Eyes_emissive.png-3cae260ecd9bee786b271f190d636941.etc2.ctex"]
 
 [params]
 

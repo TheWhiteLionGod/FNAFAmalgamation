@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y0ebfhpptvha"
+path.s3tc="res://.godot/imported/Chica_Endo_baseColor.png-cd8ee2f3af547044c73747e31cbafbcc.s3tc.ctex"
 path.etc2="res://.godot/imported/Chica_Endo_baseColor.png-cd8ee2f3af547044c73747e31cbafbcc.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Chica/textures/Chica_Endo_baseColor.png"
-dest_files=["res://.godot/imported/Chica_Endo_baseColor.png-cd8ee2f3af547044c73747e31cbafbcc.etc2.ctex"]
+dest_files=["res://.godot/imported/Chica_Endo_baseColor.png-cd8ee2f3af547044c73747e31cbafbcc.s3tc.ctex", "res://.godot/imported/Chica_Endo_baseColor.png-cd8ee2f3af547044c73747e31cbafbcc.etc2.ctex"]
 
 [params]
 

@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://biqwmpnvu6c82"
+path.s3tc="res://.godot/imported/freddle3_mat.001_metallicRoughness.png-c60b3e3f83abd648420c277c1e16c778.s3tc.ctex"
 path.etc2="res://.godot/imported/freddle3_mat.001_metallicRoughness.png-c60b3e3f83abd648420c277c1e16c778.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareFreddy/textures/freddle3_mat.001_metallicRoughness.png"
-dest_files=["res://.godot/imported/freddle3_mat.001_metallicRoughness.png-c60b3e3f83abd648420c277c1e16c778.etc2.ctex"]
+dest_files=["res://.godot/imported/freddle3_mat.001_metallicRoughness.png-c60b3e3f83abd648420c277c1e16c778.s3tc.ctex", "res://.godot/imported/freddle3_mat.001_metallicRoughness.png-c60b3e3f83abd648420c277c1e16c778.etc2.ctex"]
 
 [params]
 

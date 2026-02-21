@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://l518e623rubs"
+path.s3tc="res://.godot/imported/freddle2_mat.001_normal.png-1f15780e8a1a7515dd8ecf18fa8b4ffb.s3tc.ctex"
 path.etc2="res://.godot/imported/freddle2_mat.001_normal.png-1f15780e8a1a7515dd8ecf18fa8b4ffb.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareFreddy/textures/freddle2_mat.001_normal.png"
-dest_files=["res://.godot/imported/freddle2_mat.001_normal.png-1f15780e8a1a7515dd8ecf18fa8b4ffb.etc2.ctex"]
+dest_files=["res://.godot/imported/freddle2_mat.001_normal.png-1f15780e8a1a7515dd8ecf18fa8b4ffb.s3tc.ctex", "res://.godot/imported/freddle2_mat.001_normal.png-1f15780e8a1a7515dd8ecf18fa8b4ffb.etc2.ctex"]
 
 [params]
 
