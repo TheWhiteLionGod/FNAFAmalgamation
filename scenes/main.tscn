@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=62 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://resources/springtrap_config.gd" id="17_0p0d2"]
 [ext_resource type="PackedScene" uid="uid://i6acri1jy37s" path="res://models/toy_chica.tscn" id="18_a2iu4"]
 [ext_resource type="Script" path="res://resources/toy_chica_config.gd" id="19_0ytx8"]
+[ext_resource type="PackedScene" uid="uid://cbqixna22mnwo" path="res://models/golden_freddy.tscn" id="20_r0xwg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -911,25 +912,22 @@ player = NodePath("../../Player")
 [node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
 transform = Transform3D(1.19249e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 2.75, 2.08165e-12, 3.75)
 visible = false
-AI_LEVEL = 20
 config = SubResource("Resource_ai6cq")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
-AI_LEVEL = 20
 config = SubResource("Resource_gbs6i")
 
 [node name="ToyBonnie" parent="Animatronics" instance=ExtResource("14_bmlnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
-AI_LEVEL = 20
 config = SubResource("Resource_wj5qb")
 
 [node name="ToyChica" parent="Animatronics" instance=ExtResource("18_a2iu4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
-AI_LEVEL = 20
 config = SubResource("Resource_0a2xk")
 
 [node name="Springtrap" parent="Animatronics" instance=ExtResource("16_i88ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
-AI_LEVEL = 20
 config = SubResource("Resource_7riqb")
+
+[node name="GoldenFreddy" parent="Animatronics" instance=ExtResource("20_r0xwg")]
