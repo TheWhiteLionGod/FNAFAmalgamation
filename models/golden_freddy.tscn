@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbqixna22mnwo"]
+[gd_scene load_steps=11 format=3 uid="uid://cbqixna22mnwo"]
 
-[ext_resource type="Texture2D" uid="uid://dthmk5j8npcbc" path="res://animatronics/raw/GoldenFreddy/textures/Freddy_Body_baseColor.png" id="1_sd7f4"]
-[ext_resource type="Texture2D" uid="uid://ytdplqimo21m" path="res://animatronics/raw/GoldenFreddy/textures/Freddy_Body_metallicRoughness.png" id="2_vfq5d"]
-[ext_resource type="Texture2D" uid="uid://xae1qds211qw" path="res://animatronics/raw/GoldenFreddy/textures/Freddy_Body_normal.png" id="3_ka2mv"]
-[ext_resource type="Texture2D" uid="uid://d00xcd18ms2vo" path="res://animatronics/raw/GoldenFreddy/textures/Freddy_Eyes_baseColor.jpeg" id="4_nouue"]
+[ext_resource type="Script" path="res://scripts/animatronics/golden_freddy.gd" id="1_e27m1"]
+[ext_resource type="Texture2D" uid="uid://dthmk5j8npcbc" path="res://raw/GoldenFreddy/textures/Freddy_Body_baseColor.png" id="1_sd7f4"]
+[ext_resource type="Texture2D" uid="uid://ytdplqimo21m" path="res://raw/GoldenFreddy/textures/Freddy_Body_metallicRoughness.png" id="2_vfq5d"]
+[ext_resource type="Texture2D" uid="uid://xae1qds211qw" path="res://raw/GoldenFreddy/textures/Freddy_Body_normal.png" id="3_ka2mv"]
+[ext_resource type="Texture2D" uid="uid://d00xcd18ms2vo" path="res://raw/GoldenFreddy/textures/Freddy_Eyes_baseColor.jpeg" id="4_nouue"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mdjk"]
 resource_name = "Freddy_Body"
@@ -403,6 +404,7 @@ bones/32/enabled = true
 bones/32/position = Vector3(0, 0, 0)
 bones/32/rotation = Quaternion(-6.12323e-17, 1, -6.12323e-17, 6.12323e-17)
 bones/32/scale = Vector3(0, 1e-10, 1)
+script = ExtResource("1_e27m1")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_gnwam")

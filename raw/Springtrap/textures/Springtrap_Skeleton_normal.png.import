@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1ynxwhxtjlnk"
+path.s3tc="res://.godot/imported/Springtrap_Skeleton_normal.png-9dffa1feeb705acc1253a6140c230f8e.s3tc.ctex"
 path.etc2="res://.godot/imported/Springtrap_Skeleton_normal.png-9dffa1feeb705acc1253a6140c230f8e.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Springtrap/textures/Springtrap_Skeleton_normal.png"
-dest_files=["res://.godot/imported/Springtrap_Skeleton_normal.png-9dffa1feeb705acc1253a6140c230f8e.etc2.ctex"]
+dest_files=["res://.godot/imported/Springtrap_Skeleton_normal.png-9dffa1feeb705acc1253a6140c230f8e.s3tc.ctex", "res://.godot/imported/Springtrap_Skeleton_normal.png-9dffa1feeb705acc1253a6140c230f8e.etc2.ctex"]
 
 [params]
 

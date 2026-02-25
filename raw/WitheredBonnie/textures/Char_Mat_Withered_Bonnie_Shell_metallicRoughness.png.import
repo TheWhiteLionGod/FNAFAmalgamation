@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbb3xvjbhdqc3"
+path.s3tc="res://.godot/imported/Char_Mat_Withered_Bonnie_Shell_metallicRoughness.png-c32924c61ccd93a3f2ee78ae47e6b1c5.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Withered_Bonnie_Shell_metallicRoughness.png-c32924c61ccd93a3f2ee78ae47e6b1c5.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/WitheredBonnie/textures/Char_Mat_Withered_Bonnie_Shell_metallicRoughness.png"
-dest_files=["res://.godot/imported/Char_Mat_Withered_Bonnie_Shell_metallicRoughness.png-c32924c61ccd93a3f2ee78ae47e6b1c5.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Withered_Bonnie_Shell_metallicRoughness.png-c32924c61ccd93a3f2ee78ae47e6b1c5.s3tc.ctex", "res://.godot/imported/Char_Mat_Withered_Bonnie_Shell_metallicRoughness.png-c32924c61ccd93a3f2ee78ae47e6b1c5.etc2.ctex"]
 
 [params]
 

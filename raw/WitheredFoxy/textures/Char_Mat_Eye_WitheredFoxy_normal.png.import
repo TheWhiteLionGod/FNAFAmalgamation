@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p1scoimds4wf"
+path.s3tc="res://.godot/imported/Char_Mat_Eye_WitheredFoxy_normal.png-d227225af2e93d508410ad574b56dc86.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Eye_WitheredFoxy_normal.png-d227225af2e93d508410ad574b56dc86.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/WitheredFoxy/textures/Char_Mat_Eye_WitheredFoxy_normal.png"
-dest_files=["res://.godot/imported/Char_Mat_Eye_WitheredFoxy_normal.png-d227225af2e93d508410ad574b56dc86.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Eye_WitheredFoxy_normal.png-d227225af2e93d508410ad574b56dc86.s3tc.ctex", "res://.godot/imported/Char_Mat_Eye_WitheredFoxy_normal.png-d227225af2e93d508410ad574b56dc86.etc2.ctex"]
 
 [params]
 

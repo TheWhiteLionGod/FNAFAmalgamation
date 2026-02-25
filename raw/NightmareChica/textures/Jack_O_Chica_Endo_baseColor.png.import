@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ducet6g3cr6yj"
+path.s3tc="res://.godot/imported/Jack_O_Chica_Endo_baseColor.png-0da0a005efe5411ebdf9458a1272b5a0.s3tc.ctex"
 path.etc2="res://.godot/imported/Jack_O_Chica_Endo_baseColor.png-0da0a005efe5411ebdf9458a1272b5a0.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareChica/textures/Jack_O_Chica_Endo_baseColor.png"
-dest_files=["res://.godot/imported/Jack_O_Chica_Endo_baseColor.png-0da0a005efe5411ebdf9458a1272b5a0.etc2.ctex"]
+dest_files=["res://.godot/imported/Jack_O_Chica_Endo_baseColor.png-0da0a005efe5411ebdf9458a1272b5a0.s3tc.ctex", "res://.godot/imported/Jack_O_Chica_Endo_baseColor.png-0da0a005efe5411ebdf9458a1272b5a0.etc2.ctex"]
 
 [params]
 

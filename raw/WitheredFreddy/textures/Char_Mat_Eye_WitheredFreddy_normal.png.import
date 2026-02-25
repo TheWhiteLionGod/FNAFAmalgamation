@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct075gm6r3o05"
+path.s3tc="res://.godot/imported/Char_Mat_Eye_WitheredFreddy_normal.png-90361464a57c192cc6050619ff25971a.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Eye_WitheredFreddy_normal.png-90361464a57c192cc6050619ff25971a.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/WitheredFreddy/textures/Char_Mat_Eye_WitheredFreddy_normal.png"
-dest_files=["res://.godot/imported/Char_Mat_Eye_WitheredFreddy_normal.png-90361464a57c192cc6050619ff25971a.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Eye_WitheredFreddy_normal.png-90361464a57c192cc6050619ff25971a.s3tc.ctex", "res://.godot/imported/Char_Mat_Eye_WitheredFreddy_normal.png-90361464a57c192cc6050619ff25971a.etc2.ctex"]
 
 [params]
 

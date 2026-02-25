@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://71x0trfcwm7x"
+path.s3tc="res://.godot/imported/Jack_O_Bonnie_Body_normal.png-f22aa74aff95487f64c6ae1add72909d.s3tc.ctex"
 path.etc2="res://.godot/imported/Jack_O_Bonnie_Body_normal.png-f22aa74aff95487f64c6ae1add72909d.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/NightmareBonnie/textures/Jack_O_Bonnie_Body_normal.png"
-dest_files=["res://.godot/imported/Jack_O_Bonnie_Body_normal.png-f22aa74aff95487f64c6ae1add72909d.etc2.ctex"]
+dest_files=["res://.godot/imported/Jack_O_Bonnie_Body_normal.png-f22aa74aff95487f64c6ae1add72909d.s3tc.ctex", "res://.godot/imported/Jack_O_Bonnie_Body_normal.png-f22aa74aff95487f64c6ae1add72909d.etc2.ctex"]
 
 [params]
 

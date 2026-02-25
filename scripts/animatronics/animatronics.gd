@@ -51,7 +51,7 @@ func moveToStageMarker():
 	var markers: Array[Node] = getMarkers()
 
 	# Cannot move further than jumpscare
-	if currentStage > len(markers):
+	if currentStage >= len(markers):
 		return
 
 	var marker: Marker3D = markers[currentStage]

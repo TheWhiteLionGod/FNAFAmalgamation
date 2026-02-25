@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d36s7homko22f"
+path.s3tc="res://.godot/imported/Char_Mat_Withered_Freddy_Shell_normal.png-648540c11a344377b930c80b899c999c.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Withered_Freddy_Shell_normal.png-648540c11a344377b930c80b899c999c.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/WitheredFreddy/textures/Char_Mat_Withered_Freddy_Shell_normal.png"
-dest_files=["res://.godot/imported/Char_Mat_Withered_Freddy_Shell_normal.png-648540c11a344377b930c80b899c999c.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Withered_Freddy_Shell_normal.png-648540c11a344377b930c80b899c999c.s3tc.ctex", "res://.godot/imported/Char_Mat_Withered_Freddy_Shell_normal.png-648540c11a344377b930c80b899c999c.etc2.ctex"]
 
 [params]
 

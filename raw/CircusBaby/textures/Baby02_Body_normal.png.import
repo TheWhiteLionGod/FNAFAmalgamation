@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkrr5p625s4lp"
+path.s3tc="res://.godot/imported/Baby02_Body_normal.png-f13ae6bd8ae00e22db7b4300fa0dedb8.s3tc.ctex"
 path.etc2="res://.godot/imported/Baby02_Body_normal.png-f13ae6bd8ae00e22db7b4300fa0dedb8.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/CircusBaby/textures/Baby02_Body_normal.png"
-dest_files=["res://.godot/imported/Baby02_Body_normal.png-f13ae6bd8ae00e22db7b4300fa0dedb8.etc2.ctex"]
+dest_files=["res://.godot/imported/Baby02_Body_normal.png-f13ae6bd8ae00e22db7b4300fa0dedb8.s3tc.ctex", "res://.godot/imported/Baby02_Body_normal.png-f13ae6bd8ae00e22db7b4300fa0dedb8.etc2.ctex"]
 
 [params]
 

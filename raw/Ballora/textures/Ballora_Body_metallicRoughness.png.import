@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgay1h3b6n2sc"
+path.s3tc="res://.godot/imported/Ballora_Body_metallicRoughness.png-a81aa984701677a90def43b5bded7277.s3tc.ctex"
 path.etc2="res://.godot/imported/Ballora_Body_metallicRoughness.png-a81aa984701677a90def43b5bded7277.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Ballora/textures/Ballora_Body_metallicRoughness.png"
-dest_files=["res://.godot/imported/Ballora_Body_metallicRoughness.png-a81aa984701677a90def43b5bded7277.etc2.ctex"]
+dest_files=["res://.godot/imported/Ballora_Body_metallicRoughness.png-a81aa984701677a90def43b5bded7277.s3tc.ctex", "res://.godot/imported/Ballora_Body_metallicRoughness.png-a81aa984701677a90def43b5bded7277.etc2.ctex"]
 
 [params]
 

@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcscg6chn3716"
+path.s3tc="res://.godot/imported/Springtrap_Eyes_baseColor.jpeg-bf5cf4956ace62fd67dc2203ba2cc6bc.s3tc.ctex"
 path.etc2="res://.godot/imported/Springtrap_Eyes_baseColor.jpeg-bf5cf4956ace62fd67dc2203ba2cc6bc.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Springtrap/textures/Springtrap_Eyes_baseColor.jpeg"
-dest_files=["res://.godot/imported/Springtrap_Eyes_baseColor.jpeg-bf5cf4956ace62fd67dc2203ba2cc6bc.etc2.ctex"]
+dest_files=["res://.godot/imported/Springtrap_Eyes_baseColor.jpeg-bf5cf4956ace62fd67dc2203ba2cc6bc.s3tc.ctex", "res://.godot/imported/Springtrap_Eyes_baseColor.jpeg-bf5cf4956ace62fd67dc2203ba2cc6bc.etc2.ctex"]
 
 [params]
 

@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btr2ape2otcly"
+path.s3tc="res://.godot/imported/Char_Mat_Marrionette.001_metallicRoughness.png-17b0323c090f0ddd6c48fd1ddbb0ebef.s3tc.ctex"
 path.etc2="res://.godot/imported/Char_Mat_Marrionette.001_metallicRoughness.png-17b0323c090f0ddd6c48fd1ddbb0ebef.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://raw/Puppet/textures/Char_Mat_Marrionette.001_metallicRoughness.png"
-dest_files=["res://.godot/imported/Char_Mat_Marrionette.001_metallicRoughness.png-17b0323c090f0ddd6c48fd1ddbb0ebef.etc2.ctex"]
+dest_files=["res://.godot/imported/Char_Mat_Marrionette.001_metallicRoughness.png-17b0323c090f0ddd6c48fd1ddbb0ebef.s3tc.ctex", "res://.godot/imported/Char_Mat_Marrionette.001_metallicRoughness.png-17b0323c090f0ddd6c48fd1ddbb0ebef.etc2.ctex"]
 
 [params]
 
