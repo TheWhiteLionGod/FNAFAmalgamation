@@ -9,7 +9,7 @@ const KEYS_LIST: Array = ["Name", "Score"]
 
 var main: Node3D
 
-@warning_ignore("SHaDOWED_VARIABLE")
+@warning_ignore("SHADOWED_VARIABLE")
 func _init(main: Node3D) -> void:
 	self.main = main
 
