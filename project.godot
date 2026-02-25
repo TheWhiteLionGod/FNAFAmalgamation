@@ -22,10 +22,6 @@ GameState="*res://scripts/state.gd"
 
 window/stretch/mode="viewport"
 
-[filesystem]
-
-import/blender/enabled=false
-
 [importer_defaults]
 
 3d_texture={
