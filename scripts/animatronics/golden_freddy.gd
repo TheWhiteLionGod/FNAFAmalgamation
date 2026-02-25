@@ -3,12 +3,21 @@ This Script Will Control Golden Freddy's Behavior
 """
 extends Animatronic
 
+signal configReady
 @export_range(0, 20) var AI_LEVEL: int
+@export var config: GoldenFreddyConfig:
+	set(value):
+		config = value
+		configReady.emit()
+
 @onready var killStage: int = getKillStage()
 @onready var task: Label = Label.new()
 
 @warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
-var curTask: Task = -1
+var curTask: Task = -1 
+
+@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
+var curCamera: GameState.Camera = 0
 var tasksCompleted: int = 0
 var lock: bool = false
 
@@ -17,7 +26,8 @@ enum Task {
 }
 
 func _init() -> void:
-	super(3)
+	await configReady
+	super(config.stages)
 
 func _ready() -> void:
 	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
@@ -37,25 +47,29 @@ func handleStage() -> void:
 			lock = true
 			await GameState.openCamera
 			
-			var curCamera = randi_range(0, 10)
-			# TODO: Move to Marker
+			@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
+			curCamera = randi_range(0, 10)
+			moveToStageMarker()
 			print(curCamera)
 
 			while GameState.playerState.activeCamera != curCamera:
 				await GameState.switchCamera
 				await GameState.wait(0.1) # Ensuring Active Camera is Updated
 
-			await GameState.wait(2)
+			await GameState.wait(config.timeToEnterOffice)
 
 			if GameState.playerState.activeCamera == curCamera and GameState.playerState.inCameras:
 				currentStage += 1
+				@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
+				curCamera = 0
+				moveToStageMarker()
 
 			lock = false
 
 		1:	
 			if GameState.playerState.inCameras:
 				await GameState.closeCamera
-				get_tree().create_timer(5).timeout.connect(checkForKill)
+				get_tree().create_timer(config.timeToCompleteTask).timeout.connect(checkForKill)
 
 			if curTask == -1:
 				@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
@@ -113,7 +127,7 @@ func handleStage() -> void:
 				await GameState.openCamera
 				completeTask()
 				
-				await GameState.wait(0.5)
+				await GameState.wait(0.1)
 				GameState.closeCamera.emit()
 
 			else:
@@ -123,6 +137,8 @@ func handleStage() -> void:
 
 		killStage:
 			print("Golden Freddy Got You!")
+			moveToStageMarker()
+			task.text = ""
 
 		_:
 			print(
@@ -132,10 +148,11 @@ func handleStage() -> void:
 
 func completeTask() -> void:
 	tasksCompleted += 1
-	if tasksCompleted >= 3:
+	if tasksCompleted >= config.tasksToComplete:
 		tasksCompleted = 0
 		currentStage = 0
 		task.text = ""
+		visible = false
 
 	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 	curTask = -1
@@ -143,3 +160,20 @@ func completeTask() -> void:
 func checkForKill() -> void:
 	if currentStage == 1: # Killing if Player Hasn't Completed All The Tasks
 		currentStage = killStage
+
+func moveToStageMarker():
+	var markers: Array[Node] = getMarkers()
+
+	# Cannot move further than jumpscare
+	if currentStage >= len(markers):
+		return
+
+	var marker: Marker3D = markers[curCamera - currentStage]
+
+	visible = true	
+	global_transform = marker.global_transform
+
+	if !marker.get_meta("anim").is_empty():
+		$"AnimationPlayer".play(marker.get_meta("anim"))
+	else:
+		$"AnimationPlayer".play("RESET")
