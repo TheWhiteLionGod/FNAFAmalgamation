@@ -1,5 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+secret.env
 
 # VSCode Settings
 .vscode/

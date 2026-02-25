@@ -102,9 +102,23 @@ func _ready() -> void:
 		audioCam = -1
 	)
 
+## Restart game
 func restart():
 	globalTimer = 0
 	playerState = PlayerState.new()
+
+# Load key from env file
+func load_env_key(key_name: String) -> String:
+	var file = FileAccess.open("res://secret.env", FileAccess.READ)
+	if not file:
+		return "" # File not found
+		
+	while !file.eof_reached():
+		var line = file.get_line().strip_edges()
+		
+		if line.begins_with(key_name + " = "):
+			return line.split("=")[1].strip_edges().trim_prefix("\"").trim_suffix("\"")
+	return ""
 
 ## Wait for x seconds
 func wait(duration: float):
