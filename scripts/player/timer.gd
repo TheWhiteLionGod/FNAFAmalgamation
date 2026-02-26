@@ -19,6 +19,11 @@ func updateText() -> void:
 func _ready() -> void:
 	timer = 0
 
+	GameState.restartGame.connect(restart)
+
+func restart():
+	timer = 0
+
 func _process(delta: float) -> void:
 	timer += delta
 	GameState.globalTimer = timer

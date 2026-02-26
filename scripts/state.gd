@@ -102,7 +102,6 @@ func _ready() -> void:
 		audioCam = -1
 	)
 
-## Restart game
 func restart():
 	globalTimer = 0
 	playerState = PlayerState.new()

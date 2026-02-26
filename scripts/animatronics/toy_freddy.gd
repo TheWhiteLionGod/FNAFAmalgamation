@@ -30,7 +30,7 @@ func handleStage() -> void:
 			# Failed Movement
 			if !movementOpportunity.check(AI_LEVEL):
 				return
-
+			
 			# Progressing Stage
 			currentStage += 1
 			moveToStageMarker()

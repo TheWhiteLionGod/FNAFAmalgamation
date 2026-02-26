@@ -5,7 +5,6 @@ const TARGET_DIR = "res://models/"
 const SAVE_DIR = "res://optimized_meshes/"
 
 func _run():
-	print("oqiwheoqwhue")
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
 	
