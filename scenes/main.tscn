@@ -236,9 +236,9 @@ size = Vector2(4, 5)
 script = ExtResource("10_6tyi6")
 windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
-totalUnits = 2000
+totalUnits = 10
 
-[sub_resource type="Resource" id="Resource_ai6cq"]
+[sub_resource type="Resource" id="Resource_j1yfp"]
 script = ExtResource("9_klc6v")
 stages = 2
 intensity = 0.8
@@ -300,7 +300,7 @@ main = NodePath("..")
 [node name="Jumpscares" type="Node3D" parent="Rooms/Office/Markers"]
 
 [node name="Puppet" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["puppet"]]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.4, -0.05, 3.825)
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.257906, 1.56098, 3.825)
 metadata/anim = ""
 
 [node name="ToyFreddy3" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["toy_freddy"]]
@@ -912,7 +912,8 @@ player = NodePath("../../Player")
 [node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
 transform = Transform3D(1.19249e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 2.75, 2.08165e-12, 3.75)
 visible = false
-config = SubResource("Resource_ai6cq")
+AI_LEVEL = 20
+config = SubResource("Resource_j1yfp")
 
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
