@@ -281,7 +281,7 @@ intensity = 0.1
 decayRate = 1.7
 direction = 0
 
-[sub_resource type="Resource" id="Resource_bdlux"]
+[sub_resource type="Resource" id="Resource_swoo5"]
 script = ExtResource("21_n1vu5")
 stages = 3
 tasksToComplete = 4
@@ -331,6 +331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.700438, 1.7412
 metadata/anim = ""
 
 [node name="GoldenFreddy-2" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["golden_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 1)
 metadata/anim = ""
 
 [node name="ToyFreddy2" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_freddy"]]
@@ -346,6 +347,7 @@ transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48
 metadata/anim = ""
 
 [node name="GoldenFreddy-1" type="Marker3D" parent="Rooms/Office/Markers" groups=["golden_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2)
 metadata/anim = ""
 
 [node name="LeftWall" type="Node3D" parent="Rooms/Office"]
@@ -497,6 +499,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1.
 metadata/anim = "eyes_forward"
 
 [node name="GoldenFreddy0" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["golden_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.08165e-12, 1)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM1"]
@@ -534,6 +537,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1.
 metadata/anim = "eyes_forward"
 
 [node name="GoldenFreddy1" type="Marker3D" parent="Rooms/CAM2/Markers" groups=["golden_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.08165e-12, 1)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM2"]
@@ -575,6 +579,7 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08
 metadata/anim = "left_vent"
 
 [node name="GoldenFreddy2" type="Marker3D" parent="Rooms/CAM3/Markers" groups=["golden_freddy"]]
+transform = Transform3D(-0.707107, 4.93259e-16, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, -4.88646e-23, -0.707107, 0.75, -0.9, 2.08165e-12)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM3"]
@@ -615,6 +620,7 @@ transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 3.82137e-15, 4.37114e-08
 metadata/anim = "vent"
 
 [node name="GoldenFreddy3" type="Marker3D" parent="Rooms/CAM4/Markers" groups=["golden_freddy"]]
+transform = Transform3D(-0.642788, -4.29904e-17, -0.766044, 3.48787e-16, 1, -3.48787e-16, 0.766044, -4.91382e-16, -0.642788, -0.75, -0.9, 2.08165e-12)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM4"]
@@ -647,6 +653,7 @@ transform = Transform3D(0.939693, -2.0846e-16, 0.34202, 3.48787e-16, 1, -3.48787
 metadata/anim = "eyes_forward"
 
 [node name="GoldenFreddy4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["golden_freddy"]]
+transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, 2.5, 0.5, 1.6)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5A"]
@@ -686,6 +693,7 @@ transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-
 metadata/anim = "look_left"
 
 [node name="GoldenFreddy5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["golden_freddy"]]
+transform = Transform3D(-0.422618, 4.63512e-16, 0.906308, 3.48787e-16, 1, -3.48787e-16, -0.906308, 1.68705e-16, -0.422618, 2.5, 0.5, -1.75)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5B"]
@@ -721,6 +729,7 @@ transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787
 metadata/anim = ""
 
 [node name="GoldenFreddy6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["golden_freddy"]]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -2, 1, 2.08165e-12)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5C"]
@@ -767,6 +776,7 @@ metadata/anim = ""
 metadata/anim = "eyes_forward"
 
 [node name="GoldenFreddy7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["golden_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM6"]
@@ -813,6 +823,7 @@ transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48
 metadata/anim = ""
 
 [node name="GoldenFreddy8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["golden_freddy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
@@ -855,6 +866,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 2.08165e-12)
 metadata/anim = "look_right"
 
 [node name="GoldenFreddy9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["golden_freddy"]]
+transform = Transform3D(0.92388, -4.55712e-16, -0.382683, 3.48787e-16, 1, -3.48787e-16, 0.382683, 1.88762e-16, 0.92388, -1, 1.5, 1)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM8"]
@@ -889,6 +901,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 10)
 metadata/anim = "look_left"
 
 [node name="GoldenFreddy10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["golden_freddy"]]
+transform = Transform3D(0.92388, -1.88762e-16, 0.382683, 3.48787e-16, 1, -3.48787e-16, -0.382683, 4.55712e-16, 0.92388, 1, 1.5, 1)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM9"]
@@ -952,7 +965,6 @@ transform = Transform3D(0.965926, 0.0669873, -0.25, 3.36902e-16, 0.965926, 0.258
 transform = Transform3D(0.965926, -0.0669873, 0.25, 3.36902e-16, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 51.5, 3, 12)
 
 [node name="Animatronics" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="MusicBox" parent="Animatronics" node_paths=PackedStringArray("player") instance=ExtResource("1_hemyu")]
 transform = Transform3D(1.19249e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, 1.19249e-08, 2.75, 0.5, 3.75)
@@ -968,6 +980,48 @@ config = SubResource("Resource_j1yfp")
 [node name="ToyFreddy" parent="Animatronics" instance=ExtResource("5_gbba8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
 AI_LEVEL = 20
+bones/2/position = Vector3(0.01, 0.70793, -0.0232687)
+bones/2/rotation = Quaternion(0.0174524, 0, 0, 0.999848)
+bones/3/rotation = Quaternion(-0.150818, -0.0638219, -0.67912, 0.715525)
+bones/4/rotation = Quaternion(-3.13084e-08, 0.238851, -6.69206e-09, 0.971056)
+bones/5/rotation = Quaternion(0.013677, -0.104753, -0.016958, 0.99426)
+bones/6/rotation = Quaternion(0.722577, 0.669462, -0.0475181, 0.165666)
+bones/7/rotation = Quaternion(2.5236e-17, 0.234846, -4.5359e-17, 0.972033)
+bones/8/rotation = Quaternion(0.0204016, -0.100403, -0.0255218, 0.99441)
+bones/9/position = Vector3(-0.000416868, 0.0176066, -0.00117715)
+bones/9/rotation = Quaternion(0.0286826, 0.000500657, 0.0174452, 0.999436)
+bones/10/rotation = Quaternion(0.999933, 0.00113897, 0.0114761, 1.3022e-05)
+bones/11/rotation = Quaternion(0.315322, 0.0832052, 0.34507, 0.8801)
+bones/12/position = Vector3(0.251, -6.66134e-16, 5.2154e-09)
+bones/12/rotation = Quaternion(1.43673e-17, 0.258819, 5.36197e-17, 0.965926)
+bones/13/rotation = Quaternion(-0.166358, 0.0717665, 0.144211, 0.97282)
+bones/14/rotation = Quaternion(-0.694454, 0.0753292, 0.43673, 0.566856)
+bones/15/rotation = Quaternion(2.19764e-17, 1.41532e-16, -0.34202, 0.939693)
+bones/17/rotation = Quaternion(3.55986e-18, 9.78064e-18, -0.34202, 0.939693)
+bones/19/rotation = Quaternion(-7.35226e-17, -3.96979e-17, -0.34202, 0.939693)
+bones/20/rotation = Quaternion(0.997626, -0.00135239, 0.0688501, 9.39951e-05)
+bones/22/position = Vector3(0.000498349, 0.447917, -0.0646596)
+bones/22/rotation = Quaternion(0.173648, -2.95303e-19, 8.22719e-19, 0.984808)
+bones/23/position = Vector3(0.00158696, 0.0440397, -0.000632005)
+bones/23/rotation = Quaternion(-0.0611007, 0.0230171, 0.115401, 0.991171)
+bones/24/rotation = Quaternion(-0.0261769, 1.29875e-17, 3.41788e-17, 0.999657)
+bones/25/rotation = Quaternion(-0.0157686, 0.00700661, 0.260269, 0.965382)
+bones/26/rotation = Quaternion(-0.00559526, 0.0047149, -8.37875e-05, 0.999973)
+bones/27/rotation = Quaternion(0.0368947, 1.16813e-17, 3.42868e-17, 0.999319)
+bones/28/rotation = Quaternion(0.965382, -0.260269, 0.0070066, 0.0157687)
+bones/29/rotation = Quaternion(-0.0103712, -0.00793895, 0.0003077, 0.999915)
+bones/30/rotation = Quaternion(0.0368947, 1.16813e-17, 3.42868e-17, 0.999319)
+bones/38/position = Vector3(-0.0522265, 0.360043, -0.060081)
+bones/38/rotation = Quaternion(-1.30718e-05, 0.0114761, -0.00113897, 0.999933)
+bones/39/position = Vector3(-0.138228, 0.0226052, 0.0123588)
+bones/39/rotation = Quaternion(0.0505033, 0.0437612, 0.369818, 0.926698)
+bones/40/rotation = Quaternion(-3.09778e-16, 0.5373, 2.79624e-16, 0.843391)
+bones/41/position = Vector3(-0.2355, -8.28371e-12, 5.29887e-12)
+bones/41/rotation = Quaternion(-0.47324, 0.108209, 0.00239819, 0.874259)
+bones/52/position = Vector3(-0.384388, 0.801248, 0.293111)
+bones/52/rotation = Quaternion(0.0243105, 0.656588, 0.144959, 0.739789)
+bones/53/rotation = Quaternion(6.12323e-17, 1, 6.12323e-17, 4.37114e-08)
+bones/53/scale = Vector3(0, 1e-12, 1)
 config = SubResource("Resource_6wokh")
 
 [node name="ToyBonnie" parent="Animatronics" instance=ExtResource("14_bmlnc")]
@@ -985,5 +1039,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
 config = SubResource("Resource_7riqb")
 
 [node name="GoldenFreddy" parent="Animatronics" instance=ExtResource("20_r0xwg")]
+transform = Transform3D(1.86992, 0, 0, 0, 1.86992, 0, 0, 0, 1.86992, 2.08165e-12, -5, 2.08165e-12)
 AI_LEVEL = 20
-config = SubResource("Resource_bdlux")
+config = SubResource("Resource_swoo5")

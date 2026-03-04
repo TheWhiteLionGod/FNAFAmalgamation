@@ -67,6 +67,7 @@ func handleStage() -> void:
 			lock = false
 
 		1:	
+			visible = true
 			if GameState.playerState.inCameras:
 				await GameState.closeCamera
 				get_tree().create_timer(config.timeToCompleteTask).timeout.connect(checkForKill)
@@ -160,6 +161,7 @@ func completeTask() -> void:
 func checkForKill() -> void:
 	if currentStage == 1: # Killing if Player Hasn't Completed All The Tasks
 		currentStage = killStage
+		tasksCompleted = 0 # Preventing Player From Clearing Golden Freddy After Kill
 
 func moveToStageMarker():
 	var markers: Array[Node] = getMarkers()
