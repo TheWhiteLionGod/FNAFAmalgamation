@@ -248,7 +248,7 @@ direction = 3
 [sub_resource type="Resource" id="Resource_6wokh"]
 script = ExtResource("12_kak3c")
 stages = 3
-movementInterval = 5
+movementInterval = 15
 blackoutLength = 5
 intensity = 0.8
 decayRate = 1.7
@@ -266,8 +266,8 @@ direction = 0
 [sub_resource type="Resource" id="Resource_5peyj"]
 script = ExtResource("17_nytr1")
 stages = 4
-movementInterval = 1
-blackoutLength = 1
+movementInterval = 12
+blackoutLength = 3
 intensity = 0.8
 decayRate = 1.7
 direction = 0
