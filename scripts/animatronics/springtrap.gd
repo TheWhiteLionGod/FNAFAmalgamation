@@ -22,6 +22,9 @@ func _ready() -> void:
 	super._ready()
 	GameState.placeAudioLure.connect(listenToAudioLure)
 
+	# Resetting Springtrap when Clearing Golden Freddy
+	GameState.goldenFreddyCleared.connect(func(): currentStage = rng.randi_range(4, 10))
+
 	# Spawning in Random Camera
 	currentStage = rng.randi_range(4, 10)
 	moveToStageMarker()

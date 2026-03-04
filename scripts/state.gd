@@ -59,6 +59,7 @@ signal sealVent(camera: Camera)
 signal ventUnsealed(camera: Camera)
 signal placeAudioLure(camera: Camera)
 signal lureEnd(camera: Camera)
+signal goldenFreddyCleared()
 
 func _ready() -> void:
 	GameState.restartGame.connect(restart)
@@ -101,6 +102,7 @@ func _ready() -> void:
 		@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 		audioCam = -1
 	)
+	# Clearing Golden Freddy Doesn't Affect State
 
 func restart():
 	globalTimer = 0

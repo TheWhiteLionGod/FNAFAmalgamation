@@ -50,7 +50,6 @@ func handleStage() -> void:
 			@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
 			curCamera = randi_range(0, 10)
 			moveToStageMarker()
-			print(curCamera)
 
 			while GameState.playerState.activeCamera != curCamera:
 				await GameState.switchCamera
@@ -61,13 +60,14 @@ func handleStage() -> void:
 			if GameState.playerState.activeCamera == curCamera and GameState.playerState.inCameras:
 				currentStage += 1
 				@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
-				curCamera = 0
-				moveToStageMarker()
+				curCamera = 10
 
 			lock = false
 
 		1:	
 			visible = true
+			moveToStageMarker()
+
 			if GameState.playerState.inCameras:
 				await GameState.closeCamera
 				get_tree().create_timer(config.timeToCompleteTask).timeout.connect(checkForKill)
@@ -137,8 +137,8 @@ func handleStage() -> void:
 			lock = false
 
 		killStage:
-			print("Golden Freddy Got You!")
-			moveToStageMarker()
+			jumpscare(config.intensity, config.decayRate, config.direction)
+			playerKilled()
 			task.text = ""
 
 		_:
@@ -154,6 +154,7 @@ func completeTask() -> void:
 		currentStage = 0
 		task.text = ""
 		visible = false
+		GameState.goldenFreddyCleared.emit()
 
 	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 	curTask = -1
@@ -166,11 +167,8 @@ func checkForKill() -> void:
 func moveToStageMarker():
 	var markers: Array[Node] = getMarkers()
 
-	# Cannot move further than jumpscare
-	if currentStage >= len(markers):
-		return
+	var marker: Marker3D = markers[curCamera + currentStage]
 
-	var marker: Marker3D = markers[curCamera - currentStage]
 
 	visible = true	
 	global_transform = marker.global_transform
