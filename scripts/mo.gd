@@ -22,7 +22,7 @@ func check(AI_LEVEL: int) -> bool:
 
 	isDone = true
 
-	if randi_range(0, 20) >= AI_LEVEL:
+	if randi_range(0, 19) >= AI_LEVEL:
 		return false # Failed Movement
 
 	return true
