@@ -17,10 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://bj17spi75jcuo" path="res://models/toy_bonnie.tscn" id="14_bmlnc"]
 [ext_resource type="Script" path="res://resources/toy_bonnie_config.gd" id="15_q2pmh"]
 [ext_resource type="PackedScene" uid="uid://dt1t76g8eavas" path="res://models/springtrap.tscn" id="16_i88ij"]
-[ext_resource type="Script" path="res://resources/springtrap_config.gd" id="17_0p0d2"]
 [ext_resource type="Script" path="res://resources/toy_chica_config.gd" id="17_nytr1"]
 [ext_resource type="PackedScene" uid="uid://i6acri1jy37s" path="res://models/toy_chica.tscn" id="18_a2iu4"]
 [ext_resource type="PackedScene" uid="uid://cbqixna22mnwo" path="res://models/golden_freddy.tscn" id="20_r0xwg"]
+[ext_resource type="Script" path="res://resources/springtrap_config.gd" id="20_w4q1l"]
 [ext_resource type="Script" path="res://resources/golden_freddy.gd" id="21_n1vu5"]
 [ext_resource type="PackedScene" uid="uid://bjcwarqvdi5x6" path="res://models/ballora.tscn" id="23_5ppyi"]
 [ext_resource type="Script" path="res://resources/ballora_config.gd" id="24_tw2xg"]
@@ -286,8 +286,8 @@ intensity = 0.8
 decayRate = 1.7
 direction = 0
 
-[sub_resource type="Resource" id="Resource_7riqb"]
-script = ExtResource("17_0p0d2")
+[sub_resource type="Resource" id="Resource_setv4"]
+script = ExtResource("20_w4q1l")
 stages = 12
 movementInterval = 10
 intensity = 0.1
@@ -352,10 +352,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00217125, 0.559045, 2.8335
 metadata/anim = ""
 
 [node name="Springtrap11" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["springtrap"]]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.036, 0.083, 2.969)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0210412, 1.44814, 3.61464)
 metadata/anim = ""
 
 [node name="Ballora11" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["ballora"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51793, 3.57214)
 metadata/anim = ""
 
 [node name="CircusBaby11" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["circus_baby"]]
@@ -558,8 +559,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM1"]
 
 [node name="Springtrap0" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1.5)
-metadata/anim = "eyes_forward"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.9, 0.5)
+metadata/anim = ""
 
 [node name="GoldenFreddy0" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["golden_freddy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.08165e-12, 1)
@@ -602,8 +603,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM2"]
 
 [node name="Springtrap1" type="Marker3D" parent="Rooms/CAM2/Markers" groups=["springtrap"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -1.5)
-metadata/anim = "eyes_forward"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.9, 0.5)
+metadata/anim = ""
 
 [node name="GoldenFreddy1" type="Marker3D" parent="Rooms/CAM2/Markers" groups=["golden_freddy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.08165e-12, 1)
@@ -650,8 +651,8 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08
 metadata/anim = "vent"
 
 [node name="Springtrap2" type="Marker3D" parent="Rooms/CAM3/Markers" groups=["springtrap"]]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -0.75, 0.2, -0.25)
-metadata/anim = "left_vent"
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, -1.5246e-23, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -0.46, 0.297, -0.25)
+metadata/anim = "vent"
 
 [node name="GoldenFreddy2" type="Marker3D" parent="Rooms/CAM3/Markers" groups=["golden_freddy"]]
 transform = Transform3D(-0.707107, 4.93259e-16, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, -4.88646e-23, -0.707107, 0.75, -0.9, 2.08165e-12)
@@ -693,8 +694,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.5, 0.9)
 [node name="Markers" type="Node3D" parent="Rooms/CAM4"]
 
 [node name="Springtrap3" type="Marker3D" parent="Rooms/CAM4/Markers" groups=["springtrap"]]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 3.82137e-15, 4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.75, 0.2, 2.08165e-12)
-metadata/anim = "right_vent"
+transform = Transform3D(-4.37114e-08, -1, -1.5246e-23, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0.459758, 0.297309, 0)
+metadata/anim = "vent"
 
 [node name="ToyChica3" type="Marker3D" parent="Rooms/CAM4/Markers" groups=["toy_chica"]]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 3.82137e-15, 4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.5, 0.5, 0)
@@ -740,8 +741,8 @@ transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.4878
 metadata/anim = ""
 
 [node name="Springtrap4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["springtrap"]]
-transform = Transform3D(0.939693, -2.0846e-16, 0.34202, 3.48787e-16, 1, -3.48787e-16, -0.34202, 4.47045e-16, 0.939693, 2, 2.08165e-12, -1)
-metadata/anim = "eyes_forward"
+transform = Transform3D(0.795188, -6.58591e-17, 0.606363, 3.48787e-16, 1, -3.48787e-16, -0.606363, 4.88843e-16, 0.795188, 0.062952, 0.9, 0.32478)
+metadata/anim = ""
 
 [node name="Ballora4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["ballora"]]
 metadata/anim = ""
@@ -782,8 +783,8 @@ transform = Transform3D(-0.5, 4.76452e-16, 0.866025, 3.48787e-16, 1, -3.48787e-1
 metadata/anim = ""
 
 [node name="Springtrap5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["springtrap"]]
-transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 1.5, 2.08165e-12, 1.5)
-metadata/anim = "look_left"
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0.691793, 0.9, 1.16914)
+metadata/anim = ""
 
 [node name="GoldenFreddy5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["golden_freddy"]]
 transform = Transform3D(-0.422618, 4.63512e-16, 0.906308, 3.48787e-16, 1, -3.48787e-16, -0.906308, 1.68705e-16, -0.422618, 2.5, 0.5, -1.75)
@@ -828,7 +829,7 @@ transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787
 metadata/anim = ""
 
 [node name="Springtrap6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["springtrap"]]
-transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 2.5, 2.08165e-12, -1.5)
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 0.511999, 0.9, 0.180653)
 metadata/anim = ""
 
 [node name="Ballora6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["ballora"]]
@@ -870,15 +871,16 @@ transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48
 metadata/anim = ""
 
 [node name="ToyBonnie" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["toy_bonnie"]]
-transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48787e-16, 0.258819, 2.4663e-16, 0.965926, 1.25, 0.5, -1.75)
+transform = Transform3D(0.965926, -4.27175e-16, -0.258819, 3.48787e-16, 1, -3.48787e-16, 0.258819, 2.4663e-16, 0.965926, 1.25, 0.705, -1.892)
 metadata/anim = ""
 
 [node name="ToyChica" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["toy_chica"]]
-transform = Transform3D(0.866026, -4.76452e-16, -0.5, 3.48787e-16, 1, -3.48787e-16, 0.5, 1.27665e-16, 0.866026, 1.80295, 1.44857, 0.416018)
+transform = Transform3D(0.866026, -4.76452e-16, -0.5, 3.48787e-16, 1, -3.48787e-16, 0.5, 1.27665e-16, 0.866026, 2.8911, 0.492595, -1.46864)
 metadata/anim = ""
 
 [node name="Springtrap7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["springtrap"]]
-metadata/anim = "eyes_forward"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 1.7325)
+metadata/anim = ""
 
 [node name="GoldenFreddy7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["golden_freddy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 1.5)
@@ -927,10 +929,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2.08165e-12, 10)
 [node name="Markers" type="Node3D" parent="Rooms/CAM7"]
 
 [node name="Springtrap8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["springtrap"]]
-metadata/anim = "eyes_forward"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.9, 1.554)
+metadata/anim = ""
 
 [node name="ToyChica2" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["toy_chica"]]
-transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, -6.22982e-23, 0.707107, -2.25702, 0.9, 1.25702)
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, -6.22982e-23, 0.707107, -1.25048, 2.08214e-12, 0.250485)
 metadata/anim = ""
 
 [node name="GoldenFreddy8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["golden_freddy"]]
@@ -980,7 +983,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 2.08165e-12)
 [node name="Markers" type="Node3D" parent="Rooms/CAM8"]
 
 [node name="Springtrap9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["springtrap"]]
-metadata/anim = "look_right"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 1.16537)
+metadata/anim = ""
 
 [node name="GoldenFreddy9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["golden_freddy"]]
 transform = Transform3D(0.92388, -4.55712e-16, -0.382683, 3.48787e-16, 1, -3.48787e-16, 0.382683, 1.88762e-16, 0.92388, -1, 1.5, 1)
@@ -1021,7 +1025,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.08165e-12, 10)
 [node name="Markers" type="Node3D" parent="Rooms/CAM9"]
 
 [node name="Springtrap10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["springtrap"]]
-metadata/anim = "look_left"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.9, 1)
+metadata/anim = ""
 
 [node name="GoldenFreddy10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["golden_freddy"]]
 transform = Transform3D(0.92388, -1.88762e-16, 0.382683, 3.48787e-16, 1, -3.48787e-16, -0.382683, 4.55712e-16, 0.92388, 1, 1.5, 1)
@@ -1124,7 +1129,7 @@ config = SubResource("Resource_5peyj")
 [node name="Springtrap" parent="Animatronics" instance=ExtResource("16_i88ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
 AI_LEVEL = 20
-config = SubResource("Resource_7riqb")
+config = SubResource("Resource_setv4")
 
 [node name="Ballora" parent="Animatronics" node_paths=PackedStringArray("springtrap") instance=ExtResource("23_5ppyi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
