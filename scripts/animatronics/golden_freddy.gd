@@ -63,6 +63,7 @@ func handleStage() -> void:
 				curCamera = 10
 
 			lock = false
+			visible = false
 
 		1:	
 			visible = true
