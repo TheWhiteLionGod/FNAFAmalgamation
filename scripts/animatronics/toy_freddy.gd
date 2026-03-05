@@ -23,6 +23,7 @@ func _init():
 func _ready() -> void:
 	doingBlackout = false
 	super._ready()
+	print(currentStage)
 
 func handleStage() -> void:
 	match currentStage:

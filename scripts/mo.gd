@@ -13,7 +13,7 @@ func check(AI_LEVEL: int) -> bool:
 	curTime = round(curTime * 10) / 10
 	
 	# NOT Movement Opportunity
-	if (int(curTime) % interval != 0 or curTime - int(curTime) != 0) and curTime != 0:
+	if (int(curTime) % interval != 0 or curTime - int(curTime) != 0) or curTime == 0:
 		isDone = false # Resetting Boolean
 		return false
 
@@ -22,7 +22,7 @@ func check(AI_LEVEL: int) -> bool:
 
 	isDone = true
 
-	if randi_range(0, 20) >= AI_LEVEL:
+	if randi_range(0, 19) >= AI_LEVEL:
 		return false # Failed Movement
 
 	return true

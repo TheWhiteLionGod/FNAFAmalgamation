@@ -21,6 +21,9 @@ func _ready() -> void:
 	textureProgressBar.step = config.totalUnits / 10.0
 	textureProgressBar.value = currentUnits
 
+	# Resetting Music Box Progress When Clearing Golden Freddy
+	GameState.goldenFreddyCleared.connect(func(): currentUnits = config.totalUnits)
+
 func _process(delta: float) -> void:
 	if currentUnits == 0:
 		GameState.musicBoxEmpty.emit()
