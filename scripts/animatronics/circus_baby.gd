@@ -23,32 +23,32 @@ func _init():
 
 func _ready() -> void:
 	super._ready()
-	
 	currentStage = (springtrap.currentStage + 1 
 					if springtrap.currentStage + 1 != ballora.currentStage 
 					else springtrap.currentStage - 1)
 	
-	if currentStage > 10:
-		currentStage = springtrap.currentStage - 1
-	elif currentStage < 0:
-		currentStage = springtrap.currentStage + 1
-
+	currentStage = max(min(currentStage, 10), 4)
 	moveToStageMarker()
 
 func handleStage() -> void:
 	match currentStage:
-		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10:
+		4, 5, 6, 7, 8, 9, 10:
 			if lock:
 				return
 			lock = true
 
 			if GameState.playerState.inCameras and GameState.playerState.activeCamera == currentStage:
 				await GameState.wait(2)
+				lock = false
 
 				if GameState.audioCam == currentStage:
-					lock = false
 					return
-				currentStage = -1 # Killing Player
+
+				if GameState.playerState.activeCamera == currentStage:
+					currentStage = -1 # Killing Player
+					return
+
+				GameState.closeCamera.emit()
 
 			# Failed Movement
 			if !movementOpportunity.check(AI_LEVEL):
@@ -60,11 +60,7 @@ func handleStage() -> void:
 					if springtrap.currentStage + 1 != ballora.currentStage 
 					else springtrap.currentStage - 1)
 	
-			if currentStage > 10:
-				currentStage = springtrap.currentStage - 1
-			elif currentStage < 0:
-				currentStage = springtrap.currentStage + 1
-			
+			currentStage = max(min(currentStage, 10), 4)
 			moveToStageMarker()
 			lock = false
 
