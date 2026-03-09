@@ -22,7 +22,6 @@ func _init():
 func _ready() -> void:
 	super._ready()
 	currentStage = springtrap.currentStage + [-1, 1].pick_random()
-
 	currentStage = max(min(currentStage, 10), 4)
 	moveToStageMarker()
 
