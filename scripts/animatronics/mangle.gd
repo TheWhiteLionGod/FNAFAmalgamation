@@ -41,9 +41,11 @@ func handleStage() -> void:
 			get_tree().create_timer(config.movementInterval).timeout.connect(checkForKill)
 			
 			while true:
-				await GameState.flashlightOn
+				await GameState.flashlightOn 
 				if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-					break
+					await GameState.wait(1)
+					if GameState.playerState.flashlightOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
+						break
 
 				if lock == false:
 					return # Player Probably Died

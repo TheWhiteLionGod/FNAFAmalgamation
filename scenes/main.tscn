@@ -502,6 +502,15 @@ mesh = SubResource("BoxMesh_1eoh8")
 [node name="Roof" type="Node3D" parent="Rooms/Office"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 4, 2.08165e-12)
 
+[node name="Markers" type="Node3D" parent="Rooms/Office/Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 3.5)
+
+[node name="Mangle3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["mangle"]]
+metadata/anim = ""
+
+[node name="Mangle3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["mangle"]]
+metadata/anim = ""
+
 [node name="Ceiling" type="CSGBox3D" parent="Rooms/Office/Roof"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.125, 3.5)
 size = Vector3(6, 0.25, 7)
@@ -535,11 +544,6 @@ transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, -1.5246e-23, -4.37114e-08
 mesh = SubResource("PlaneMesh_tvw4w")
 
 [node name="Markers" type="Node3D" parent="Rooms/Office/Roof"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.39859)
-
-[node name="Mangle3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["mangle"]]
-transform = Transform3D(-1, 8.74228e-08, 3.48787e-16, -8.74228e-08, -1, -3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0, 2.02147, 0)
-metadata/anim = ""
 
 [node name="Outside" type="Node3D" parent="Rooms/Office"]
 
@@ -767,6 +771,7 @@ transform = Transform3D(0.795188, -6.58591e-17, 0.606363, 3.48787e-16, 1, -3.487
 metadata/anim = ""
 
 [node name="Ballora4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["ballora"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.08165e-12, -2)
 metadata/anim = ""
 
 [node name="CircusBaby4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["circus_baby"]]
@@ -816,6 +821,7 @@ transform = Transform3D(-0.422618, 4.63512e-16, 0.906308, 3.48787e-16, 1, -3.487
 metadata/anim = ""
 
 [node name="Ballora5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["ballora"]]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -3, 2.08165e-12, 1.5)
 metadata/anim = ""
 
 [node name="CircusBaby5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["circus_baby"]]
@@ -858,6 +864,7 @@ transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787
 metadata/anim = ""
 
 [node name="Ballora6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["ballora"]]
+transform = Transform3D(-0.707107, -1.60554e-24, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, -4.93259e-16, -0.707107, 2.5, 2.08165e-12, 1.5)
 metadata/anim = ""
 
 [node name="CircusBaby6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["circus_baby"]]
@@ -912,6 +919,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 1.5)
 metadata/anim = ""
 
 [node name="Ballora7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["ballora"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, 1, 2.08165e-12, 2.08165e-12)
 metadata/anim = ""
 
 [node name="CircusBaby7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["circus_baby"]]
@@ -966,6 +974,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 1.5)
 metadata/anim = ""
 
 [node name="Ballora8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["ballora"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, 1, 2.08165e-12, 2.08165e-12)
 metadata/anim = ""
 
 [node name="CircusBaby8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["circus_baby"]]
@@ -1019,6 +1028,7 @@ transform = Transform3D(0.92388, -4.55712e-16, -0.382683, 3.48787e-16, 1, -3.487
 metadata/anim = ""
 
 [node name="Ballora9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["ballora"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="CircusBaby9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["circus_baby"]]
@@ -1061,6 +1071,7 @@ transform = Transform3D(0.92388, -1.88762e-16, 0.382683, 3.48787e-16, 1, -3.4878
 metadata/anim = ""
 
 [node name="Ballora10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["ballora"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="CircusBaby10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["circus_baby"]]
@@ -1179,5 +1190,6 @@ config = SubResource("Resource_swoo5")
 
 [node name="Mangle" parent="Animatronics" instance=ExtResource("27_s6x30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+bones/4/position = Vector3(0.000474975, 0.000474989, 0.00047493)
 AI_LEVEL = 20
 config = SubResource("Resource_e4kig")
