@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://74pdqk7t8dg4"]
+[gd_scene load_steps=9 format=3 uid="uid://74pdqk7t8dg4"]
 
 [ext_resource type="ArrayMesh" uid="uid://bd677t2d1oa64" path="res://optimized_meshes/Endo_57139221566602.res" id="1_usg7r"]
+[ext_resource type="Script" path="res://scripts/animatronics/circus_baby.gd" id="1_wq55t"]
 [ext_resource type="ArrayMesh" uid="uid://dft5u778uw018" path="res://optimized_meshes/Body_57139238336627.res" id="2_jlfdo"]
 [ext_resource type="ArrayMesh" uid="uid://c2ryr7vi5hm2i" path="res://optimized_meshes/Eyes_57139255118362.res" id="3_8cq67"]
 
@@ -2207,6 +2208,7 @@ bones/85/enabled = true
 bones/85/position = Vector3(0, 0, 0)
 bones/85/rotation = Quaternion(0, 0, 0, 1)
 bones/85/scale = Vector3(1, 1, 1)
+script = ExtResource("1_wq55t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

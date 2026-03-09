@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://resources/springtrap_config.gd" id="20_w4q1l"]
 [ext_resource type="Script" path="res://resources/golden_freddy.gd" id="21_n1vu5"]
 [ext_resource type="PackedScene" uid="uid://bjcwarqvdi5x6" path="res://models/ballora.tscn" id="23_5ppyi"]
-[ext_resource type="Script" path="res://scripts/animatronics/circus_baby.gd" id="24_6lwib"]
 [ext_resource type="Script" path="res://resources/ballora_config.gd" id="24_tw2xg"]
 [ext_resource type="Script" path="res://resources/circus_baby_config.gd" id="24_v62qp"]
 [ext_resource type="PackedScene" uid="uid://74pdqk7t8dg4" path="res://models/circus_baby.tscn" id="25_815hc"]
@@ -305,7 +304,7 @@ intensity = 0.1
 decayRate = 1.7
 direction = 0
 
-[sub_resource type="Resource" id="Resource_qtijw"]
+[sub_resource type="Resource" id="Resource_43o4k"]
 script = ExtResource("24_v62qp")
 stages = 12
 movementInterval = 10
@@ -326,7 +325,7 @@ direction = 0
 [sub_resource type="Resource" id="Resource_e4kig"]
 script = ExtResource("28_saffa")
 stages = 4
-movementInterval = 2
+movementInterval = 16
 intensity = 0.8
 decayRate = 1.7
 direction = 4
@@ -380,6 +379,10 @@ metadata/anim = ""
 
 [node name="GoldenFreddy-2" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["golden_freddy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.25, 2)
+metadata/anim = ""
+
+[node name="Mangle4" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["mangle"]]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.53698, 3.775)
 metadata/anim = ""
 
 [node name="ToyFreddy2" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_freddy"]]
@@ -532,8 +535,10 @@ transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, -1.5246e-23, -4.37114e-08
 mesh = SubResource("PlaneMesh_tvw4w")
 
 [node name="Markers" type="Node3D" parent="Rooms/Office/Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.39859)
 
 [node name="Mangle3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["mangle"]]
+transform = Transform3D(-1, 8.74228e-08, 3.48787e-16, -8.74228e-08, -1, -3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0, 2.02147, 0)
 metadata/anim = ""
 
 [node name="Outside" type="Node3D" parent="Rooms/Office"]
@@ -1162,9 +1167,8 @@ springtrap = NodePath("../Springtrap")
 
 [node name="CircusBaby" parent="Animatronics" node_paths=PackedStringArray("springtrap", "ballora") instance=ExtResource("25_815hc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
-script = ExtResource("24_6lwib")
 AI_LEVEL = 20
-config = SubResource("Resource_qtijw")
+config = SubResource("Resource_43o4k")
 springtrap = NodePath("../Springtrap")
 ballora = NodePath("../Ballora")
 
@@ -1175,9 +1179,5 @@ config = SubResource("Resource_swoo5")
 
 [node name="Mangle" parent="Animatronics" instance=ExtResource("27_s6x30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
-bones/25/rotation = Quaternion(0.443819, 0.550477, -0.550477, 0.443819)
-bones/27/rotation = Quaternion(0.29059, 0.526903, -0.644684, 0.471501)
-bones/30/rotation = Quaternion(0.251345, 0.369686, -0.103166, -0.888546)
-bones/44/rotation = Quaternion(-0.190729, -0.865225, 0.326056, 0.32969)
 AI_LEVEL = 20
 config = SubResource("Resource_e4kig")
