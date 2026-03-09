@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=76 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -27,6 +27,8 @@
 [ext_resource type="Script" path="res://resources/ballora_config.gd" id="24_tw2xg"]
 [ext_resource type="Script" path="res://resources/circus_baby_config.gd" id="24_v62qp"]
 [ext_resource type="PackedScene" uid="uid://74pdqk7t8dg4" path="res://models/circus_baby.tscn" id="25_815hc"]
+[ext_resource type="PackedScene" uid="uid://bcxjnppteh6ld" path="res://models/mangle.tscn" id="27_s6x30"]
+[ext_resource type="Script" path="res://resources/mangle_config.gd" id="28_saffa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -321,6 +323,14 @@ intensity = 1.5
 decayRate = 1.3
 direction = 0
 
+[sub_resource type="Resource" id="Resource_e4kig"]
+script = ExtResource("28_saffa")
+stages = 4
+movementInterval = 2
+intensity = 0.8
+decayRate = 1.7
+direction = 4
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -520,6 +530,11 @@ mesh = SubResource("PlaneMesh_cl3t4")
 [node name="Front" type="MeshInstance3D" parent="Rooms/Office/Roof/Vent"]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, -1.5246e-23, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.5, 0.5, 2.08165e-12)
 mesh = SubResource("PlaneMesh_tvw4w")
+
+[node name="Markers" type="Node3D" parent="Rooms/Office/Roof"]
+
+[node name="Mangle3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["mangle"]]
+metadata/anim = ""
 
 [node name="Outside" type="Node3D" parent="Rooms/Office"]
 
@@ -784,6 +799,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 10)
 transform = Transform3D(-0.5, 4.76452e-16, 0.866025, 3.48787e-16, 1, -3.48787e-16, -0.866025, 1.27665e-16, -0.5, 1, 2.08165e-12, -1)
 metadata/anim = ""
 
+[node name="Mangle" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["mangle"]]
+metadata/anim = ""
+
 [node name="Springtrap5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["springtrap"]]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0.691793, 0.9, 1.16914)
 metadata/anim = ""
@@ -946,6 +964,9 @@ metadata/anim = ""
 metadata/anim = ""
 
 [node name="CircusBaby8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["circus_baby"]]
+metadata/anim = ""
+
+[node name="Mangle2" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["mangle"]]
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
@@ -1151,3 +1172,12 @@ ballora = NodePath("../Ballora")
 transform = Transform3D(1.86992, 0, 0, 0, 1.86992, 0, 0, 0, 1.86992, 2.08165e-12, -5, 2.08165e-12)
 AI_LEVEL = 20
 config = SubResource("Resource_swoo5")
+
+[node name="Mangle" parent="Animatronics" instance=ExtResource("27_s6x30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+bones/25/rotation = Quaternion(0.443819, 0.550477, -0.550477, 0.443819)
+bones/27/rotation = Quaternion(0.29059, 0.526903, -0.644684, 0.471501)
+bones/30/rotation = Quaternion(0.251345, 0.369686, -0.103166, -0.888546)
+bones/44/rotation = Quaternion(-0.190729, -0.865225, 0.326056, 0.32969)
+AI_LEVEL = 20
+config = SubResource("Resource_e4kig")
