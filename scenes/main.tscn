@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=74 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -23,7 +23,9 @@
 [ext_resource type="Script" path="res://resources/springtrap_config.gd" id="20_w4q1l"]
 [ext_resource type="Script" path="res://resources/golden_freddy.gd" id="21_n1vu5"]
 [ext_resource type="PackedScene" uid="uid://bjcwarqvdi5x6" path="res://models/ballora.tscn" id="23_5ppyi"]
+[ext_resource type="Script" path="res://scripts/animatronics/circus_baby.gd" id="24_6lwib"]
 [ext_resource type="Script" path="res://resources/ballora_config.gd" id="24_tw2xg"]
+[ext_resource type="Script" path="res://resources/circus_baby_config.gd" id="24_v62qp"]
 [ext_resource type="PackedScene" uid="uid://74pdqk7t8dg4" path="res://models/circus_baby.tscn" id="25_815hc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
@@ -301,6 +303,14 @@ intensity = 0.1
 decayRate = 1.7
 direction = 0
 
+[sub_resource type="Resource" id="Resource_qtijw"]
+script = ExtResource("24_v62qp")
+stages = 12
+movementInterval = 10
+intensity = 0.1
+decayRate = 1.7
+direction = 0
+
 [sub_resource type="Resource" id="Resource_swoo5"]
 script = ExtResource("21_n1vu5")
 stages = 3
@@ -347,10 +357,11 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 metadata/anim = ""
 
 [node name="Ballora11" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["ballora"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51793, 3.57214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51793, 3.61682)
 metadata/anim = ""
 
 [node name="CircusBaby11" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["circus_baby"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0444866, 0.327672, 2.20394)
 metadata/anim = ""
 
 [node name="ToyChica5" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["toy_chica"]]
@@ -1128,8 +1139,13 @@ AI_LEVEL = 20
 config = SubResource("Resource_8kk3c")
 springtrap = NodePath("../Springtrap")
 
-[node name="CircusBaby" parent="Animatronics" instance=ExtResource("25_815hc")]
+[node name="CircusBaby" parent="Animatronics" node_paths=PackedStringArray("springtrap", "ballora") instance=ExtResource("25_815hc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+script = ExtResource("24_6lwib")
+AI_LEVEL = 20
+config = SubResource("Resource_qtijw")
+springtrap = NodePath("../Springtrap")
+ballora = NodePath("../Ballora")
 
 [node name="GoldenFreddy" parent="Animatronics" instance=ExtResource("20_r0xwg")]
 transform = Transform3D(1.86992, 0, 0, 0, 1.86992, 0, 0, 0, 1.86992, 2.08165e-12, -5, 2.08165e-12)
