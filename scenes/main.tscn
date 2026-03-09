@@ -773,6 +773,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.08165e-12, -2)
 metadata/anim = ""
 
 [node name="CircusBaby4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["circus_baby"]]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -2.5, 2.08165e-12, 1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5A"]
@@ -823,6 +824,7 @@ transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-
 metadata/anim = ""
 
 [node name="CircusBaby5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["circus_baby"]]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -2.5, 2.08165e-12, -2)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5B"]
@@ -866,6 +868,7 @@ transform = Transform3D(-0.707107, -1.60554e-24, -0.707107, 3.48787e-16, 1, -3.4
 metadata/anim = ""
 
 [node name="CircusBaby6" type="Marker3D" parent="Rooms/CAM5C/Markers" groups=["circus_baby"]]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 3, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5C"]
@@ -921,6 +924,7 @@ transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48
 metadata/anim = ""
 
 [node name="CircusBaby7" type="Marker3D" parent="Rooms/CAM6/Markers" groups=["circus_baby"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, 1, 2.08165e-12, 2.08165e-12)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM6"]
@@ -976,6 +980,7 @@ transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48
 metadata/anim = ""
 
 [node name="CircusBaby8" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["circus_baby"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, 1.5, 2.08165e-12, 2.08165e-12)
 metadata/anim = ""
 
 [node name="Mangle2" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["mangle"]]
@@ -1030,6 +1035,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="CircusBaby9" type="Marker3D" parent="Rooms/CAM8/Markers" groups=["circus_baby"]]
+transform = Transform3D(0.707107, -4.93259e-16, -0.707107, 3.48787e-16, 1, -3.48787e-16, 0.707107, 1.60554e-24, 0.707107, 1.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM8"]
@@ -1073,6 +1079,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="CircusBaby10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["circus_baby"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.08165e-12, -1.5)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM9"]
