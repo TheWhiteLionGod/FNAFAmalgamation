@@ -328,6 +328,7 @@ direction = 0
 script = ExtResource("28_saffa")
 stages = 4
 movementInterval = 16
+flashlightDuration = 0.5
 intensity = 0.8
 decayRate = 1.7
 direction = 4
@@ -335,7 +336,8 @@ direction = 4
 [sub_resource type="Resource" id="Resource_e4wwn"]
 script = ExtResource("30_gmogh")
 stages = 4
-movementInterval = 4
+movementInterval = 12
+maskDuration = 0.5
 intensity = 0.8
 decayRate = 1.7
 direction = 4

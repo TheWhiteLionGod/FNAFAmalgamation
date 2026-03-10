@@ -43,7 +43,7 @@ func handleStage() -> void:
 			while true:
 				await GameState.maskOn 
 				if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-					await GameState.wait(1)
+					await GameState.wait(config.maskDuration)
 					if GameState.playerState.maskOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
 						break
 
