@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b706oifsce75i"]
+[gd_scene load_steps=8 format=3 uid="uid://b706oifsce75i"]
 
+[ext_resource type="Script" path="res://scripts/animatronics/balloon_boy.gd" id="1_6se4l"]
 [ext_resource type="ArrayMesh" uid="uid://car6ho825d0wb" path="res://optimized_meshes/Body_57154639825424.res" id="1_vdqy5"]
 [ext_resource type="ArrayMesh" uid="uid://dwqhlqu1oxmr8" path="res://optimized_meshes/Eyes_57154656592182.res" id="2_7ekr4"]
 
@@ -1062,6 +1063,7 @@ bones/43/enabled = true
 bones/43/position = Vector3(0, 0, 0)
 bones/43/rotation = Quaternion(0, 0, 0, 1)
 bones/43/scale = Vector3(1, 1, 1)
+script = ExtResource("1_6se4l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
