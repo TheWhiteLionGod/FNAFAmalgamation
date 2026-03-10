@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=79 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://74pdqk7t8dg4" path="res://models/circus_baby.tscn" id="25_815hc"]
 [ext_resource type="PackedScene" uid="uid://bcxjnppteh6ld" path="res://models/mangle.tscn" id="27_s6x30"]
 [ext_resource type="Script" path="res://resources/mangle_config.gd" id="28_saffa"]
+[ext_resource type="PackedScene" uid="uid://b706oifsce75i" path="res://models/balloon_boy.tscn" id="29_n7212"]
+[ext_resource type="Script" path="res://resources/bb_config.gd" id="30_gmogh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -325,6 +327,14 @@ direction = 0
 [sub_resource type="Resource" id="Resource_e4kig"]
 script = ExtResource("28_saffa")
 stages = 4
+movementInterval = 16
+intensity = 0.8
+decayRate = 1.7
+direction = 4
+
+[sub_resource type="Resource" id="Resource_e4wwn"]
+script = ExtResource("30_gmogh")
+stages = 4
 movementInterval = 4
 intensity = 0.8
 decayRate = 1.7
@@ -507,6 +517,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 3.5
 
 [node name="Mangle3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["mangle"]]
 transform = Transform3D(-1, -8.74228e-08, -1.5246e-23, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 0.5)
+metadata/anim = ""
+
+[node name="BalloonBoy3" type="Marker3D" parent="Rooms/Office/Roof/Markers" groups=["balloon_boy"]]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2.08165e-12, -0.5)
 metadata/anim = ""
 
 [node name="Ceiling" type="CSGBox3D" parent="Rooms/Office/Roof"]
@@ -988,6 +1002,9 @@ metadata/anim = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -2)
 metadata/anim = ""
 
+[node name="BalloonBoy2" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["balloon_boy"]]
+metadata/anim = ""
+
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
 mesh = SubResource("PlaneMesh_n4j47")
 
@@ -1082,6 +1099,9 @@ metadata/anim = ""
 
 [node name="CircusBaby10" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["circus_baby"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.08165e-12, -1.5)
+metadata/anim = ""
+
+[node name="BalloonBoy" type="Marker3D" parent="Rooms/CAM9/Markers" groups=["balloon_boy"]]
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM9"]
@@ -1200,3 +1220,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
 bones/4/position = Vector3(0.000474975, 0.000474989, 0.00047493)
 AI_LEVEL = 20
 config = SubResource("Resource_e4kig")
+
+[node name="BalloonBoy" parent="Animatronics" instance=ExtResource("29_n7212")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
+config = SubResource("Resource_e4wwn")

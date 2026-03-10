@@ -70,6 +70,6 @@ func handleStage() -> void:
 
 		_:
 			print(
-				"Invalid Stage Reached for Ballora Animatronic: " + 
+				"Invalid Stage Reached for Circus Baby Animatronic: " + 
 				str(currentStage)
 				)

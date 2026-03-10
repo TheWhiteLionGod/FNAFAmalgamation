@@ -1,11 +1,11 @@
 """
-This Script Will Control Mangle's Behavior
+This Script Will Control Balloon Boy's Behavior
 """
 extends Animatronic
 
 signal configReady
 @export_range(0, 20) var AI_LEVEL: int
-@export var config: MangleConfig:
+@export var config: BBConfig:
 	set(value):
 		config = value
 		configReady.emit()
@@ -41,10 +41,10 @@ func handleStage() -> void:
 			get_tree().create_timer(config.movementInterval).timeout.connect(checkForKill)
 			
 			while true:
-				await GameState.flashlightOn 
+				await GameState.maskOn 
 				if GameState.playerState.facing == GameState.Facing.TOP_VENT:
 					await GameState.wait(1)
-					if GameState.playerState.flashlightOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
+					if GameState.playerState.maskOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
 						break
 
 				if lock == false:
@@ -60,7 +60,7 @@ func handleStage() -> void:
 
 		_:
 			print(
-				"Invalid Stage Reached for Mangle Animatronic: " + 
+				"Invalid Stage Reached for Balloon Boy Animatronic: " + 
 				str(currentStage)
 				)
 
