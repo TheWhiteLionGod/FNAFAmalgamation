@@ -336,7 +336,7 @@ direction = 4
 [sub_resource type="Resource" id="Resource_5sb6n"]
 script = ExtResource("30_gmogh")
 stages = 4
-movementInterval = 12
+movementInterval = 4
 maskDuration = 0.5
 intensity = 0.8
 decayRate = 1.7
@@ -1175,7 +1175,6 @@ player = NodePath("../../Player")
 
 [node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
 transform = Transform3D(1.19249e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 2.125, 2.08165e-12, 3.75)
-visible = false
 AI_LEVEL = 20
 config = SubResource("Resource_j1yfp")
 
