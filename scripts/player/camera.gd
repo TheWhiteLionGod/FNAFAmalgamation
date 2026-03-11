@@ -7,6 +7,7 @@ const CAMERA_ROTATION_SPEED_PER_SECOND: float = 5 # In Degrees
 const CAMERA_MAX_ROTATION: float = 20 # In Degrees
 
 var rotateSign: int = 1
+var cameraOpenedTime: float = 0
 
 @onready var cameras: Array[Node] = get_children()
 @onready var camInitalRotation: Array[Vector3] = []
@@ -50,6 +51,10 @@ func changeCamera(camera: GameState.Camera) -> void:
 	guiAnimationPlayer.play("camera_open")
 
 func openCameras() -> void:
+	if GameState.globalTimer - cameraOpenedTime < 0.5:
+		return
+
+	cameraOpenedTime = GameState.globalTimer
 	cameraGui.show()
 	cameraShaders.show()
 	GameState.curCamNode.current = true

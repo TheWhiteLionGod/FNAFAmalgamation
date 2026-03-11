@@ -336,7 +336,7 @@ direction = 4
 [sub_resource type="Resource" id="Resource_5sb6n"]
 script = ExtResource("30_gmogh")
 stages = 4
-movementInterval = 12
+movementInterval = 1
 maskDuration = 0.5
 intensity = 0.8
 decayRate = 1.7
@@ -395,6 +395,10 @@ metadata/anim = ""
 
 [node name="Mangle4" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["mangle"]]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.53698, 3.775)
+metadata/anim = ""
+
+[node name="BalloonBoy4" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["balloon_boy"]]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.43831, 3.72988)
 metadata/anim = ""
 
 [node name="ToyFreddy2" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_freddy"]]
