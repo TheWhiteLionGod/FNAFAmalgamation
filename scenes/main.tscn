@@ -336,7 +336,7 @@ direction = 4
 [sub_resource type="Resource" id="Resource_5sb6n"]
 script = ExtResource("30_gmogh")
 stages = 4
-movementInterval = 12
+movementInterval = 4
 maskDuration = 0.5
 intensity = 0.8
 decayRate = 1.7

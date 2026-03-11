@@ -78,4 +78,4 @@ func useFlashlight() -> void:
 	if GameState.playerState.facing != GameState.Facing.TOP_VENT:
 		return
 
-	# TODO: Disable Flashlight
+	GameState.flashlightDisabled.emit()

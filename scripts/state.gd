@@ -35,6 +35,8 @@ var sealedCam: Camera = -1
 var audioCam: Camera = -1
 
 var isCameraDisabled: bool = false
+var camFlashlightDisabled: bool = false
+var officeFlashlightDisabled: bool = false
 
 var playerNode: Node3D
 var playerState: PlayerState = PlayerState.new()
@@ -63,9 +65,10 @@ signal placeAudioLure(camera: Camera)
 signal lureEnd(camera: Camera)
 signal goldenFreddyCleared()
 signal cameraDisabled()
+signal flashlightDisabled()
 
 func _ready() -> void:
-	GameState.restartGame.connect(restart)
+	restartGame.connect(restart)
 
 	globalTimer = 0
 	playerState = PlayerState.new()
@@ -109,8 +112,14 @@ func _ready() -> void:
 	cameraDisabled.connect(func():
 		isCameraDisabled = true
 		closeCamera.emit()
-		await GameState.wait(10)
+		await wait(10)
 		isCameraDisabled = false
+	)
+	flashlightDisabled.connect(func():
+		camFlashlightDisabled = true
+		officeFlashlightDisabled = true
+		await wait(10)
+		officeFlashlightDisabled = false
 	)
 
 func restart():

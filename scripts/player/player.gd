@@ -43,7 +43,7 @@ func canUseMask() -> bool:
 			!$"Mask".adjustingMask)
 
 func canUseFlashlight() -> bool:
-	return !GameState.playerState.maskOn
+	return !GameState.playerState.maskOn and !GameState.officeFlashlightDisabled
 
 func canUseLeftDoor() -> bool:
 	return !adjustingLeftDoor and !GameState.playerState.maskOn
@@ -148,7 +148,7 @@ func _ready():
 
 func _process(delta):
 	if !GameState.playerState.playerDead:
-		if GameState.playerState.inCameras:
+		if GameState.playerState.inCameras and !GameState.camFlashlightDisabled:
 			$"Flashlight".global_transform = GameState.curCamNode.global_transform
 		else:
 			$"Flashlight".global_transform = global_transform
