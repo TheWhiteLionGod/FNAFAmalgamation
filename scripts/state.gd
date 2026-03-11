@@ -125,6 +125,16 @@ func _ready() -> void:
 func restart():
 	globalTimer = 0
 	playerState = PlayerState.new()
+	turn.emit(Facing.OFFICE)
+
+	isCameraDisabled = false
+	camFlashlightDisabled = false
+	officeFlashlightDisabled = false
+
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+	sealedCam = -1
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+	audioCam = -1
 
 # Load key from env file
 func load_env_key(key_name: String) -> String:
