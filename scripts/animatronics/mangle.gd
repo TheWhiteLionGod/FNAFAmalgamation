@@ -21,10 +21,14 @@ func _init():
 
 func _ready() -> void:
 	super._ready()
+	GameState.flashlightOn.connect(useFlashlight)
 
 func handleStage() -> void:
 	match currentStage:
 		0, 1:
+			if lock:
+				return
+
 			# Failed Movement
 			if !movementOpportunity.check(AI_LEVEL):
 				return
@@ -39,20 +43,6 @@ func handleStage() -> void:
 			lock = true
 			
 			get_tree().create_timer(config.movementInterval).timeout.connect(checkForKill)
-			
-			while true:
-				await GameState.flashlightOn 
-				if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-					await GameState.wait(config.flashlightDuration)
-					if GameState.playerState.flashlightOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
-						break
-
-				if lock == false:
-					return # Player Probably Died
-
-			lock = false
-			currentStage = 0
-			moveToStageMarker()
 
 		killStage:
 			jumpscare(config.intensity, config.decayRate, config.direction)
@@ -68,3 +58,30 @@ func checkForKill() -> void:
 	if currentStage == 2:
 		currentStage = killStage # Killing Player
 		lock = false
+
+func useFlashlight() -> void:
+	if currentStage != 2:
+		# Camera Stunning
+		if !GameState.playerState.inCameras:
+			return
+
+		if currentStage == 0 and GameState.playerState.activeCamera != 5:
+			return
+
+		if currentStage == 1 and GameState.playerState.activeCamera != 8:
+			return
+
+		lock = true
+		await GameState.wait(7) # Stunning for 7 Seconds
+		lock = false
+		return
+
+	if GameState.playerState.facing != GameState.Facing.TOP_VENT:
+		return # Player Isn't Facing Mangle
+
+	await GameState.wait(0.5)
+	
+	if GameState.playerState.flashlightOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
+		lock = false
+		currentStage = 0
+		moveToStageMarker()
