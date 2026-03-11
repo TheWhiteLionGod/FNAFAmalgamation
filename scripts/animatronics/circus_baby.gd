@@ -48,7 +48,7 @@ func handleStage() -> void:
 					currentStage = -1 # Killing Player
 					return
 
-				GameState.closeCamera.emit()
+				GameState.cameraDisabled.emit()
 
 			# Failed Movement
 			if !movementOpportunity.check(AI_LEVEL):

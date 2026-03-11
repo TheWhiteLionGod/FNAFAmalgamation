@@ -21,6 +21,8 @@ func _init():
 
 func _ready() -> void:
 	super._ready()
+	GameState.maskOn.connect(maskOn)
+	GameState.flashlightOn.connect(useFlashlight)
 
 func handleStage() -> void:
 	match currentStage:
@@ -39,20 +41,6 @@ func handleStage() -> void:
 			lock = true
 			
 			get_tree().create_timer(config.movementInterval).timeout.connect(checkForKill)
-			
-			while true:
-				await GameState.maskOn 
-				if GameState.playerState.facing == GameState.Facing.TOP_VENT:
-					await GameState.wait(config.maskDuration)
-					if GameState.playerState.maskOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
-						break
-
-				if lock == false:
-					return # Player Probably Died
-
-			lock = false
-			currentStage = 0
-			moveToStageMarker()
 
 		killStage:
 			jumpscare(config.intensity, config.decayRate, config.direction)
@@ -68,3 +56,26 @@ func checkForKill() -> void:
 	if currentStage == 2:
 		currentStage = killStage # Killing Player
 		lock = false
+
+func maskOn() -> void:
+	if currentStage != 2: # Making Sure BB is in Vent
+		return
+
+	if GameState.playerState.facing != GameState.Facing.TOP_VENT:
+		return # Player Isn't Facing BB
+
+	await GameState.wait(0.5)
+	
+	if GameState.playerState.maskOn and GameState.playerState.facing == GameState.Facing.TOP_VENT:
+		lock = false
+		currentStage = 0
+		moveToStageMarker()
+
+func useFlashlight() -> void:
+	if currentStage != 2:
+		return
+
+	if GameState.playerState.facing != GameState.Facing.TOP_VENT:
+		return
+
+	GameState.flashlightDisabled.emit()

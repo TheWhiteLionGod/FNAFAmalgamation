@@ -34,6 +34,10 @@ var sealedCam: Camera = -1
 @warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 var audioCam: Camera = -1
 
+var isCameraDisabled: bool = false
+var camFlashlightDisabled: bool = false
+var officeFlashlightDisabled: bool = false
+
 var playerNode: Node3D
 var playerState: PlayerState = PlayerState.new()
 
@@ -60,9 +64,11 @@ signal ventUnsealed(camera: Camera)
 signal placeAudioLure(camera: Camera)
 signal lureEnd(camera: Camera)
 signal goldenFreddyCleared()
+signal cameraDisabled()
+signal flashlightDisabled()
 
 func _ready() -> void:
-	GameState.restartGame.connect(restart)
+	restartGame.connect(restart)
 
 	globalTimer = 0
 	playerState = PlayerState.new()
@@ -103,10 +109,32 @@ func _ready() -> void:
 		audioCam = -1
 	)
 	# Clearing Golden Freddy Doesn't Affect State
+	cameraDisabled.connect(func():
+		isCameraDisabled = true
+		closeCamera.emit()
+		await wait(10)
+		isCameraDisabled = false
+	)
+	flashlightDisabled.connect(func():
+		camFlashlightDisabled = true
+		officeFlashlightDisabled = true
+		await wait(10)
+		officeFlashlightDisabled = false
+	)
 
 func restart():
 	globalTimer = 0
 	playerState = PlayerState.new()
+	turn.emit(Facing.OFFICE)
+
+	isCameraDisabled = false
+	camFlashlightDisabled = false
+	officeFlashlightDisabled = false
+
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+	sealedCam = -1
+	@warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
+	audioCam = -1
 
 # Load key from env file
 func load_env_key(key_name: String) -> String:

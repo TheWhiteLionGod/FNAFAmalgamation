@@ -13,6 +13,7 @@ var startTime: float = 0
 
 func _ready() -> void:
 	GameState.blackoutStart.connect(flickerLights)
+	GameState.restartGame.connect(resetLights)
 
 func _process(_delta: float) -> void:
 	if !GameState.playerState.inBlackout:
