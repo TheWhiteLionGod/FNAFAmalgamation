@@ -336,7 +336,7 @@ direction = 4
 [sub_resource type="Resource" id="Resource_5sb6n"]
 script = ExtResource("30_gmogh")
 stages = 4
-movementInterval = 4
+movementInterval = 12
 maskDuration = 0.5
 intensity = 0.8
 decayRate = 1.7
@@ -1218,6 +1218,7 @@ config = SubResource("Resource_swoo5")
 
 [node name="Mangle" parent="Animatronics" instance=ExtResource("27_s6x30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+bones/4/position = Vector3(0.000474975, 0.000474989, 0.00047493)
 AI_LEVEL = 20
 config = SubResource("Resource_e4kig")
 

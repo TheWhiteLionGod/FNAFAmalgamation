@@ -117,6 +117,10 @@ func _input(event: InputEvent) -> void:
 		if GameState.playerState.inCameras:
 			GameState.closeCamera.emit()
 			return
+
+		if GameState.isCameraDisabled:
+			return
+		
 		GameState.openCamera.emit()
 		
 	elif event.is_action_pressed("audio_lure"):

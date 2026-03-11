@@ -171,4 +171,8 @@ func _cam_btn() -> void:
 	if GameState.playerState.inCameras: 
 		GameState.closeCamera.emit()
 		return
+
+	if GameState.isCameraDisabled:
+		return
+		
 	GameState.openCamera.emit()

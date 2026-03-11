@@ -34,6 +34,8 @@ var sealedCam: Camera = -1
 @warning_ignore("INT_AS_ENUM_WITHOUT_CAST", "INT_AS_ENUM_WITHOUT_MATCH")
 var audioCam: Camera = -1
 
+var isCameraDisabled: bool = false
+
 var playerNode: Node3D
 var playerState: PlayerState = PlayerState.new()
 
@@ -60,6 +62,7 @@ signal ventUnsealed(camera: Camera)
 signal placeAudioLure(camera: Camera)
 signal lureEnd(camera: Camera)
 signal goldenFreddyCleared()
+signal cameraDisabled()
 
 func _ready() -> void:
 	GameState.restartGame.connect(restart)
@@ -103,6 +106,12 @@ func _ready() -> void:
 		audioCam = -1
 	)
 	# Clearing Golden Freddy Doesn't Affect State
+	cameraDisabled.connect(func():
+		isCameraDisabled = true
+		closeCamera.emit()
+		await GameState.wait(10)
+		isCameraDisabled = false
+	)
 
 func restart():
 	globalTimer = 0
