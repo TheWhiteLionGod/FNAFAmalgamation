@@ -261,7 +261,7 @@ totalUnits = 2000
 [sub_resource type="Resource" id="Resource_qq34u"]
 script = ExtResource("12_xw2nu")
 stages = 3
-movementInterval = 1
+movementInterval = 20
 intensity = 0.8
 decayRate = 1.7
 direction = 0
@@ -337,7 +337,7 @@ direction = 0
 [sub_resource type="Resource" id="Resource_e4kig"]
 script = ExtResource("28_saffa")
 stages = 4
-movementInterval = 16
+movementInterval = 4
 flashlightDuration = 0.5
 intensity = 0.8
 decayRate = 1.7
