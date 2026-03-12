@@ -45,7 +45,9 @@ func handleStage() -> void:
 				return
 			
 			lock = true
+			visible = false
 			await GameState.openCamera
+			visible = true
 			
 			@warning_ignore("INT_AS_ENUM_WITHOUT_CAST")
 			curCamera = randi_range(0, 10)
