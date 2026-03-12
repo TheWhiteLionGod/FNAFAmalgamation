@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=82 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -10,10 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cdne788v57nce" path="res://assets/floor.webp" id="4_singl"]
 [ext_resource type="PackedScene" uid="uid://cjnrp3ro4wu0y" path="res://models/toy_freddy.tscn" id="5_gbba8"]
 [ext_resource type="Script" path="res://scripts/player/light.gd" id="5_wr4gb"]
+[ext_resource type="PackedScene" uid="uid://nlpmi0fu5gnu" path="res://models/foxy.tscn" id="7_3av4l"]
 [ext_resource type="PackedScene" uid="uid://dibsmrtsfh4p0" path="res://models/puppet.tscn" id="8_ld3j8"]
 [ext_resource type="Script" path="res://resources/puppet_config.gd" id="9_klc6v"]
 [ext_resource type="Script" path="res://resources/music_box_config.gd" id="10_6tyi6"]
 [ext_resource type="Script" path="res://resources/toy_freddy_config.gd" id="12_kak3c"]
+[ext_resource type="Script" path="res://resources/foxy_config.gd" id="12_xw2nu"]
 [ext_resource type="PackedScene" uid="uid://bj17spi75jcuo" path="res://models/toy_bonnie.tscn" id="14_bmlnc"]
 [ext_resource type="Script" path="res://resources/toy_bonnie_config.gd" id="15_q2pmh"]
 [ext_resource type="PackedScene" uid="uid://dt1t76g8eavas" path="res://models/springtrap.tscn" id="16_i88ij"]
@@ -256,6 +258,14 @@ windUpUnitsPerSecond = 500
 windDownUnitsPerSecond = 80
 totalUnits = 2000
 
+[sub_resource type="Resource" id="Resource_qq34u"]
+script = ExtResource("12_xw2nu")
+stages = 3
+movementInterval = 1
+intensity = 0.8
+decayRate = 1.7
+direction = 0
+
 [sub_resource type="Resource" id="Resource_j1yfp"]
 script = ExtResource("9_klc6v")
 stages = 2
@@ -399,6 +409,10 @@ metadata/anim = ""
 
 [node name="BalloonBoy4" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["balloon_boy"]]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.43831, 3.72988)
+metadata/anim = ""
+
+[node name="Foxy2" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["foxy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47511, 3.68975)
 metadata/anim = ""
 
 [node name="ToyFreddy2" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_freddy"]]
@@ -614,6 +628,10 @@ metadata/anim = ""
 metadata/anim = ""
 
 [node name="CircusBaby0" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["circus_baby"]]
+metadata/anim = ""
+
+[node name="Foxy1" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["foxy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25905)
 metadata/anim = ""
 
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM1"]
@@ -1011,6 +1029,10 @@ metadata/anim = ""
 [node name="BalloonBoy2" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["balloon_boy"]]
 metadata/anim = ""
 
+[node name="Foxy0" type="Marker3D" parent="Rooms/CAM7/Markers" groups=["foxy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51928, 0, 0)
+metadata/anim = ""
+
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM7"]
 mesh = SubResource("PlaneMesh_n4j47")
 
@@ -1176,6 +1198,11 @@ transform = Transform3D(0.965926, -0.0669873, 0.25, 3.36902e-16, 0.965926, 0.258
 transform = Transform3D(1.19249e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, 1.19249e-08, 2.125, 0.5, 3.75)
 config = SubResource("Resource_ug3ke")
 player = NodePath("../../Player")
+
+[node name="Foxy" parent="Animatronics" instance=ExtResource("7_3av4l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
+config = SubResource("Resource_qq34u")
 
 [node name="Puppet" parent="Animatronics" instance=ExtResource("8_ld3j8")]
 transform = Transform3D(1.19249e-08, 1, 4.37114e-08, -1.5246e-23, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 2.125, 2.08165e-12, 3.75)

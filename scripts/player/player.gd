@@ -77,38 +77,10 @@ func _input(event: InputEvent) -> void:
 		$"Flashlight".visible = true
 
 	elif event.is_action_pressed("left_door"):
-		if !canUseLeftDoor():
-			return
-		adjustingLeftDoor = true
-
-		if GameState.playerState.leftDoorClosed:
-			GameState.leftDoorOpen.emit()
-			leftDoorAnimations.play("open_left_door")
-			await GameState.wait(leftDoorOpenAnimation.length + doorDebounceExtraOffset)
-			adjustingLeftDoor = false
-			return
-		
-		GameState.leftDoorClose.emit()
-		leftDoorAnimations.play("close_left_door")
-		await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
-		adjustingLeftDoor = false			
+		leftDoor()
 	
 	elif event.is_action_pressed("right_door"):
-		if !canUseRightDoor():
-			return
-		adjustingRightDoor = true
-		
-		if GameState.playerState.rightDoorClosed:
-			GameState.rightDoorOpen.emit()
-			rightDoorAnimations.play("open_right_door")
-			await GameState.wait(rightDoorOpenAnimation.length + doorDebounceExtraOffset)
-			adjustingRightDoor = false
-			return
-
-		GameState.rightDoorClose.emit()
-		rightDoorAnimations.play("close_right_door")
-		await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
-		adjustingRightDoor = false
+		rightDoor()
 	
 	elif event.is_action_pressed("cameras"):
 		if !canEnterCams():
@@ -140,6 +112,8 @@ func _input(event: InputEvent) -> void:
 		GameState.placeAudioLure.emit(GameState.playerState.activeCamera)
 
 func _ready():
+	GameState.restartGame.connect(restart)
+
 	noise.seed = randi()
 	noise.frequency = 0.5
 
@@ -174,7 +148,52 @@ func _process(delta):
 		camera.v_offset = 0
 		camera.rotation.z = 0
 
+func restart():
+	leftDoor(true)
+	rightDoor(true)
 
 func cameraShake(intensity: float = 1, decay_rate: float = 0.8):
 	trauma = clamp(trauma + intensity, 0.0, 1.0)
 	trauma_decay = decay_rate
+
+func leftDoor(restarting: bool = false):
+	if !canUseLeftDoor():
+		return
+
+	adjustingLeftDoor = true
+
+	if GameState.playerState.leftDoorClosed or restarting:
+		GameState.leftDoorOpen.emit()
+
+		leftDoorAnimations.play("open_left_door")
+		await GameState.wait(leftDoorOpenAnimation.length + doorDebounceExtraOffset)
+		adjustingLeftDoor = false
+
+		return
+	
+	GameState.leftDoorClose.emit()
+
+	leftDoorAnimations.play("close_left_door")
+	await GameState.wait(leftDoorCloseAnimation.length + doorDebounceExtraOffset)
+	adjustingLeftDoor = false
+
+func rightDoor(restarting: bool = false):
+	if !canUseRightDoor():
+		return
+		
+	adjustingRightDoor = true
+		
+	if GameState.playerState.rightDoorClosed or restarting:
+		GameState.rightDoorOpen.emit()
+
+		rightDoorAnimations.play("open_right_door")
+		await GameState.wait(rightDoorOpenAnimation.length + doorDebounceExtraOffset)
+		adjustingRightDoor = false
+
+		return
+
+	GameState.rightDoorClose.emit()
+
+	rightDoorAnimations.play("close_right_door")
+	await GameState.wait(rightDoorCloseAnimation.length + doorDebounceExtraOffset)
+	adjustingRightDoor = false

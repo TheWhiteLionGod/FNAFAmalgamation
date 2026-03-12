@@ -26,3 +26,21 @@ func check(AI_LEVEL: int) -> bool:
 		return false # Failed Movement
 
 	return true
+
+func checkLocal(AI_LEVEL: int, prevTime: float) -> bool:
+	prevTime = round(prevTime * 10) / 10
+	
+	# NOT Movement Opportunity
+	if round(GameState.globalTimer * 10) / 10 - prevTime < interval:
+		isDone = false # Resetting Boolean
+		return false
+
+	if isDone:
+		return false
+
+	isDone = true
+
+	if randi_range(0, 19) >= AI_LEVEL:
+		return false # Failed Movement
+
+	return true
