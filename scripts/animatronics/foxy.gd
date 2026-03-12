@@ -37,7 +37,6 @@ func handleStage() -> void:
 		1:
 			if lock:
 				return
-			# print("e")
 
 			lock = true
 			await GameState.wait(2)
