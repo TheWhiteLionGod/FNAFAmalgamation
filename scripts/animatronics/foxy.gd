@@ -39,7 +39,7 @@ func handleStage() -> void:
 				return
 
 			lock = true
-			await GameState.wait(2)
+			await GameState.wait(5)
 			prevRushTime = GameState.globalTimer
 			lock = false
 
