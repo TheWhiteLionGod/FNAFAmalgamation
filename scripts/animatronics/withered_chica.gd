@@ -1,5 +1,5 @@
 """
-This Script Will Control Withered Freddy's Behavior
+This Script Will Control Withered Chica's Behavior
 """
 extends Animatronic
 
@@ -47,7 +47,7 @@ func handleStage() -> void:
 
 		_:
 			print(
-				"Invalid Stage Reached for Withered Freddy Animatronic: " + 
+				"Invalid Stage Reached for Withered Chica Animatronic: " + 
 				str(currentStage)
 				)
 
@@ -56,13 +56,13 @@ func useFlashlight() -> void:
 	if !GameState.playerState.inCameras:
 		return
 
-	if currentStage == 0 and GameState.playerState.activeCamera != 4:
+	if currentStage == 0 and GameState.playerState.activeCamera != 5:
 		return
 
-	if currentStage == 1 and GameState.playerState.activeCamera != 5:
+	if currentStage == 1 and GameState.playerState.activeCamera != 8:
 		return
 
-	if currentStage == 2 and GameState.playerState.activeCamera != 0:
+	if currentStage == 2 and GameState.playerState.activeCamera != 1:
 		return
 
 	lock = true

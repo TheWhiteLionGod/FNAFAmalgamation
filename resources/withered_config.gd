@@ -2,10 +2,10 @@
 Config For Mangle
 """
 extends Resource
-class_name WitheredFreddyConfig
+class_name WitheredConfig
 
 @export var stages: int = 4;
-@export var movementInterval: int = 27;
+@export var movementInterval: int = 30;
 
 @export_group("Jumpscare")
 @export var intensity: float = 0.8
