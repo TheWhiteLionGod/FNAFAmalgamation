@@ -46,6 +46,7 @@ func handleStage() -> void:
 			
 			lock = true
 			visible = false
+			
 			await GameState.openCamera
 			visible = true
 			

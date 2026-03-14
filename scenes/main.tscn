@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b4lcdx02b451j"]
+[gd_scene load_steps=85 format=3 uid="uid://b4lcdx02b451j"]
 
 [ext_resource type="PackedScene" uid="uid://84qrtbt13m6a" path="res://scenes/player.tscn" id="1_8838x"]
 [ext_resource type="PackedScene" uid="uid://bkxr7gel0vftq" path="res://models/music_box.tscn" id="1_hemyu"]
@@ -32,6 +32,8 @@
 [ext_resource type="Script" path="res://resources/mangle_config.gd" id="28_saffa"]
 [ext_resource type="PackedScene" uid="uid://b706oifsce75i" path="res://models/balloon_boy.tscn" id="29_n7212"]
 [ext_resource type="Script" path="res://resources/bb_config.gd" id="30_gmogh"]
+[ext_resource type="PackedScene" uid="uid://bw14o8d7ldbce" path="res://models/withered_freddy.tscn" id="33_l43lc"]
+[ext_resource type="Script" path="res://resources/withered_freddy_config.gd" id="34_d4ewf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4w2e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -352,6 +354,14 @@ intensity = 0.8
 decayRate = 1.7
 direction = 4
 
+[sub_resource type="Resource" id="Resource_23fqw"]
+script = ExtResource("34_d4ewf")
+stages = 4
+movementInterval = 27
+intensity = 0.8
+decayRate = 1.7
+direction = 0
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -413,6 +423,10 @@ metadata/anim = ""
 
 [node name="Foxy2" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["foxy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47511, 3.68975)
+metadata/anim = ""
+
+[node name="WitheredFreddy4" type="Marker3D" parent="Rooms/Office/Markers/Jumpscares" groups=["withered_freddy"]]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0, 0)
 metadata/anim = ""
 
 [node name="ToyFreddy2" type="Marker3D" parent="Rooms/Office/Markers" groups=["toy_freddy"]]
@@ -634,6 +648,10 @@ metadata/anim = ""
 transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, 0, 2.08165e-12, 2.08165e-12)
 metadata/anim = ""
 
+[node name="WitheredFreddy3" type="Marker3D" parent="Rooms/CAM1/Markers" groups=["withered_freddy"]]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0, 0)
+metadata/anim = ""
+
 [node name="Ceiling" type="MeshInstance3D" parent="Rooms/CAM1"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2, 2.08165e-12)
 mesh = SubResource("QuadMesh_6arr6")
@@ -802,6 +820,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 2.08165e-12)
 transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, 2.5, 0.5, 1.6)
 metadata/anim = ""
 
+[node name="WitheredFreddy" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["withered_freddy"]]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0, 0)
+metadata/anim = ""
+
 [node name="Springtrap4" type="Marker3D" parent="Rooms/CAM5A/Markers" groups=["springtrap"]]
 transform = Transform3D(0.795188, -6.58591e-17, 0.606363, 3.48787e-16, 1, -3.48787e-16, -0.606363, 4.88843e-16, 0.795188, 0.062952, 0.9, 0.32478)
 metadata/anim = ""
@@ -864,6 +886,10 @@ metadata/anim = ""
 
 [node name="CircusBaby5" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["circus_baby"]]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -2.5, 2.08165e-12, -2)
+metadata/anim = ""
+
+[node name="WitheredFreddy2" type="Marker3D" parent="Rooms/CAM5B/Markers" groups=["withered_freddy"]]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0, 0)
 metadata/anim = ""
 
 [node name="Floor" type="MeshInstance3D" parent="Rooms/CAM5B"]
@@ -1257,3 +1283,8 @@ config = SubResource("Resource_e4kig")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -5, 2.08165e-12)
 AI_LEVEL = 20
 config = SubResource("Resource_5sb6n")
+
+[node name="WitheredFreddy" parent="Animatronics" instance=ExtResource("33_l43lc")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 2.08165e-12, -5, 2.08165e-12)
+AI_LEVEL = 20
+config = SubResource("Resource_23fqw")
