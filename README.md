@@ -1,6 +1,7 @@
 # FNAF: The Amalgamation
 
-A fan made Five Nights at Freddy's game developed in Godot.
+A fan made Five Nights at Freddy's game developed in Godot. \
+**NOTICE:** Development for the game has slowed down in recent years. I hope to continue development, but the production will be on hiatus.
 
 ## Installation
 
