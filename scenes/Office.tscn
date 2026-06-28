@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://difr7g55gxkr3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ifx6"]
+size = Vector3(5, 0.25, 5)
+
+[node name="Office" type="Node3D" unique_id=1425203222]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1938034594]
+mesh = SubResource("BoxMesh_2ifx6")
