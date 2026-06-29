@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dixuejhka0lt6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8uaej"]
+size = Vector3(5, 0.25, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yvcgp"]
+size = Vector3(2, 0.25, 2)
+
+[node name="Cam1" type="Node3D" unique_id=1166134141]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1593360360]
+mesh = SubResource("BoxMesh_8uaej")
+
+[node name="Roof" type="MeshInstance3D" parent="." unique_id=1093142115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+mesh = SubResource("BoxMesh_8uaej")
+
+[node name="LeftWall" type="MeshInstance3D" parent="." unique_id=736582858]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.125, 1.125)
+mesh = SubResource("BoxMesh_8uaej")
+
+[node name="RightWall" type="MeshInstance3D" parent="." unique_id=2020395710]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.125, -1.125)
+mesh = SubResource("BoxMesh_8uaej")
+
+[node name="Front" type="MeshInstance3D" parent="." unique_id=113534003]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.5, 1.125, 0)
+mesh = SubResource("BoxMesh_yvcgp")
+
+[node name="Back" type="MeshInstance3D" parent="." unique_id=532842836]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 1.125, 0)
+mesh = SubResource("BoxMesh_yvcgp")
