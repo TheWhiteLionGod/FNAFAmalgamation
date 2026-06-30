@@ -5,6 +5,6 @@ class_name Animatronic
 @abstract
 func tick() -> void
 
-func move_to_path(path_node) -> void:
-    # TODO: Get Room + Marker from Path, Then Move Animatronic
-    pass
+func move_to_path(path_node) -> bool:
+	# TODO: Get Room + Marker from Path, Then Move Animatronic
+	pass

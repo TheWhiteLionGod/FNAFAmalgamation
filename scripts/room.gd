@@ -17,3 +17,6 @@ func _ready() -> void:
 		occupants[marker] = ""
 
 	print(occupants)
+
+func get_camera() -> Camera3D:
+	return camera

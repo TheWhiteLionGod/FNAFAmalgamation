@@ -14,5 +14,5 @@ func tick() -> void:
 	if not Movement.on_interval(interval):
 		return
 	
-	path_pointer += 1
-	move_to_path(path[path_pointer])
+	if move_to_path(path[path_pointer + 1]):
+		path_pointer += 1

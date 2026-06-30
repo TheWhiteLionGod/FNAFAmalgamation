@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h1btvkx0f3ld"]
 
-[ext_resource type="Script" uid="uid://cedxh1yi524j4" path="res://scripts/main.gd" id="1_0bbpv"]
+[ext_resource type="Script" uid="uid://d2u7e8k1gdmii" path="res://scripts/main.gd" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://bbufr35iotecn" path="res://scenes/rooms/Office.tscn" id="2_rvslj"]
 [ext_resource type="PackedScene" uid="uid://d0idvadtmfoq3" path="res://scenes/Player.tscn" id="3_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://di1n51qxlenjd" path="res://scenes/rooms/Cam1.tscn" id="4_rarhs"]
@@ -13,10 +13,6 @@ script = ExtResource("1_0bbpv")
 [node name="Rooms" type="Node3D" parent="." unique_id=1720189089]
 
 [node name="Cam1" parent="Rooms" unique_id=1166134141 instance=ExtResource("4_rarhs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="Office" parent="Rooms" unique_id=1425203222 instance=ExtResource("2_rvslj")]
-
-[node name="RemoteTransform3D" parent="Rooms/Office/Camera3D" parent_id_path=PackedInt32Array(1425203222, 1959156193) index="0" unique_id=1746219946]
-remote_path = NodePath("../../../../Player/Camera3D")
-
-[editable path="Rooms/Office"]
