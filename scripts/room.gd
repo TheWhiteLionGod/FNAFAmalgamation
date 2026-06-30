@@ -1,4 +1,5 @@
 extends Node3D
+class_name Room
 
 @onready var camera: Camera3D = $"Camera3D"
 # @onready var mesh: Node3D = $"Mesh"

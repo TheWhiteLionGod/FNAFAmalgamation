@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://buosly1iukefy"]
+
+[ext_resource type="Script" uid="uid://basb247kwuslu" path="res://scripts/animatronics/freddy.gd" id="1_8gwej"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kg2lx"]
+
+[node name="Freddy" type="Node3D" unique_id=921844512]
+script = ExtResource("1_8gwej")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1707758775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_kg2lx")
