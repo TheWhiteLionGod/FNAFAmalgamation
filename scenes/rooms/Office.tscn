@@ -1,9 +1,13 @@
-[gd_scene format=3 uid="uid://difr7g55gxkr3"]
+[gd_scene format=3 uid="uid://bbufr35iotecn"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_2ifx6"]
+[ext_resource type="PackedScene" uid="uid://dixuejhka0lt6" path="res://scenes/rooms/Room.tscn" id="1_0tn26"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gf58i"]
 size = Vector3(5, 0.25, 5)
 
-[node name="Office" type="Node3D" unique_id=1425203222]
+[node name="Room" unique_id=1166134141 instance=ExtResource("1_0tn26")]
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=1938034594]
-mesh = SubResource("BoxMesh_2ifx6")
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" parent_id_path=PackedInt32Array(1959156193) index="0" unique_id=1746219946]
+
+[node name="Floor" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="0" unique_id=486126984]
+mesh = SubResource("BoxMesh_gf58i")

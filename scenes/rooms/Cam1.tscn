@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dixuejhka0lt6"]
+[gd_scene format=3 uid="uid://di1n51qxlenjd"]
+
+[ext_resource type="PackedScene" uid="uid://dixuejhka0lt6" path="res://scenes/rooms/Room.tscn" id="1_tj735"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8uaej"]
 size = Vector3(5, 0.25, 2)
@@ -6,27 +8,39 @@ size = Vector3(5, 0.25, 2)
 [sub_resource type="BoxMesh" id="BoxMesh_yvcgp"]
 size = Vector3(2, 0.25, 2)
 
-[node name="Cam1" type="Node3D" unique_id=1166134141]
+[node name="Cam1" unique_id=1166134141 instance=ExtResource("1_tj735")]
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=1593360360]
+[node name="Camera3D" parent="." index="0" unique_id=1959156193]
+transform = Transform3D(0.70710677, 0.29883623, -0.6408563, 0, 0.90630776, 0.42261827, 0.70710677, -0.29883623, 0.6408563, -2.25, 1.5, 0.875)
+
+[node name="Floor" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="0" unique_id=1062405860]
 mesh = SubResource("BoxMesh_8uaej")
 
-[node name="Roof" type="MeshInstance3D" parent="." unique_id=1093142115]
+[node name="Roof" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="1" unique_id=486155077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 mesh = SubResource("BoxMesh_8uaej")
 
-[node name="LeftWall" type="MeshInstance3D" parent="." unique_id=736582858]
+[node name="LeftWall" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="2" unique_id=1417396655]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.125, 1.125)
 mesh = SubResource("BoxMesh_8uaej")
 
-[node name="RightWall" type="MeshInstance3D" parent="." unique_id=2020395710]
+[node name="RightWall" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="3" unique_id=293064923]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.125, -1.125)
 mesh = SubResource("BoxMesh_8uaej")
 
-[node name="Front" type="MeshInstance3D" parent="." unique_id=113534003]
+[node name="Front" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="4" unique_id=16375656]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2.5, 1.125, 0)
 mesh = SubResource("BoxMesh_yvcgp")
 
-[node name="Back" type="MeshInstance3D" parent="." unique_id=532842836]
+[node name="Back" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="5" unique_id=915896694]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.5, 1.125, 0)
 mesh = SubResource("BoxMesh_yvcgp")
+
+[node name="Marker3D" type="Marker3D" parent="Markers" parent_id_path=PackedInt32Array(1235880317) index="0" unique_id=1739663026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.5)
+
+[node name="Marker3D2" type="Marker3D" parent="Markers" parent_id_path=PackedInt32Array(1235880317) index="1" unique_id=1800236706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0.5)
+
+[node name="Marker3D3" type="Marker3D" parent="Markers" parent_id_path=PackedInt32Array(1235880317) index="2" unique_id=1205331971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0, -0.5)
