@@ -3,7 +3,7 @@ class_name Player
 
 signal camera_set
 var camera: Camera3D: 
-	set(value): camera_set.emit()
+	set(value): camera = value; camera_set.emit()
 
 func _ready() -> void:
 	Global.player = self

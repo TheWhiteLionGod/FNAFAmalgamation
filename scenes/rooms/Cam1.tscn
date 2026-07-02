@@ -12,12 +12,14 @@ size = Vector3(2, 0.25, 2)
 
 [node name="Camera3D" parent="." index="0" unique_id=1959156193]
 transform = Transform3D(0.70710677, 0.29883623, -0.6408563, 0, 0.90630776, 0.42261827, 0.70710677, -0.29883623, 0.6408563, -2.25, 1.5, 0.875)
+current = true
 
 [node name="Floor" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="0" unique_id=1062405860]
 mesh = SubResource("BoxMesh_8uaej")
 
 [node name="Roof" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="1" unique_id=486155077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+visible = false
 mesh = SubResource("BoxMesh_8uaej")
 
 [node name="LeftWall" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="2" unique_id=1417396655]

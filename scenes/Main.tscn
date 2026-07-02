@@ -4,9 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://bbufr35iotecn" path="res://scenes/rooms/Office.tscn" id="2_rvslj"]
 [ext_resource type="PackedScene" uid="uid://d0idvadtmfoq3" path="res://scenes/Player.tscn" id="3_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://di1n51qxlenjd" path="res://scenes/rooms/Cam1.tscn" id="4_rarhs"]
+[ext_resource type="PackedScene" uid="uid://buosly1iukefy" path="res://scenes/animatronics/Freddy.tscn" id="5_vcsgt"]
 
 [node name="Main" type="Node3D" unique_id=27389099]
 script = ExtResource("1_0bbpv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2142109454]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1176871442 instance=ExtResource("3_0bbpv")]
 
@@ -16,3 +21,7 @@ script = ExtResource("1_0bbpv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="Office" parent="Rooms" unique_id=1425203222 instance=ExtResource("2_rvslj")]
+
+[node name="Animatronics" type="Node3D" parent="." unique_id=464510840]
+
+[node name="Freddy" parent="Animatronics" unique_id=921844512 instance=ExtResource("5_vcsgt")]

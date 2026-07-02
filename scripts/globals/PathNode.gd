@@ -1,10 +1,10 @@
 class_name PathNode
 
-var camera: String
-var marker: String
+var room_name: String
+var marker_name: String
 
 @warning_ignore("SHADOWED_VARIABLE")
-func _init(camera: String, marker: Variant = null) -> void:
-	self.camera = camera
-	if marker is String:
-		self.marker = marker as String
+func _init(room_name: String, marker_name: Variant = null) -> void:
+	self.room_name = room_name
+	if marker_name is String:
+		self.marker_name = marker_name as String
