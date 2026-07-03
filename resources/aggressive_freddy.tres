@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FreddyConfig" format=3 uid="uid://tlbuqrrj4lyt"]
+
+[ext_resource type="Script" uid="uid://c5g7shg7xgew" path="res://resources/freddy_config.gd" id="1_7rfvo"]
+
+[resource]
+script = ExtResource("1_7rfvo")
+interval = 5

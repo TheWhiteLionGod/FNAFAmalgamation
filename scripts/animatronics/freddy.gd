@@ -1,23 +1,17 @@
 extends Animatronic
 class_name Freddy
 
-var interval: int = 10
-var path: Array[PathNode] = [
-	PathNode.new("Cam1", "3"), 
-	PathNode.new("Cam1", "2"), 
-	PathNode.new("Cam1", "1"),
-	PathNode.new("Office")
-]
+@export var config: FreddyConfig 
 var path_pointer: int = 0
 
 func move_to_start() -> void:
-	move_to_path(path[0])
+	move_to_path(config.path[0])
 
 func tick() -> void:
-	if not Movement.on_interval(interval):
+	if not Movement.on_interval(config.interval):
 		return
 
-	if move_to_path(path[path_pointer + 1]):
+	if move_to_path(config.path[path_pointer + 1]):
 		path_pointer += 1
 		print("Successfully Moved to ", global_position)
 	else:
