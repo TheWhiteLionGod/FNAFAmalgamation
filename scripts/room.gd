@@ -15,12 +15,16 @@ func _ready() -> void:
 
 func occupy_marker(marker: Marker3D, animatronic: Animatronic) -> bool:
 	# If Marker Doesn't Exist In Table, We Don't Want to Move Animatronic To Marker, So Return True
-	if not occupants.get(marker, true):
-		occupants[marker] = animatronic
-		animatronic.global_position = marker.global_position
-		return true
+	if occupants.get(marker, true):
+		return false
 
-	return false
+	var key: Marker3D = occupants.find_key(animatronic)
+	if key:
+		occupants.set(key, null)
+	
+	occupants[marker] = animatronic
+	animatronic.global_position = marker.global_position
+	return true
 
 func get_camera() -> Camera3D:
 	return camera
