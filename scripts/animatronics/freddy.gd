@@ -1,13 +1,16 @@
 extends Animatronic
 class_name Freddy
-
-@export var config: FreddyConfig 
+ 
 var path_pointer: int = 0
 
 func move_to_start() -> void:
 	move_to_path(config.path[0])
 
 func tick() -> void:
+	if config is not FreddyConfig:
+		assert(false, "BAD FREDDY CONFIG")
+	var config: FreddyConfig = config as FreddyConfig
+
 	if not Movement.on_interval(config.interval):
 		return
 

@@ -1,14 +1,23 @@
 [gd_scene format=3 uid="uid://h1btvkx0f3ld"]
 
 [ext_resource type="Script" uid="uid://d2u7e8k1gdmii" path="res://scripts/main.gd" id="1_0bbpv"]
+[ext_resource type="Script" uid="uid://b2kitis0va1ej" path="res://resources/animatronic_data.gd" id="2_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bbufr35iotecn" path="res://scenes/rooms/Office.tscn" id="2_rvslj"]
 [ext_resource type="PackedScene" uid="uid://d0idvadtmfoq3" path="res://scenes/Player.tscn" id="3_0bbpv"]
+[ext_resource type="Resource" uid="uid://tlbuqrrj4lyt" path="res://resources/aggressive_freddy.tres" id="3_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://di1n51qxlenjd" path="res://scenes/rooms/Cam1.tscn" id="4_rarhs"]
+[ext_resource type="Resource" uid="uid://coypr3uk0k3kh" path="res://resources/freddy.tres" id="5_lhr70"]
 [ext_resource type="PackedScene" uid="uid://buosly1iukefy" path="res://scenes/animatronics/Freddy.tscn" id="5_vcsgt"]
+
+[sub_resource type="Resource" id="Resource_0tn26"]
+script = ExtResource("2_jlsqs")
+animatronic_scene = ExtResource("5_vcsgt")
+default_config = ExtResource("5_lhr70")
+aggressive_config = ExtResource("3_q8u5g")
 
 [node name="Main" type="Node3D" unique_id=27389099]
 script = ExtResource("1_0bbpv")
-animatronics_to_load = Array[PackedScene]([ExtResource("5_vcsgt")])
+animatronic_data = Array[ExtResource("2_jlsqs")]([SubResource("Resource_0tn26")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2142109454]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)

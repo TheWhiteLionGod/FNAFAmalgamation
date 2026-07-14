@@ -9,6 +9,7 @@ size = Vector3(5, 0.25, 5)
 
 [node name="Camera3D" parent="." index="0" unique_id=1959156193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+current = true
 
 [node name="Floor" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="0" unique_id=486126984]
 mesh = SubResource("BoxMesh_gf58i")

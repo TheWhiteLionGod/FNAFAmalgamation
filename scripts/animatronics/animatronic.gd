@@ -2,6 +2,8 @@
 extends Node3D
 class_name Animatronic
 
+@export var config: Resource
+
 @abstract
 func tick() -> void
 
