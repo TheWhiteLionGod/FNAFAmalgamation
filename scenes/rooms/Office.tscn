@@ -3,13 +3,74 @@
 [ext_resource type="PackedScene" uid="uid://dixuejhka0lt6" path="res://scenes/rooms/Room.tscn" id="1_0tn26"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gf58i"]
-size = Vector3(5, 0.25, 5)
+size = Vector3(9, 0.25, 9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wdprn"]
+size = Vector3(9, 2.5, 0.25)
 
 [node name="Room" unique_id=1166134141 instance=ExtResource("1_0tn26")]
 
 [node name="Camera3D" parent="." index="0" unique_id=1959156193]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 current = true
 
 [node name="Floor" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="0" unique_id=486126984]
 mesh = SubResource("BoxMesh_gf58i")
+
+[node name="Window" type="CSGBox3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="1" unique_id=1517196810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.375, -2.375)
+size = Vector3(5, 2.5, 0.25)
+
+[node name="Hole" type="CSGBox3D" parent="Mesh/Window" index="0" unique_id=703072462]
+operation = 2
+size = Vector3(2.5, 1.25, 0.25)
+
+[node name="LeftWall" type="CSGBox3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="2" unique_id=1913035063]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.375, 1.375, 0)
+size = Vector3(5, 2.5, 0.25)
+
+[node name="Hole" type="CSGBox3D" parent="Mesh/LeftWall" index="0" unique_id=449949849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.375, 0)
+operation = 2
+size = Vector3(1, 1.75, 0.25)
+
+[node name="RightWall" type="CSGBox3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="3" unique_id=1216280996]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.375, 1.375, 0)
+size = Vector3(5, 2.5, 0.25)
+
+[node name="Hole" type="CSGBox3D" parent="Mesh/RightWall" index="0" unique_id=1989602006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.375, 0)
+operation = 2
+size = Vector3(1, 1.75, 0.25)
+
+[node name="BackWall" type="CSGBox3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="4" unique_id=1807754731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.375, 2.375)
+size = Vector3(5, 2.5, 0.25)
+
+[node name="Hole" type="CSGBox3D" parent="Mesh/BackWall" index="0" unique_id=412958195]
+operation = 2
+size = Vector3(1.5, 1.5, 0.25)
+
+[node name="Roof" type="CSGBox3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="5" unique_id=1841053239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+size = Vector3(5, 0.25, 5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mesh/Roof" index="0" unique_id=1614415130]
+operation = 2
+size = Vector3(1, 0.25, 1)
+
+[node name="Barrier" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="6" unique_id=1580539056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.375, -4.375)
+mesh = SubResource("BoxMesh_wdprn")
+
+[node name="Barrier2" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="7" unique_id=303539820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.375, 4.375)
+mesh = SubResource("BoxMesh_wdprn")
+
+[node name="Barrier3" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="8" unique_id=124074831]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.375, 1.375, 0)
+mesh = SubResource("BoxMesh_wdprn")
+
+[node name="Barrier4" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(1420345648) index="9" unique_id=1246461593]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.375, 1.375, 0)
+mesh = SubResource("BoxMesh_wdprn")
